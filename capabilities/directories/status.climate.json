@@ -1,0 +1,12 @@
+{
+  "path": [
+    "status",
+    "climate"
+  ],
+  "title": "空调",
+  "description": "温度、风量、风向、制冷、循环和除霜",
+  "aliases": [
+    "空调",
+    "climate"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Capability task result v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {"const": "capability-result/v1"},
+    "catalog_revision": {"type": "string"},
+    "profile_id": {"type": "string"},
+    "mode": {"const": "mock"},
+    "executed": {"const": false},
+    "outcome": {"enum": ["prepared", "answered", "mixed", "unsupported", "partial", "failed"]},
+    "calls": {"type": "array", "maxItems": 8, "items": {"type": "object", "properties": {"tool": {"type": "string"}, "version": {"type": "string"}, "arguments": {"type": "object"}, "result_id": {"type": "string"}}, "required": ["tool", "version", "arguments", "result_id"], "additionalProperties": false}},
+    "results": {"type": "array", "items": {"type": "object", "properties": {"result_id": {"type": "string"}, "call_id": {"type": "string"}, "tool_id": {"type": "string"}, "tool_version": {"type": "string"}, "catalog_revision": {"type": "string"}, "kind": {"enum": ["control", "manual", "status", null]}, "status": {"enum": ["prepared", "returned_mock", "error"]}, "simulated": {"const": true}, "executed": {"const": false}, "arguments": {"type": "object"}, "data": {}, "error": {"type": ["object", "null"]}, "provenance": {"type": "object"}}, "required": ["result_id", "call_id", "tool_id", "tool_version", "catalog_revision", "kind", "status", "simulated", "executed", "arguments", "data", "error", "provenance"], "additionalProperties": false}},
+    "summary": {"type": "string"},
+    "unresolved": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["schema_version", "catalog_revision", "profile_id", "mode", "executed", "outcome", "calls", "results", "summary", "unresolved"],
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+{
+  "path": [
+    "control"
+  ],
+  "title": "车控",
+  "description": "生成车辆操作参数，不执行真实控制",
+  "aliases": [
+    "车控",
+    "control"
+  ]
+}

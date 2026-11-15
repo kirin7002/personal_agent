@@ -1,0 +1,62 @@
+{
+  "id": "control.mirrors.fold",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "mirrors"
+  ],
+  "title": "后视镜折叠",
+  "description": "后视镜折叠。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "后视镜折叠",
+    "后视镜",
+    "fold"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "mirror": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right",
+          "both"
+        ]
+      },
+      "folded": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "mirror",
+      "folded"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "折叠两侧后视镜",
+      "arguments": {
+        "mirror": "both",
+        "folded": true
+      }
+    }
+  ]
+}

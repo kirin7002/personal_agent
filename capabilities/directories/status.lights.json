@@ -1,0 +1,12 @@
+{
+  "path": [
+    "status",
+    "lights"
+  ],
+  "title": "灯光",
+  "description": "氛围灯、阅读灯、大灯和伴我回家照明",
+  "aliases": [
+    "灯光",
+    "lights"
+  ]
+}

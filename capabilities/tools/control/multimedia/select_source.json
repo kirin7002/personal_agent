@@ -1,0 +1,59 @@
+{
+  "id": "control.multimedia.select_source",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "multimedia"
+  ],
+  "title": "选择媒体音源",
+  "description": "选择媒体音源。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "选择媒体音源",
+    "多媒体",
+    "select source"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "source": {
+        "type": "string",
+        "enum": [
+          "bluetooth",
+          "radio",
+          "usb",
+          "online"
+        ],
+        "description": "蓝牙、收音机、USB、在线音乐"
+      }
+    },
+    "required": [
+      "source"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "媒体音源切换到蓝牙",
+      "arguments": {
+        "source": "bluetooth"
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "control.seats.recall_memory",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "seats"
+  ],
+  "title": "恢复座椅记忆",
+  "description": "恢复座椅记忆。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "恢复座椅记忆",
+    "座椅",
+    "recall memory"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "seat": {
+        "type": "string",
+        "enum": [
+          "driver",
+          "passenger",
+          "rear_left",
+          "rear_right"
+        ],
+        "description": "主驾、副驾、后排左侧、后排右侧"
+      },
+      "slot": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 3
+      }
+    },
+    "required": [
+      "seat",
+      "slot"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "将主驾座椅恢复到记忆二",
+      "arguments": {
+        "seat": "driver",
+        "slot": 2
+      }
+    }
+  ]
+}

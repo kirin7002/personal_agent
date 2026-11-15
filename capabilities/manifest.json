@@ -1,0 +1,8 @@
+{
+  "format_version": "capability-catalog/v1",
+  "package": {
+    "name": "vehicle-capability-demo",
+    "version": "1.0.0",
+    "description": "50个车控工具、8个车书工具、10个车况工具；全部模拟"
+  }
+}

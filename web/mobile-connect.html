@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>连接个人助理</title>
+<style>body{font:16px/1.7 system-ui;background:#f7f5f2;color:#242239;max-width:560px;padding:28px 22px;margin:auto}h1{font-size:28px}section{background:white;border-radius:22px;padding:24px;margin:20px 0}a{display:block;background:#6954ac;color:white;text-align:center;padding:13px;border-radius:14px;text-decoration:none;margin:14px 0}.muted{font-size:14px;color:#696577}li{margin:10px 0}</style>
+<h1>在手机上连接助理</h1><p>手机与电脑需连接同一局域网。首次语音连接需要手机信任这台电脑的本地 HTTPS 证书。</p>
+<section><ol><li><a href="/mobile/trust.crt">下载本机演示证书</a>这是本机生成的测试证书，不是公开证书机构签发的证书。请只在你信任这台电脑时安装。</li><li>iPhone：在“设置”中安装下载的描述文件，再到“通用 → 关于本机 → 证书信任设置”，为 Personal Agent Local Demo CA 开启信任。Android：按系统提示安装 CA 证书；不同设备菜单可能不同。</li><li>打开下方助理页面，输入电脑“连接手机”面板里的短时配对码。</li></ol><a id="open" hidden>打开手机助理</a><p id="status" class="muted"></p></section>
+<p class="muted">没有自动修改手机或电脑的证书信任设置。完成演示后可移除该证书。此页面只提供连接说明，不会分享模型凭据。</p>
+<script>fetch('/mobile/access').then(r=>r.json()).then(c=>{if(c.mobile_url){const a=document.getElementById('open');a.href=c.mobile_url;a.hidden=false}else document.getElementById('status').textContent='电脑尚未配置手机 HTTPS 入口。'}).catch(()=>document.getElementById('status').textContent='无法读取连接地址，请检查电脑服务。')</script></html>

@@ -1,0 +1,94 @@
+{
+  "id": "manual.windows.lookup",
+  "version": "1.0.0",
+  "kind": "manual",
+  "category_path": [
+    "manual",
+    "windows"
+  ],
+  "title": "查询车窗车书",
+  "description": "查询模拟车窗使用说明与限制，不证明本车实际配备。",
+  "aliases": [
+    "车窗",
+    "说明书",
+    "车书",
+    "windows"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "topic": {
+        "type": "string",
+        "enum": [
+          "overview"
+        ],
+        "description": "overview 表示功能概述、用法和限制"
+      }
+    },
+    "required": [
+      "topic"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "source": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "document": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "document",
+          "section"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "title",
+      "text",
+      "source"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "argument_lookup",
+    "argument": "topic",
+    "cases": {
+      "overview": {
+        "title": "车窗使用说明（模拟）",
+        "text": "模拟车型的车窗功能包括：车窗开度、开关、停止、锁定及一键功能。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+        "source": {
+          "kind": "mock_manual",
+          "document": "demo-vehicle-manual-v1",
+          "section": "windows"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "instruction": "查一下车书里的车窗功能说明",
+      "arguments": {
+        "topic": "overview"
+      }
+    }
+  ]
+}

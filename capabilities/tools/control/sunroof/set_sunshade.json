@@ -1,0 +1,54 @@
+{
+  "id": "control.sunroof.set_sunshade",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "sunroof"
+  ],
+  "title": "设置天窗遮阳帘",
+  "description": "设置天窗遮阳帘。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置天窗遮阳帘",
+    "天窗",
+    "set sunshade"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "open_percent": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "required": [
+      "open_percent"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "完全关闭天窗遮阳帘",
+      "arguments": {
+        "open_percent": 0
+      }
+    }
+  ]
+}

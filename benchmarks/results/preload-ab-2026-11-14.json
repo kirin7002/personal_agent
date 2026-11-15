@@ -1,0 +1,2032 @@
+{
+  "summary": {
+    "model": "deepseek-v4.1-flash-1017",
+    "catalog_revision": "cat_db2db7de5b1849e91b68f7b5",
+    "repeats": 2,
+    "case_count": 14,
+    "method": "sequential paired trials, alternating off/auto order; fresh task and Hermes session per trial",
+    "latency_scope": "server task creation to terminal result (or clarification); excludes S2S/audio and human think time",
+    "business_data": "mock",
+    "created_at_unix": 1794658200.543469,
+    "groups": {
+      "clarification": {
+        "off": {
+          "n": 2,
+          "passed": 2,
+          "accuracy": 1.0,
+          "median_seconds": 25.49,
+          "p90_seconds": 27.69,
+          "median_directory_calls": 9.5,
+          "preloaded": 0,
+          "fallback": 0
+        },
+        "auto": {
+          "n": 2,
+          "passed": 2,
+          "accuracy": 1.0,
+          "median_seconds": 19.64,
+          "p90_seconds": 25.7,
+          "median_directory_calls": 6.0,
+          "preloaded": 0,
+          "fallback": 0
+        }
+      },
+      "complex": {
+        "off": {
+          "n": 6,
+          "passed": 6,
+          "accuracy": 1.0,
+          "median_seconds": 10.84,
+          "p90_seconds": 13.85,
+          "median_directory_calls": 5.0,
+          "preloaded": 0,
+          "fallback": 0
+        },
+        "auto": {
+          "n": 6,
+          "passed": 6,
+          "accuracy": 1.0,
+          "median_seconds": 9.66,
+          "p90_seconds": 16.11,
+          "median_directory_calls": 5.0,
+          "preloaded": 2,
+          "fallback": 2
+        }
+      },
+      "failure": {
+        "off": {
+          "n": 4,
+          "passed": 4,
+          "accuracy": 1.0,
+          "median_seconds": 23.555,
+          "p90_seconds": 28.18,
+          "median_directory_calls": 10.0,
+          "preloaded": 0,
+          "fallback": 0
+        },
+        "auto": {
+          "n": 4,
+          "passed": 4,
+          "accuracy": 1.0,
+          "median_seconds": 13.59,
+          "p90_seconds": 14.68,
+          "median_directory_calls": 4.5,
+          "preloaded": 4,
+          "fallback": 4
+        }
+      },
+      "invalid_argument": {
+        "off": {
+          "n": 2,
+          "passed": 2,
+          "accuracy": 1.0,
+          "median_seconds": 14.195,
+          "p90_seconds": 19.54,
+          "median_directory_calls": 6.5,
+          "preloaded": 0,
+          "fallback": 0
+        },
+        "auto": {
+          "n": 2,
+          "passed": 2,
+          "accuracy": 1.0,
+          "median_seconds": 6.62,
+          "p90_seconds": 8.98,
+          "median_directory_calls": 0.5,
+          "preloaded": 2,
+          "fallback": 1
+        }
+      },
+      "simple": {
+        "off": {
+          "n": 14,
+          "passed": 14,
+          "accuracy": 1.0,
+          "median_seconds": 9.65,
+          "p90_seconds": 11.14,
+          "median_directory_calls": 4.0,
+          "preloaded": 0,
+          "fallback": 0
+        },
+        "auto": {
+          "n": 14,
+          "passed": 14,
+          "accuracy": 1.0,
+          "median_seconds": 3.82,
+          "p90_seconds": 4.78,
+          "median_directory_calls": 0.0,
+          "preloaded": 14,
+          "fallback": 0
+        }
+      }
+    },
+    "simple_median_reduction_percent": 60.4,
+    "failures": []
+  },
+  "trials": [
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "把所有分区空调设为26度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 11.14,
+      "first_response_seconds": 11.14,
+      "client_seconds": 11.173,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把所有分区空调设为26度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 4.78,
+      "first_response_seconds": 4.78,
+      "client_seconds": 4.848,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_temperature"
+      ],
+      "preload_ms": 3.272,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S02",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "主驾空调温度改为24度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.58,
+      "first_response_seconds": 3.58,
+      "client_seconds": 3.602,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_temperature"
+      ],
+      "preload_ms": 1.035,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "driver",
+            "temperature_c": 24
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S02",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "主驾空调温度改为24度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 9.42,
+      "first_response_seconds": 9.42,
+      "client_seconds": 9.474,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "driver",
+            "temperature_c": 24
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S03",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "主驾空调风量设为四档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.32,
+      "first_response_seconds": 10.32,
+      "client_seconds": 10.527,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 4
+          }
+        }
+      ],
+      "summary": "设置空调风量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S03",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "主驾空调风量设为四档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 4.41,
+      "first_response_seconds": 4.41,
+      "client_seconds": 4.447,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_fan_speed"
+      ],
+      "preload_ms": 1.094,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 4
+          }
+        }
+      ],
+      "summary": "设置空调风量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "左前车窗打开到40%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.51,
+      "first_response_seconds": 3.51,
+      "client_seconds": 3.594,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.windows.set_position"
+      ],
+      "preload_ms": 0.837,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "summary": "设置车窗开度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "左前车窗打开到40%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 8.29,
+      "first_response_seconds": 8.29,
+      "client_seconds": 8.441,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "summary": "设置车窗开度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "媒体音量设为35%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 8.49,
+      "first_response_seconds": 8.49,
+      "client_seconds": 8.638,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "summary": "设置媒体音量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "媒体音量设为35%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.97,
+      "first_response_seconds": 3.97,
+      "client_seconds": 4.015,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.multimedia.set_volume"
+      ],
+      "preload_ms": 0.913,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "summary": "设置媒体音量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S06",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "副驾座椅通风设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.71,
+      "first_response_seconds": 3.71,
+      "client_seconds": 3.826,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.seats.set_ventilation"
+      ],
+      "preload_ms": 1.109,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置座椅通风：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S06",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "副驾座椅通风设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.72,
+      "first_response_seconds": 10.72,
+      "client_seconds": 10.78,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "level": 2,
+            "seat": "passenger"
+          }
+        }
+      ],
+      "summary": "设置座椅通风：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S07",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "氛围灯亮度设为70%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 8.79,
+      "first_response_seconds": 8.79,
+      "client_seconds": 8.867,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.lights.set_ambient_brightness",
+          "arguments": {
+            "brightness_percent": 70
+          }
+        }
+      ],
+      "summary": "设置氛围灯亮度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S07",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "氛围灯亮度设为70%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.23,
+      "first_response_seconds": 3.23,
+      "client_seconds": 3.387,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.lights.set_ambient_brightness"
+      ],
+      "preload_ms": 0.716,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.lights.set_ambient_brightness",
+          "arguments": {
+            "brightness_percent": 70
+          }
+        }
+      ],
+      "summary": "设置氛围灯亮度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C01",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把所有分区空调设为23度，同时主驾座椅加热设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 9.28,
+      "first_response_seconds": 9.28,
+      "client_seconds": 9.294,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "complex_or_query"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        },
+        {
+          "tool": "control.seats.set_heating",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置空调温度、设置座椅加热：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C01",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "把所有分区空调设为23度，同时主驾座椅加热设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 8.89,
+      "first_response_seconds": 8.89,
+      "client_seconds": 9.08,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        },
+        {
+          "tool": "control.seats.set_heating",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置空调温度、设置座椅加热：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C02",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "先查车书里的空调说明，再把所有分区空调设为23度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "mixed",
+      "server_seconds": 12.42,
+      "first_response_seconds": 12.42,
+      "client_seconds": 12.456,
+      "directory_calls": 6,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "temperature_c": 23,
+            "zone": "all"
+          }
+        }
+      ],
+      "summary": "设置空调温度：已模拟下发成功。模拟查询结论：已查询模拟空调车书（demo-vehicle-manual-v1, climate 章节）：空调功能包括温度、风量、风向、制冷、循环和除霜；参数范围以工具 Schema 为准，该说明不是实际车辆手册。随后按 Schema 生成「设置空调温度」调用结构：zone=all，temperature_c=23（允许范围 16–30 摄氏度）。仅为模拟车控预览，未执行真实车辆控制。",
+      "question": null
+    },
+    {
+      "id": "C02",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "先查车书里的空调说明，再把所有分区空调设为23度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "mixed",
+      "server_seconds": 15.66,
+      "first_response_seconds": 15.66,
+      "client_seconds": 15.724,
+      "directory_calls": 6,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "complex_or_query"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "temperature_c": 23,
+            "zone": "all"
+          }
+        }
+      ],
+      "summary": "设置空调温度：已模拟下发成功。模拟查询结论：已查车书空调条目（模拟，demo-vehicle-manual-v1 的 climate 节）：功能含温度、风量、风向、制冷、循环和除霜，参数范围以工具 Schema 为准，该说明并非真实车辆手册。随后按 zone=all、23°C 生成设置空调温度调用结构，处于 prepared 预览状态（simulated，未执行真实车控）。",
+      "question": null
+    },
+    {
+      "id": "C03",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "播放示例曲目《模拟晴天》",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 7.55,
+      "first_response_seconds": 7.55,
+      "client_seconds": 7.601,
+      "directory_calls": 2,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.multimedia.select_track"
+      ],
+      "preload_ms": 1.667,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.select_track",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        },
+        {
+          "tool": "control.multimedia.playback",
+          "arguments": {
+            "action": "play"
+          }
+        }
+      ],
+      "summary": "选择示例曲目、控制媒体播放：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C03",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "播放示例曲目《模拟晴天》",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.88,
+      "first_response_seconds": 10.88,
+      "client_seconds": 10.946,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.multimedia.select_track",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        },
+        {
+          "tool": "control.multimedia.playback",
+          "arguments": {
+            "action": "play"
+          }
+        }
+      ],
+      "summary": "选择示例曲目、控制媒体播放：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "F01",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-no-suspension",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 22.57,
+      "first_response_seconds": 22.57,
+      "client_seconds": 22.596,
+      "directory_calls": 10,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法生成空气悬架升高一档的车控预览：模拟配置快照显示本车 equipment.air_suspension=false（未配备空气悬架），悬架状态查询返回 available=false、height/mode 均为 null。悬架车书也说明空气悬架为选配、调节接口要求已配备且驻车，因此未调用控制工具，也未产生任何下发动作。",
+      "question": null
+    },
+    {
+      "id": "F01",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-no-suspension",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 12.1,
+      "first_response_seconds": 12.1,
+      "client_seconds": 12.241,
+      "directory_calls": 6,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.suspension.set_height"
+      ],
+      "preload_ms": 0.591,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法执行升高空气悬架：模拟车辆配置快照显示 air_suspension=false，悬架状态查询返回 available=false（高度与模式均为 null）。提交 action=raise 的预览被拒绝，错误码 NOT_EQUIPPED（/equipment/air_suspension 实际值为 false），未生成任何控制结构，也未执行真实车控。",
+      "question": null
+    },
+    {
+      "id": "F02",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-driving",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 14.68,
+      "first_response_seconds": 14.68,
+      "client_seconds": 14.801,
+      "directory_calls": 4,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.suspension.set_height"
+      ],
+      "preload_ms": 0.812,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法生成“空气悬架升高一档”的预览。模拟车辆配备空气悬架且悬架接口已开放，当前高度 normal、模式 comfort；但驾驶状态显示未驻车（车速 45 km/h），而模拟悬架接口要求驻车，调用返回 PRECONDITION_NOT_MET。需驻车后再重试。",
+      "question": null
+    },
+    {
+      "id": "F02",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-driving",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 23.86,
+      "first_response_seconds": 23.86,
+      "client_seconds": 24.059,
+      "directory_calls": 10,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法生成升档预览：模拟车辆当前未驻车（is_parked=false，车速 45 km/h），而悬架调节接口要求驻车状态，调用返回 PRECONDITION_NOT_MET。已核实该车配备空气悬架且悬架接口开放，当前高度 normal、模式 comfort。车书亦说明模拟调节需已配备、接口开放且驻车。建议驻车后再尝试升高一档。",
+      "question": null
+    },
+    {
+      "id": "A01",
+      "group": "clarification",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "帮我调整空气悬架",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 23.29,
+      "first_response_seconds": 14.37,
+      "client_seconds": 23.456,
+      "directory_calls": 9,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled",
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.suspension.set_height",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "summary": "调整空气悬架高度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "A01",
+      "group": "clarification",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "帮我调整空气悬架",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 13.58,
+      "first_response_seconds": 8.45,
+      "client_seconds": 13.721,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "low_confidence",
+        "continuation"
+      ],
+      "calls": [
+        {
+          "tool": "control.suspension.set_height",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "summary": "调整空气悬架高度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "I01",
+      "group": "invalid_argument",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把所有分区空调设为45度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "awaiting_input",
+      "outcome": null,
+      "server_seconds": 4.26,
+      "first_response_seconds": 4.26,
+      "client_seconds": 4.462,
+      "directory_calls": 1,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_temperature"
+      ],
+      "preload_ms": 1.492,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [],
+      "summary": null,
+      "question": "空调温度设置范围为 16–30°C，45°C 超出可设上限，无法生成该调用。请确认要设为多少度（16–30 之间）？例如 30°C。"
+    },
+    {
+      "id": "I01",
+      "group": "invalid_argument",
+      "repeat": 1,
+      "mode": "off",
+      "goal": "把所有分区空调设为45度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "awaiting_input",
+      "outcome": null,
+      "server_seconds": 19.54,
+      "first_response_seconds": 19.54,
+      "client_seconds": 19.602,
+      "directory_calls": 9,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [],
+      "summary": null,
+      "question": "空调温度的可设置范围是 16–30°C，无法设为 45°C。要改为把所有分区空调设为 30°C（最高值）吗？还是指定其他温度？"
+    },
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "把所有分区空调设为26度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 4.15,
+      "first_response_seconds": 4.15,
+      "client_seconds": 4.226,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_temperature"
+      ],
+      "preload_ms": 1.181,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "把所有分区空调设为26度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 9.18,
+      "first_response_seconds": 9.18,
+      "client_seconds": 9.268,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S02",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "主驾空调温度改为24度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.27,
+      "first_response_seconds": 10.27,
+      "client_seconds": 10.34,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "driver",
+            "temperature_c": 24
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S02",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "主驾空调温度改为24度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 5.29,
+      "first_response_seconds": 5.29,
+      "client_seconds": 5.483,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_temperature"
+      ],
+      "preload_ms": 0.429,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "driver",
+            "temperature_c": 24
+          }
+        }
+      ],
+      "summary": "设置空调温度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S03",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "主驾空调风量设为四档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.78,
+      "first_response_seconds": 3.78,
+      "client_seconds": 3.813,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_fan_speed"
+      ],
+      "preload_ms": 1.008,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 4
+          }
+        }
+      ],
+      "summary": "设置空调风量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S03",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "主驾空调风量设为四档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 8.23,
+      "first_response_seconds": 8.23,
+      "client_seconds": 8.454,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 4
+          }
+        }
+      ],
+      "summary": "设置空调风量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "左前车窗打开到40%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 9.88,
+      "first_response_seconds": 9.88,
+      "client_seconds": 9.908,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "open_percent": 40,
+            "window": "front_left"
+          }
+        }
+      ],
+      "summary": "设置车窗开度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "左前车窗打开到40%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.37,
+      "first_response_seconds": 3.37,
+      "client_seconds": 3.385,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.windows.set_position"
+      ],
+      "preload_ms": 0.837,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "summary": "设置车窗开度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "媒体音量设为35%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 4.09,
+      "first_response_seconds": 4.09,
+      "client_seconds": 4.235,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.multimedia.set_volume"
+      ],
+      "preload_ms": 0.918,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "summary": "设置媒体音量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "媒体音量设为35%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.16,
+      "first_response_seconds": 10.16,
+      "client_seconds": 10.328,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "summary": "设置媒体音量：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S06",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "副驾座椅通风设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 8.22,
+      "first_response_seconds": 8.22,
+      "client_seconds": 8.246,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置座椅通风：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S06",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "副驾座椅通风设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.86,
+      "first_response_seconds": 3.86,
+      "client_seconds": 4.051,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.seats.set_ventilation"
+      ],
+      "preload_ms": 0.733,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置座椅通风：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S07",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "氛围灯亮度设为70%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 3.05,
+      "first_response_seconds": 3.05,
+      "client_seconds": 3.176,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.lights.set_ambient_brightness"
+      ],
+      "preload_ms": 0.427,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.lights.set_ambient_brightness",
+          "arguments": {
+            "brightness_percent": 70
+          }
+        }
+      ],
+      "summary": "设置氛围灯亮度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "S07",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "氛围灯亮度设为70%",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 11.54,
+      "first_response_seconds": 11.54,
+      "client_seconds": 11.626,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.lights.set_ambient_brightness",
+          "arguments": {
+            "brightness_percent": 70
+          }
+        }
+      ],
+      "summary": "设置氛围灯亮度：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C01",
+      "group": "complex",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "把所有分区空调设为23度，同时主驾座椅加热设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.8,
+      "first_response_seconds": 10.8,
+      "client_seconds": 10.98,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        },
+        {
+          "tool": "control.seats.set_heating",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置空调温度、设置座椅加热：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C01",
+      "group": "complex",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "把所有分区空调设为23度，同时主驾座椅加热设为二档",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 10.04,
+      "first_response_seconds": 10.04,
+      "client_seconds": 10.126,
+      "directory_calls": 5,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "complex_or_query"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        },
+        {
+          "tool": "control.seats.set_heating",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "summary": "设置空调温度、设置座椅加热：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C02",
+      "group": "complex",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "先查车书里的空调说明，再把所有分区空调设为23度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "mixed",
+      "server_seconds": 16.11,
+      "first_response_seconds": 16.11,
+      "client_seconds": 16.281,
+      "directory_calls": 7,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "complex_or_query"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        }
+      ],
+      "summary": "设置空调温度：已模拟下发成功。模拟查询结论：车书空调说明（模拟文档 demo-vehicle-manual-v1/climate）显示：空调功能含温度、风量、风向、制冷、循环和除霜，参数范围以工具 Schema 为准，该说明非实际车辆手册。当前模拟空调状态：主驾 22°C、副驾 22°C，风量 2，风向 face，制冷开启。已生成将全部分区温度设为 23°C 的车控调用结构（zone=all, temperature_c=23），状态为 prepared 预览，未执行真实车辆控制。",
+      "question": null
+    },
+    {
+      "id": "C02",
+      "group": "complex",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "先查车书里的空调说明，再把所有分区空调设为23度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "mixed",
+      "server_seconds": 13.85,
+      "first_response_seconds": 13.85,
+      "client_seconds": 13.906,
+      "directory_calls": 7,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "temperature_c": 23,
+            "zone": "all"
+          }
+        }
+      ],
+      "summary": "设置空调温度：已模拟下发成功。模拟查询结论：已查车书空调说明：模拟车型空调支持温度、风量、风向、制冷、循环和除霜，参数范围以工具 Schema 为准，该说明非实际车辆手册（来源 demo-vehicle-manual-v1 / climate）。随后按 Schema 生成车控预览：所有分区（zone=all）温度设为 23°C，范围在 16-30°C 内。仅为模拟调用结构，未执行真实车辆操作。",
+      "question": null
+    },
+    {
+      "id": "C03",
+      "group": "complex",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "播放示例曲目《模拟晴天》",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 9.67,
+      "first_response_seconds": 9.67,
+      "client_seconds": 9.887,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.multimedia.select_track",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        },
+        {
+          "tool": "control.multimedia.playback",
+          "arguments": {
+            "action": "play"
+          }
+        }
+      ],
+      "summary": "选择示例曲目、控制媒体播放：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "C03",
+      "group": "complex",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "播放示例曲目《模拟晴天》",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "generated",
+      "status": "generated",
+      "outcome": "prepared",
+      "server_seconds": 7.67,
+      "first_response_seconds": 7.67,
+      "client_seconds": 7.823,
+      "directory_calls": 2,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.multimedia.select_track"
+      ],
+      "preload_ms": 1.707,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.select_track",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        },
+        {
+          "tool": "control.multimedia.playback",
+          "arguments": {
+            "action": "play"
+          }
+        }
+      ],
+      "summary": "选择示例曲目、控制媒体播放：调用结构已通过校验，已模拟下发成功。",
+      "question": null
+    },
+    {
+      "id": "F01",
+      "group": "failure",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-no-suspension",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 13.85,
+      "first_response_seconds": 13.85,
+      "client_seconds": 13.962,
+      "directory_calls": 5,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.suspension.set_height"
+      ],
+      "preload_ms": 0.83,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法完成“空气悬架升高一档”。调用悬架调节工具返回 NOT_EQUIPPED：本模拟车辆未配备空气悬架（/equipment/air_suspension=false）。配置查询显示 equipment.air_suspension 为 false，悬架状态查询 available 为 false、高度与模式均为 null，未生成任何车控预览。",
+      "question": null
+    },
+    {
+      "id": "F01",
+      "group": "failure",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-no-suspension",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 23.25,
+      "first_response_seconds": 23.25,
+      "client_seconds": 23.44,
+      "directory_calls": 10,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法生成\"升高一档\"的悬架调整结构：模拟配置快照显示本车 equipment.air_suspension=false，悬架状态返回 available=false（高度/模式为空），据此调用 control.suspension.set_height(action=raise) 被前置条件拦截，返回 NOT_EQUIPPED「该模拟车辆未配备空气悬架」。未产生任何车控预览。以上均为模拟数据，不涉及真实车辆。",
+      "question": null
+    },
+    {
+      "id": "F02",
+      "group": "failure",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-driving",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 28.18,
+      "first_response_seconds": 28.18,
+      "client_seconds": 28.303,
+      "directory_calls": 9,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：本车配备空气悬架且悬架接口可用，当前高度为 normal、模式 comfort。但生成“升高一档”的车控预览失败：该模拟悬架接口要求车辆处于驻车状态，而当前驾驶状态为未驻车、车速 45 km/h（错误码 PRECONDITION_NOT_MET），因此未生成任何升高悬架的控制结构。需在车辆驻车后重试。",
+      "question": null
+    },
+    {
+      "id": "F02",
+      "group": "failure",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "profile_id": "demo-driving",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "unsupported",
+      "status": "unsupported",
+      "outcome": "unsupported",
+      "server_seconds": 13.33,
+      "first_response_seconds": 13.33,
+      "client_seconds": 13.539,
+      "directory_calls": 3,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.suspension.set_height"
+      ],
+      "preload_ms": 0.418,
+      "fallback": true,
+      "skip_reasons": [],
+      "calls": [],
+      "summary": "根据模拟数据，无法完成请求：无法生成升高一档的悬架预览。本车确实配备空气悬架且悬架接口已开放（模拟配置快照），但驾驶状态显示车辆未驻车（is_parked=false，车速 45 km/h），未满足该接口要求驻车的前置条件，调用返回 PRECONDITION_NOT_MET，未生成任何控制结构、也未执行（全部为模拟数据）。",
+      "question": null
+    },
+    {
+      "id": "A01",
+      "group": "clarification",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "帮我调整空气悬架",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "generated",
+      "outcome": "mixed",
+      "server_seconds": 25.7,
+      "first_response_seconds": 17.23,
+      "client_seconds": 25.745,
+      "directory_calls": 8,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "low_confidence",
+        "continuation"
+      ],
+      "calls": [
+        {
+          "tool": "control.suspension.set_height",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "summary": "调整空气悬架高度：已模拟下发成功。模拟查询结论：已生成\"空气悬架升高一档\"的控制预览（action=raise，仅结构与参数，未执行真实车辆控制）。前提已核实：本车配备空气悬架、悬架接口可用、车辆处于驻车状态（0 km/h）；当前悬架高度 normal、模式 comfort。未实际改变车辆状态。",
+      "question": null
+    },
+    {
+      "id": "A01",
+      "group": "clarification",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "帮我调整空气悬架",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "generated",
+      "outcome": "mixed",
+      "server_seconds": 27.69,
+      "first_response_seconds": 18.6,
+      "client_seconds": 27.903,
+      "directory_calls": 10,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled",
+        "disabled"
+      ],
+      "calls": [
+        {
+          "tool": "control.suspension.set_height",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "summary": "调整空气悬架高度：已模拟下发成功。模拟查询结论：已核实本车配备空气悬架（equipment.air_suspension=true）、悬架接口开放（interfaces.suspension=true），且车辆处于驻车状态（is_parked=true，0 km/h）。当前悬架状态为标准高度（normal）、舒适模式（comfort）。按用户“升高一档”的要求，已生成空气悬架升高一档的操作结构（action=raise），状态为 prepared。该结果仅为模拟车控预览，未执行真实车辆控制。",
+      "question": null
+    },
+    {
+      "id": "I01",
+      "group": "invalid_argument",
+      "repeat": 2,
+      "mode": "off",
+      "goal": "把所有分区空调设为45度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "awaiting_input",
+      "outcome": null,
+      "server_seconds": 8.85,
+      "first_response_seconds": 8.85,
+      "client_seconds": 9.076,
+      "directory_calls": 4,
+      "preloaded": false,
+      "candidate_ids": [],
+      "preload_ms": 0,
+      "fallback": false,
+      "skip_reasons": [
+        "disabled"
+      ],
+      "calls": [],
+      "summary": null,
+      "question": "空调温度的可设范围是 16–30°C，45°C 超出上限，无法直接生成设置。请问您希望改为多少度（如 30°C）？分区按“全部”处理是否可以？"
+    },
+    {
+      "id": "I01",
+      "group": "invalid_argument",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "把所有分区空调设为45度",
+      "profile_id": "demo-ready",
+      "passed": true,
+      "failure_reasons": [],
+      "initial_status": "awaiting_input",
+      "status": "awaiting_input",
+      "outcome": null,
+      "server_seconds": 8.98,
+      "first_response_seconds": 8.98,
+      "client_seconds": 9.104,
+      "directory_calls": 0,
+      "preloaded": true,
+      "candidate_ids": [
+        "control.climate.set_temperature"
+      ],
+      "preload_ms": 1.107,
+      "fallback": false,
+      "skip_reasons": [],
+      "calls": [],
+      "summary": null,
+      "question": "空调可设温度范围为 16–30℃，45℃ 超出上限，无法按此值下发。请确认要把所有分区设为多少度？（例如上限 30℃）"
+    }
+  ]
+}

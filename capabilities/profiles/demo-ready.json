@@ -1,0 +1,86 @@
+{
+  "id": "demo-ready",
+  "title": "配置完整 / 驻车",
+  "description": "所有状态均为固定示例，不代表实时车辆",
+  "data": {
+    "equipment": {
+      "climate": true,
+      "windows": true,
+      "seats": true,
+      "multimedia": true,
+      "lights": true,
+      "mirrors": true,
+      "air_suspension": true,
+      "sunroof": true
+    },
+    "interfaces": {
+      "suspension": true
+    },
+    "state": {
+      "climate": {
+        "driver_temperature_c": 22,
+        "passenger_temperature_c": 22,
+        "fan_speed": 2,
+        "airflow": "face",
+        "ac_enabled": true
+      },
+      "windows": {
+        "front_left_open_percent": 0,
+        "front_right_open_percent": 0,
+        "rear_left_open_percent": 0,
+        "rear_right_open_percent": 0
+      },
+      "seats": {
+        "driver_heating_level": 0,
+        "driver_ventilation_level": 0,
+        "passenger_heating_level": 0
+      },
+      "multimedia": {
+        "volume_percent": 20,
+        "muted": false,
+        "source": "bluetooth",
+        "playing": false
+      },
+      "lights": {
+        "ambient_color": "#FFFFFF",
+        "brightness_percent": 30,
+        "headlight_mode": "auto"
+      },
+      "mirrors": {
+        "folded": false,
+        "heating": false,
+        "auto_fold": true
+      },
+      "suspension": {
+        "available": true,
+        "height": "normal",
+        "mode": "comfort"
+      },
+      "sunroof": {
+        "open_percent": 0,
+        "tilted": false,
+        "sunshade_open_percent": 0
+      },
+      "driving": {
+        "is_parked": true,
+        "speed_kmh": 0
+      }
+    },
+    "sample_observed_at": "2026-11-14T00:00:00+08:00",
+    "configuration": {
+      "equipment": {
+        "climate": true,
+        "windows": true,
+        "seats": true,
+        "multimedia": true,
+        "lights": true,
+        "mirrors": true,
+        "air_suspension": true,
+        "sunroof": true
+      },
+      "interfaces": {
+        "suspension": true
+      }
+    }
+  }
+}

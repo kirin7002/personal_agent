@@ -1,0 +1,94 @@
+{
+  "id": "manual.climate.lookup",
+  "version": "1.0.0",
+  "kind": "manual",
+  "category_path": [
+    "manual",
+    "climate"
+  ],
+  "title": "查询空调车书",
+  "description": "查询模拟空调使用说明与限制，不证明本车实际配备。",
+  "aliases": [
+    "空调",
+    "说明书",
+    "车书",
+    "climate"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "topic": {
+        "type": "string",
+        "enum": [
+          "overview"
+        ],
+        "description": "overview 表示功能概述、用法和限制"
+      }
+    },
+    "required": [
+      "topic"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "source": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "document": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "document",
+          "section"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "title",
+      "text",
+      "source"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "argument_lookup",
+    "argument": "topic",
+    "cases": {
+      "overview": {
+        "title": "空调使用说明（模拟）",
+        "text": "模拟车型的空调功能包括：温度、风量、风向、制冷、循环和除霜。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+        "source": {
+          "kind": "mock_manual",
+          "document": "demo-vehicle-manual-v1",
+          "section": "climate"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "instruction": "查一下车书里的空调功能说明",
+      "arguments": {
+        "topic": "overview"
+      }
+    }
+  ]
+}

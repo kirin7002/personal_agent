@@ -1,0 +1,78 @@
+{
+  "id": "control.suspension.set_mode",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "suspension"
+  ],
+  "title": "设置悬架模式",
+  "description": "设置悬架模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置悬架模式",
+    "悬架",
+    "set mode"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "mode": {
+        "type": "string",
+        "enum": [
+          "comfort",
+          "sport",
+          "auto"
+        ],
+        "description": "舒适、运动、自动"
+      }
+    },
+    "required": [
+      "mode"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "悬架切换到舒适模式",
+      "arguments": {
+        "mode": "comfort"
+      }
+    }
+  ],
+  "preconditions": [
+    {
+      "pointer": "/equipment/air_suspension",
+      "equals": true,
+      "code": "NOT_EQUIPPED",
+      "message": "该模拟车辆未配备空气悬架"
+    },
+    {
+      "pointer": "/interfaces/suspension",
+      "equals": true,
+      "code": "INTERFACE_UNAVAILABLE",
+      "message": "模拟车辆有配置，但当前未开放悬架接口"
+    },
+    {
+      "pointer": "/state/driving/is_parked",
+      "equals": true,
+      "code": "PRECONDITION_NOT_MET",
+      "message": "本模拟悬架接口要求车辆处于驻车状态"
+    }
+  ]
+}

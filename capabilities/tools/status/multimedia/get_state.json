@@ -1,0 +1,57 @@
+{
+  "id": "status.multimedia.get_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "multimedia"
+  ],
+  "title": "查询多媒体状态",
+  "description": "读取当前模拟 profile 的多媒体状态，不是真实采集。",
+  "aliases": [
+    "多媒体",
+    "状态",
+    "multimedia"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "volume_percent": {
+        "type": "number"
+      },
+      "muted": {
+        "type": "boolean"
+      },
+      "source": {
+        "type": "string"
+      },
+      "playing": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "volume_percent",
+      "muted",
+      "source",
+      "playing"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/multimedia"
+  },
+  "examples": [
+    {
+      "instruction": "查询当前多媒体状态",
+      "arguments": {}
+    }
+  ]
+}

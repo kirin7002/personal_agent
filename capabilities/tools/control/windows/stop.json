@@ -1,0 +1,60 @@
+{
+  "id": "control.windows.stop",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "windows"
+  ],
+  "title": "停止车窗运动",
+  "description": "停止车窗运动。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "停止车窗运动",
+    "车窗",
+    "stop"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "window": {
+        "type": "string",
+        "enum": [
+          "front_left",
+          "front_right",
+          "rear_left",
+          "rear_right",
+          "all"
+        ],
+        "description": "左前、右前、左后、右后、全部"
+      }
+    },
+    "required": [
+      "window"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "停止右前车窗的升降",
+      "arguments": {
+        "window": "front_right"
+      }
+    }
+  ]
+}

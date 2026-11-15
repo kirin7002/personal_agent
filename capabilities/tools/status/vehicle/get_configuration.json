@@ -1,0 +1,96 @@
+{
+  "id": "status.vehicle.get_configuration",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "vehicle"
+  ],
+  "title": "查询本车配置和接口",
+  "description": "查询本车配置和接口，数据来自模拟配置快照，不是真车。",
+  "aliases": [
+    "查询本车配置和接口",
+    "车辆",
+    "配置",
+    "vehicle"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "equipment": {
+        "type": "object",
+        "properties": {
+          "climate": {
+            "type": "boolean"
+          },
+          "windows": {
+            "type": "boolean"
+          },
+          "seats": {
+            "type": "boolean"
+          },
+          "multimedia": {
+            "type": "boolean"
+          },
+          "lights": {
+            "type": "boolean"
+          },
+          "mirrors": {
+            "type": "boolean"
+          },
+          "air_suspension": {
+            "type": "boolean"
+          },
+          "sunroof": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "climate",
+          "windows",
+          "seats",
+          "multimedia",
+          "lights",
+          "mirrors",
+          "air_suspension",
+          "sunroof"
+        ],
+        "additionalProperties": false
+      },
+      "interfaces": {
+        "type": "object",
+        "properties": {
+          "suspension": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "suspension"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "equipment",
+      "interfaces"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/configuration"
+  },
+  "examples": [
+    {
+      "instruction": "查询本车配置和接口",
+      "arguments": {}
+    }
+  ]
+}

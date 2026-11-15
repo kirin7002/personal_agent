@@ -1,0 +1,58 @@
+{
+  "id": "control.climate.set_recirculation",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "climate"
+  ],
+  "title": "设置空气循环",
+  "description": "设置空气循环。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置空气循环",
+    "空调",
+    "set recirculation"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "mode": {
+        "type": "string",
+        "enum": [
+          "internal",
+          "external",
+          "auto"
+        ],
+        "description": "内循环、外循环、自动"
+      }
+    },
+    "required": [
+      "mode"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "空调切换到内循环",
+      "arguments": {
+        "mode": "internal"
+      }
+    }
+  ]
+}

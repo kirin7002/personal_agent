@@ -1,0 +1,52 @@
+{
+  "id": "control.climate.set_dual_zone",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "climate"
+  ],
+  "title": "空调双区独立控制",
+  "description": "空调双区独立控制。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "空调双区独立控制",
+    "空调",
+    "set dual zone"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "enabled"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "开启空调双区独立控制",
+      "arguments": {
+        "enabled": true
+      }
+    }
+  ]
+}

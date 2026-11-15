@@ -1,0 +1,53 @@
+{
+  "id": "status.sunroof.get_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "sunroof"
+  ],
+  "title": "查询天窗状态",
+  "description": "读取当前模拟 profile 的天窗状态，不是真实采集。",
+  "aliases": [
+    "天窗",
+    "状态",
+    "sunroof"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "open_percent": {
+        "type": "number"
+      },
+      "tilted": {
+        "type": "boolean"
+      },
+      "sunshade_open_percent": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "open_percent",
+      "tilted",
+      "sunshade_open_percent"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/sunroof"
+  },
+  "examples": [
+    {
+      "instruction": "查询当前天窗状态",
+      "arguments": {}
+    }
+  ]
+}

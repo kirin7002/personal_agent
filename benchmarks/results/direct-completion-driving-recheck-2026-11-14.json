@@ -1,0 +1,44 @@
+{
+  "model": "deepseek-v4.1-flash-1017",
+  "catalog_revision": "cat_db2db7de5b1849e91b68f7b5",
+  "method": "same candidate preloading, alternating agent/auto completion for simple cases; auto regression suite",
+  "trials": [
+    {
+      "id": "F02",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "status": "unsupported",
+      "passed": true,
+      "reasons": [],
+      "calls": [],
+      "timing": {
+        "total_ms": 22152.063,
+        "local_measured_ms": 42.693,
+        "model_service_interval_ms": 22089.414,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 8
+      },
+      "question": null,
+      "awaiting_after_diagnosis": false
+    }
+  ],
+  "summary": {
+    "agent": {
+      "n": 0,
+      "median_ms": null,
+      "provider_requests": []
+    },
+    "auto": {
+      "n": 0,
+      "median_ms": null,
+      "provider_requests": []
+    },
+    "passed": 1,
+    "total": 1,
+    "median_reduction_percent": null
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "status.suspension.get_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "suspension"
+  ],
+  "title": "查询悬架状态",
+  "description": "读取当前模拟 profile 的悬架状态，不是真实采集。",
+  "aliases": [
+    "悬架",
+    "状态",
+    "suspension"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "available": {
+        "type": "boolean"
+      },
+      "height": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "mode": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "required": [
+      "available",
+      "height",
+      "mode"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/suspension"
+  },
+  "examples": [
+    {
+      "instruction": "查询当前悬架状态",
+      "arguments": {}
+    }
+  ]
+}

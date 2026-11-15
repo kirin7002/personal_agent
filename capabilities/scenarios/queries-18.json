@@ -1,0 +1,342 @@
+[
+  {
+    "id": "Q001",
+    "kind": "query",
+    "instruction": "查一下车书里的空调功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.climate.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q002",
+    "kind": "query",
+    "instruction": "查询当前空调状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.climate.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q003",
+    "kind": "query",
+    "instruction": "查一下车书里的车窗功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.windows.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q004",
+    "kind": "query",
+    "instruction": "查询当前车窗状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.windows.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q005",
+    "kind": "query",
+    "instruction": "查一下车书里的座椅功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.seats.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q006",
+    "kind": "query",
+    "instruction": "查询当前座椅状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.seats.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q007",
+    "kind": "query",
+    "instruction": "查一下车书里的多媒体功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.multimedia.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q008",
+    "kind": "query",
+    "instruction": "查询当前多媒体状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.multimedia.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q009",
+    "kind": "query",
+    "instruction": "查一下车书里的灯光功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.lights.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q010",
+    "kind": "query",
+    "instruction": "查询当前灯光状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.lights.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q011",
+    "kind": "query",
+    "instruction": "查一下车书里的后视镜功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.mirrors.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q012",
+    "kind": "query",
+    "instruction": "查询当前后视镜状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.mirrors.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q013",
+    "kind": "query",
+    "instruction": "查一下车书里的悬架功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.suspension.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q014",
+    "kind": "query",
+    "instruction": "查询当前悬架状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.suspension.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q015",
+    "kind": "query",
+    "instruction": "查一下车书里的天窗功能说明",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "manual.sunroof.lookup",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ],
+      "required_domains": [
+        "manual"
+      ]
+    }
+  },
+  {
+    "id": "Q016",
+    "kind": "query",
+    "instruction": "查询当前天窗状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.sunroof.get_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q017",
+    "kind": "query",
+    "instruction": "查询本车配置和接口",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.vehicle.get_configuration",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "Q018",
+    "kind": "query",
+    "instruction": "查询驾驶状态",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "answered",
+      "calls": [
+        {
+          "tool_id": "status.vehicle.get_driving_state",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "status"
+      ]
+    }
+  }
+]

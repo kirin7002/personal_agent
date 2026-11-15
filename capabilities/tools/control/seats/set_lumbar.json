@@ -1,0 +1,66 @@
+{
+  "id": "control.seats.set_lumbar",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "seats"
+  ],
+  "title": "调节座椅腰托",
+  "description": "调节座椅腰托。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "调节座椅腰托",
+    "座椅",
+    "set lumbar"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "seat": {
+        "type": "string",
+        "enum": [
+          "driver",
+          "passenger",
+          "rear_left",
+          "rear_right"
+        ],
+        "description": "主驾、副驾、后排左侧、后排右侧"
+      },
+      "level": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 5
+      }
+    },
+    "required": [
+      "seat",
+      "level"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "主驾座椅腰托调到三档",
+      "arguments": {
+        "seat": "driver",
+        "level": 3
+      }
+    }
+  ]
+}

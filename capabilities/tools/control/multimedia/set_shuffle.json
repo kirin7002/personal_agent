@@ -1,0 +1,52 @@
+{
+  "id": "control.multimedia.set_shuffle",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "multimedia"
+  ],
+  "title": "媒体随机播放开关",
+  "description": "媒体随机播放开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "媒体随机播放开关",
+    "多媒体",
+    "set shuffle"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "enabled"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "开启媒体随机播放",
+      "arguments": {
+        "enabled": true
+      }
+    }
+  ]
+}

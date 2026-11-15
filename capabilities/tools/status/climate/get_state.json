@@ -1,0 +1,61 @@
+{
+  "id": "status.climate.get_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "climate"
+  ],
+  "title": "查询空调状态",
+  "description": "读取当前模拟 profile 的空调状态，不是真实采集。",
+  "aliases": [
+    "空调",
+    "状态",
+    "climate"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "driver_temperature_c": {
+        "type": "number"
+      },
+      "passenger_temperature_c": {
+        "type": "number"
+      },
+      "fan_speed": {
+        "type": "number"
+      },
+      "airflow": {
+        "type": "string"
+      },
+      "ac_enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "driver_temperature_c",
+      "passenger_temperature_c",
+      "fan_speed",
+      "airflow",
+      "ac_enabled"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/climate"
+  },
+  "examples": [
+    {
+      "instruction": "查询当前空调状态",
+      "arguments": {}
+    }
+  ]
+}

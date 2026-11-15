@@ -1,0 +1,451 @@
+{
+  "model": "deepseek-v4.1-flash-1017",
+  "catalog_revision": "cat_db2db7de5b1849e91b68f7b5",
+  "scope": "isolated gateway, same source checkout/dependencies, separate tasks and session storage, preview only",
+  "method": "deterministic barriers for tool/finish boundaries; during-model change confirmed by request/response timestamps; no temperature argument rewriting",
+  "formal_cases": [
+    {
+      "case": "native_only",
+      "repeat": 1,
+      "barrier": "before_control",
+      "protection": false,
+      "stock_manager": false,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为23度",
+      "revision_after": 0,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 1,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 3,
+      "tool_errors": [],
+      "protected_result_passed": null
+    },
+    {
+      "case": "stock_monitor",
+      "repeat": 1,
+      "barrier": "before_control",
+      "protection": true,
+      "stock_manager": true,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "running",
+      "remote_status": "running",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 0,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 2,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": null
+    },
+    {
+      "case": "during_model",
+      "repeat": 1,
+      "barrier": "during_model",
+      "protection": true,
+      "stock_manager": false,
+      "completion_mode": "auto",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": true,
+      "provider_requests": 3,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": true,
+      "terminal_edit_rejected": true
+    },
+    {
+      "case": "before_control",
+      "repeat": 1,
+      "barrier": "before_control",
+      "protection": true,
+      "stock_manager": false,
+      "completion_mode": "auto",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 3,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": true,
+      "terminal_edit_rejected": true
+    },
+    {
+      "case": "before_finish",
+      "repeat": 1,
+      "barrier": "before_finish",
+      "protection": true,
+      "stock_manager": false,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 1,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 4,
+      "tool_errors": [
+        {
+          "name": "finish_task",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": true,
+      "terminal_edit_rejected": true
+    },
+    {
+      "case": "native_only",
+      "repeat": 2,
+      "barrier": "before_control",
+      "protection": false,
+      "stock_manager": false,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为23度",
+      "revision_after": 0,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 1,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 3,
+      "tool_errors": [],
+      "protected_result_passed": null
+    },
+    {
+      "case": "stock_monitor",
+      "repeat": 2,
+      "barrier": "before_control",
+      "protection": true,
+      "stock_manager": true,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "running",
+      "remote_status": "running",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 0,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 2,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": null
+    },
+    {
+      "case": "during_model",
+      "repeat": 2,
+      "barrier": "during_model",
+      "protection": true,
+      "stock_manager": false,
+      "completion_mode": "auto",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": true,
+      "provider_requests": 3,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": true,
+      "terminal_edit_rejected": true
+    },
+    {
+      "case": "before_control",
+      "repeat": 2,
+      "barrier": "before_control",
+      "protection": true,
+      "stock_manager": false,
+      "completion_mode": "auto",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 3,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": true,
+      "terminal_edit_rejected": true
+    },
+    {
+      "case": "before_finish",
+      "repeat": 2,
+      "barrier": "before_finish",
+      "protection": true,
+      "stock_manager": false,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "generated",
+      "remote_status": "completed",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [
+        21
+      ],
+      "old_23_accepted_before_change": 1,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 1,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 4,
+      "tool_errors": [
+        {
+          "name": "finish_task",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": true,
+      "terminal_edit_rejected": true
+    }
+  ],
+  "stock_monitor_stop_audit": [
+    {
+      "case": "stock_monitor",
+      "repeat": 1,
+      "barrier": "before_control",
+      "protection": true,
+      "stock_manager": true,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "running",
+      "remote_status": "cancelled",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 0,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 2,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": null,
+      "stock_stop_requests": 1,
+      "stock_stop_accepted": true
+    },
+    {
+      "case": "stock_monitor",
+      "repeat": 2,
+      "barrier": "before_control",
+      "protection": true,
+      "stock_manager": true,
+      "completion_mode": "agent",
+      "steer": {
+        "http_status": 200,
+        "accepted": true
+      },
+      "same_task_and_run": true,
+      "business_status": "running",
+      "remote_status": "cancelled",
+      "goal_after": "把所有分区空调设为21度",
+      "revision_after": 1,
+      "final_temperatures": [],
+      "old_23_accepted_before_change": 0,
+      "old_23_accepted_after_change": 0,
+      "completed_notifications": 0,
+      "old_receipts_in_final": false,
+      "change_during_first_provider_request": false,
+      "provider_requests": 2,
+      "tool_errors": [
+        {
+          "name": "call_tools",
+          "error": {
+            "code": "INVALID_CONTEXT",
+            "message": "TASK_INACTIVE：任务已暂停、取消或轮次过期",
+            "details": []
+          }
+        }
+      ],
+      "protected_result_passed": null,
+      "stock_stop_requests": 1,
+      "stock_stop_accepted": true
+    }
+  ],
+  "summary": {
+    "protected_passed": 6,
+    "protected_total": 6,
+    "native_only_old_parameter_accepted_cases": 2,
+    "audited_stock_stop_cases": 2
+  },
+  "limits": [
+    "fixed all-zone climate target; not a general intent parser",
+    "probe adapter required; main app not integrated",
+    "historical 23-degree preview before goal change is retained, not undone",
+    "no physical vehicle or S2S steering UI tested",
+    "small repeated functional sample; not a latency or reliability benchmark"
+  ]
+}

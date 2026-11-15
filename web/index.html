@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Agent · 车辆助手</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2318343f'/%3E%3Ctext x='9' y='24' fill='%23bce0cc' font-size='25'%3Ep%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="mark">p<span>•</span></span><span>personal agent<small>车辆助手 · 实验空间</small></span></a>
+    <nav><button class="nav-item active" id="focusChat">◌ <span>与 Agent 对话</span></button><button class="nav-item" id="openCatalog" aria-label="能力目录">▦ <span>能力目录</span><small id="catalogCount">—</small></button><button class="nav-item" id="openPreview" aria-label="调用结构">⌘ <span>调用结构</span></button></nav>
+    <div class="sidebar-note"><span class="eyebrow">ONE GOAL, STEP BY STEP</span><p>告诉我目标。<br>我来查找能力、生成参数，<br>需要时继续查证。</p></div>
+    <div class="status-card"><div><i id="hermesDot"></i><span>Hermes</span><strong id="hermesStatus">检查中</strong></div><div><i id="voiceDot"></i><span>千问语音</span><strong id="voiceStatus">检查中</strong></div></div>
+    <div class="sidebar-foot">DEMO / 模拟数据 · 未连接车辆</div>
+  </aside>
+  <main class="conversation">
+    <header class="conversation-header"><div><h1>车辆助手</h1><span id="channelBadge">文字入口</span></div><div class="header-right"><span class="task-counter">任务 <b id="taskCount">0</b></span><button class="secondary" id="openPhone">连接手机</button><button class="secondary" id="openPlans">周期计划</button><button class="secondary" id="openScenarios">测试场景 ↗</button></div></header>
+    <div class="chat" id="chat" role="log" aria-label="Agent 对话记录">
+      <section class="welcome" id="welcome"><span class="welcome-mark">p<span>•</span></span><div class="eyebrow">HERMES × QWEN AUDIO</div><h2>说出需求，<br><span>一起完成下一步。</span></h2><p>车控、车书、车况。每次工具选择与处理耗时，都能在对话中查看。</p><div class="suggestions" id="suggestions"></div></section>
+      <div id="tasks" class="tasks"><div id="conversationMessages" aria-label="共享对话与执行过程"></div></div>
+    </div>
+    <div class="composer-area"><div id="deviceRecovery" class="device-recovery" role="alert" hidden>设备授权已失效。重新初始化将建立独立会话，原共享对话需重新配对。<button id="resetDevice" class="secondary" type="button">重新初始化设备</button></div><div id="pairingRequired" class="device-recovery" role="status" hidden>请先连接可信电脑，再访问共享对话。<a href="/mobile/connect">打开连接设置 ↗</a></div><div class="sharing-status"><span id="syncStatus" role="status">正在同步对话</span><span id="voiceOwnerLabel">暂无设备使用语音</span><button type="button" id="takeoverVoice" class="text-button" hidden>接管语音</button></div><div id="reviseContext" role="region" aria-label="当前任务操作" hidden><span id="reviseLabel" role="status"></span><button id="clearRevise" type="button" aria-label="退出当前任务操作并改为新任务">新任务</button><div id="reviseChoices" aria-label="选择改口任务"></div></div><div id="replyContext" hidden><span id="replyLabel"></span><button id="clearReply" type="button" aria-label="改为新任务">新任务</button><div id="replyChoices" hidden></div></div>
+      <form id="composer"><label class="sr-only" for="message">输入车辆需求</label><textarea id="message" placeholder="描述你的车辆需求…" maxlength="2000" rows="2"></textarea><div class="compose-actions"><button type="button" id="voiceButton" class="voice-button" aria-pressed="false">◉ 开始语音</button><span class="input-hint">Enter 发送 · Shift + Enter 换行</span><button type="submit" id="sendButton" class="primary">发送 ↗</button></div></form>
+      <p class="caption" id="connectionHint">工具参数生成并校验后，视为模拟下发成功；未执行真实车控。</p>
+    </div>
+  </main>
+  <dialog id="catalogDialog" class="drawer"><div class="drawer-header"><div><div class="eyebrow">CAPABILITY LIBRARY</div><h2>能力与测试场景</h2></div><button class="close-button" data-close="catalogDialog" aria-label="关闭能力目录">×</button></div>
+    <section class="scenario-bar"><label>模拟车辆 <select id="profileSelect" aria-label="模拟车辆配置"></select></label><label>测试场景 <select id="scenarioSelect" aria-label="测试场景"></select></label><button id="useScenario" class="secondary">填入场景</button><span id="catalogSummary"></span></section>
+    <section class="catalog-panel"><div class="catalog-toolbar"><div id="catalogBreadcrumbs"></div><div class="catalog-actions"><button id="reloadCatalog" class="text-button">重新加载文件</button><a href="/api/catalog/export" id="exportCatalog">导出 JSON</a><select id="importMode" aria-label="导入模式"><option value="merge">增加 / 合并</option><option value="upsert">更新已有项</option><option value="replace">完整替换</option></select><button id="importCatalog" class="secondary">导入配置</button><input type="file" id="importFile" accept="application/json,.json" hidden></div></div><div id="importPreview" hidden><pre id="importDiff"></pre><button id="applyImport" class="primary">应用这份配置</button><button id="cancelImport" class="text-button">取消</button></div><div id="catalog" class="catalog-grid"></div><div id="catalogPagination"></div></section>
+  </dialog>
+  <dialog id="previewDialog" class="drawer"><div class="drawer-header"><div><div class="eyebrow">TOOL CALL INSPECTOR</div><h2>调用预览</h2></div><button class="close-button" data-close="previewDialog" aria-label="关闭调用预览">×</button></div><div class="tabs"><button class="active" data-tab="output">结构</button><button data-tab="schema">Schema</button></div><div class="preview-meta"><span id="previewState">等待生成</span><span id="previewSource">示例 Schema</span></div><div id="emptyState" class="empty"><div class="code-symbol">{ }</div><h3>每一步都有明确结构</h3><p>查看工具参数、校验结果和模拟查询证据。</p><button id="loadExample" class="secondary">查看预置示例</button><small>仅展示预置数据，不调用模型</small></div><pre id="jsonOutput" hidden><code id="jsonCode"></code></pre><div class="preview-footer"><span id="validationNote">生成即视为模拟下发成功</span><button id="copyButton" class="text-button" disabled>复制 JSON</button></div></dialog>
+  <dialog id="plansDialog" class="drawer" aria-labelledby="plansTitle">
+    <div class="drawer-header"><div><h2 id="plansTitle">周期计划</h2><p id="planTimezone" class="plan-note"></p></div><button class="close-button" data-close="plansDialog" aria-label="关闭周期计划">×</button></div>
+    <form id="planForm" class="plan-form">
+      <h3 id="planFormTitle">新建计划</h3>
+      <label>要做什么<textarea id="planGoal" rows="2" maxlength="2000" required placeholder="例如：查询车辆电量"></textarea></label>
+      <div class="plan-fields"><label>频率<select id="planFrequency"><option value="daily">每天</option><option value="weekdays">工作日</option><option value="weekly">每周指定日期</option><option value="interval">固定间隔</option></select></label><label id="planTimeField">当地时间<input id="planTime" type="time" required></label><label id="planIntervalField" hidden>间隔（分钟）<input id="planMinutes" type="number" min="1" step="1" inputmode="numeric" placeholder="至少 1 分钟" disabled></label></div>
+      <p id="planIntervalNote" class="plan-note" hidden></p>
+      <fieldset id="planWeekdays" hidden><legend>选择星期</legend><label><input type="checkbox" value="0">周一</label><label><input type="checkbox" value="1">周二</label><label><input type="checkbox" value="2">周三</label><label><input type="checkbox" value="3">周四</label><label><input type="checkbox" value="4">周五</label><label><input type="checkbox" value="5">周六</label><label><input type="checkbox" value="6">周日</label></fieldset>
+      <p id="planPreview" class="plan-note" aria-live="polite">填写目标和时间后确认创建。</p>
+      <p id="planError" class="plan-error" role="alert" hidden></p>
+      <div class="plan-actions"><button id="savePlan" class="primary" type="submit">创建计划</button><button id="cancelPlanEdit" class="text-button" type="button" hidden>取消修改</button></div>
+    </form>
+    <div class="plan-list-header"><h3>已有计划</h3><button id="refreshPlans" class="text-button" type="button">刷新</button></div>
+    <p id="plansError" class="plan-error" role="alert" hidden></p><div id="plansList" aria-live="polite"></div>
+  </dialog>
+  <dialog id="phoneDialog" class="drawer" aria-labelledby="phoneTitle">
+    <div class="drawer-header"><div><div class="eyebrow">SHARED CONVERSATION</div><h2 id="phoneTitle">连接手机</h2></div><button class="close-button" data-close="phoneDialog" aria-label="关闭连接手机">×</button></div>
+    <p class="pairing-note">在手机打开下方地址，输入一次性配对码，即可继续同一段对话。</p>
+    <button id="createPairing" class="primary" type="button">生成配对码</button>
+    <section id="pairingResult" class="pairing-result" aria-live="polite" hidden><div class="eyebrow">一次性配对码</div><strong id="pairingCode"></strong><p id="pairingExpiry"></p><a id="pairingLink" target="_blank" rel="noopener noreferrer"></a><p class="pairing-note">手机需能访问该地址；麦克风需要手机信任的 HTTPS 入口。</p><p id="pairingTrust" class="pairing-note" hidden><a id="pairingTrustLink" target="_blank" rel="noopener noreferrer">查看手机 HTTPS 连接与信任设置 ↗</a></p></section>
+    <div class="plan-list-header"><h3>已连接设备</h3><button id="refreshDevices" class="text-button" type="button">刷新</button></div><ul id="deviceList" class="device-list" aria-live="polite"></ul>
+  </dialog>
+  <div id="toast" role="status" hidden></div>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

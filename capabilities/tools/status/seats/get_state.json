@@ -1,0 +1,53 @@
+{
+  "id": "status.seats.get_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "seats"
+  ],
+  "title": "查询座椅状态",
+  "description": "读取当前模拟 profile 的座椅状态，不是真实采集。",
+  "aliases": [
+    "座椅",
+    "状态",
+    "seats"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "driver_heating_level": {
+        "type": "number"
+      },
+      "driver_ventilation_level": {
+        "type": "number"
+      },
+      "passenger_heating_level": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "driver_heating_level",
+      "driver_ventilation_level",
+      "passenger_heating_level"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/seats"
+  },
+  "examples": [
+    {
+      "instruction": "查询当前座椅状态",
+      "arguments": {}
+    }
+  ]
+}

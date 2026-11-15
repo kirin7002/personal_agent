@@ -1,0 +1,553 @@
+{
+  "model": "deepseek-v4.1-flash-1017",
+  "catalog_revision": "cat_db2db7de5b1849e91b68f7b5",
+  "method": "same candidate preloading, alternating agent/auto completion for simple cases; auto regression suite",
+  "trials": [
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "agent",
+      "goal": "把所有分区空调设为26度",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 5946.294,
+        "local_measured_ms": 9.404,
+        "model_service_interval_ms": 5918.949,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 3
+      }
+    },
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把所有分区空调设为26度",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 2428.585,
+        "local_measured_ms": 6.743,
+        "model_service_interval_ms": 2405.933,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": true,
+        "provider_requests": 1
+      }
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "左前车窗打开到40%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 2325.126,
+        "local_measured_ms": 6.124,
+        "model_service_interval_ms": 2302.347,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": true,
+        "provider_requests": 1
+      }
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "agent",
+      "goal": "左前车窗打开到40%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 3755.199,
+        "local_measured_ms": 8.192,
+        "model_service_interval_ms": 3731.218,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 3
+      }
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "agent",
+      "goal": "媒体音量设为35%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 3307.344,
+        "local_measured_ms": 10.104,
+        "model_service_interval_ms": 3276.991,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 3
+      }
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "媒体音量设为35%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 1856.564,
+        "local_measured_ms": 6.362,
+        "model_service_interval_ms": 1838.514,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": true,
+        "provider_requests": 1
+      }
+    },
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "把所有分区空调设为26度",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 2474.114,
+        "local_measured_ms": 4.611,
+        "model_service_interval_ms": 2452.927,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": true,
+        "provider_requests": 1
+      }
+    },
+    {
+      "id": "S01",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "agent",
+      "goal": "把所有分区空调设为26度",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 26
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 4615.945,
+        "local_measured_ms": 9.259,
+        "model_service_interval_ms": 4591.57,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 3
+      }
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "agent",
+      "goal": "左前车窗打开到40%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 4150.859,
+        "local_measured_ms": 8.573,
+        "model_service_interval_ms": 4127.105,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 3
+      }
+    },
+    {
+      "id": "S04",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "左前车窗打开到40%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 40
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 2018.517,
+        "local_measured_ms": 6.534,
+        "model_service_interval_ms": 1999.9,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": true,
+        "provider_requests": 1
+      }
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "auto",
+      "goal": "媒体音量设为35%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 2000.752,
+        "local_measured_ms": 3.315,
+        "model_service_interval_ms": 1981.772,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": true,
+        "provider_requests": 1
+      }
+    },
+    {
+      "id": "S05",
+      "group": "simple",
+      "repeat": 2,
+      "mode": "agent",
+      "goal": "媒体音量设为35%",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 35
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 3734.099,
+        "local_measured_ms": 9.134,
+        "model_service_interval_ms": 3712.563,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 3
+      }
+    },
+    {
+      "id": "C01",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把所有分区空调设为23度，同时主驾座椅加热设为二档",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "temperature_c": 23,
+            "zone": "all"
+          }
+        },
+        {
+          "tool": "control.seats.set_heating",
+          "arguments": {
+            "level": 2,
+            "seat": "driver"
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 11690.429,
+        "local_measured_ms": 31.127,
+        "model_service_interval_ms": 11649.313,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 7
+      }
+    },
+    {
+      "id": "C02",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "先查车书里的空调说明，再把所有分区空调设为23度",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 15624.817,
+        "local_measured_ms": 33.236,
+        "model_service_interval_ms": 15574.98,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 8
+      }
+    },
+    {
+      "id": "C03",
+      "group": "complex",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "播放示例曲目《模拟晴天》",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.multimedia.select_track",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        },
+        {
+          "tool": "control.multimedia.playback",
+          "arguments": {
+            "action": "play"
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 7505.956,
+        "local_measured_ms": 21.141,
+        "model_service_interval_ms": 7469.768,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 5
+      }
+    },
+    {
+      "id": "F01",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "status": "unsupported",
+      "passed": true,
+      "reasons": [],
+      "calls": [],
+      "timing": {
+        "total_ms": 13401.378,
+        "local_measured_ms": 33.332,
+        "model_service_interval_ms": 13359.569,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 7
+      }
+    },
+    {
+      "id": "F02",
+      "group": "failure",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把空气悬架升高一档",
+      "status": "awaiting_input",
+      "passed": false,
+      "reasons": [
+        "must_report_blocked_control"
+      ],
+      "calls": [],
+      "timing": {
+        "total_ms": null,
+        "local_measured_ms": 51.829,
+        "model_service_interval_ms": 29600.146,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 12
+      }
+    },
+    {
+      "id": "A01",
+      "group": "clarification",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "帮我调整空气悬架",
+      "status": "generated",
+      "passed": true,
+      "reasons": [],
+      "calls": [
+        {
+          "tool": "control.suspension.set_height",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "timing": {
+        "total_ms": 23394.567,
+        "local_measured_ms": 49.804,
+        "model_service_interval_ms": 23250.989,
+        "human_wait_ms": 62.69,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 14
+      }
+    },
+    {
+      "id": "I01",
+      "group": "invalid_argument",
+      "repeat": 1,
+      "mode": "auto",
+      "goal": "把所有分区空调设为45度",
+      "status": "awaiting_input",
+      "passed": true,
+      "reasons": [],
+      "calls": [],
+      "timing": {
+        "total_ms": null,
+        "local_measured_ms": 4.467,
+        "model_service_interval_ms": 3591.583,
+        "human_wait_ms": 0.0,
+        "precise_tool_timers": true,
+        "direct_completion": false,
+        "provider_requests": 2
+      }
+    }
+  ],
+  "summary": {
+    "agent": {
+      "n": 6,
+      "median_ms": 3953.03,
+      "provider_requests": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "auto": {
+      "n": 6,
+      "median_ms": 2171.82,
+      "provider_requests": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "passed": 18,
+    "total": 19,
+    "median_reduction_percent": 45.1
+  }
+}

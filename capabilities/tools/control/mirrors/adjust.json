@@ -1,0 +1,74 @@
+{
+  "id": "control.mirrors.adjust",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "mirrors"
+  ],
+  "title": "调节后视镜角度",
+  "description": "调节后视镜角度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "调节后视镜角度",
+    "后视镜",
+    "adjust"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "mirror": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right"
+        ]
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ]
+      },
+      "steps": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 5
+      }
+    },
+    "required": [
+      "mirror",
+      "direction",
+      "steps"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "左后视镜向下调一格",
+      "arguments": {
+        "mirror": "left",
+        "direction": "down",
+        "steps": 1
+      }
+    }
+  ]
+}

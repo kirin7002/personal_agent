@@ -1,0 +1,6500 @@
+{
+  "format_version": "capability-catalog/v1",
+  "package": {
+    "name": "vehicle-capability-demo",
+    "version": "1.0.0",
+    "description": "50个车控工具、8个车书工具、10个车况工具；全部模拟"
+  },
+  "directories": [
+    {
+      "path": [
+        "control"
+      ],
+      "title": "车控",
+      "description": "生成车辆操作参数，不执行真实控制",
+      "aliases": [
+        "车控",
+        "control"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "climate"
+      ],
+      "title": "空调",
+      "description": "温度、风量、风向、制冷、循环和除霜",
+      "aliases": [
+        "空调",
+        "climate"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "lights"
+      ],
+      "title": "灯光",
+      "description": "氛围灯、阅读灯、大灯和伴我回家照明",
+      "aliases": [
+        "灯光",
+        "lights"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "mirrors"
+      ],
+      "title": "后视镜",
+      "description": "镜面方向、折叠、加热与自动折叠",
+      "aliases": [
+        "后视镜",
+        "mirrors"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "多媒体",
+      "description": "音量、静音、播放、音源、曲目、进度与播放模式",
+      "aliases": [
+        "多媒体",
+        "multimedia"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "seats"
+      ],
+      "title": "座椅",
+      "description": "加热、通风、位置、靠背、腰托、按摩与记忆",
+      "aliases": [
+        "座椅",
+        "seats"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "sunroof"
+      ],
+      "title": "天窗",
+      "description": "天窗开度、翘起、遮阳帘与停止",
+      "aliases": [
+        "天窗",
+        "sunroof"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "suspension"
+      ],
+      "title": "悬架",
+      "description": "空气悬架高度、模式与装载功能",
+      "aliases": [
+        "悬架",
+        "suspension"
+      ]
+    },
+    {
+      "path": [
+        "control",
+        "windows"
+      ],
+      "title": "车窗",
+      "description": "车窗开度、开关、停止、锁定及一键功能",
+      "aliases": [
+        "车窗",
+        "windows"
+      ]
+    },
+    {
+      "path": [
+        "manual"
+      ],
+      "title": "车书",
+      "description": "查询模拟车型说明、用法和限制",
+      "aliases": [
+        "车书",
+        "manual"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "climate"
+      ],
+      "title": "空调",
+      "description": "温度、风量、风向、制冷、循环和除霜",
+      "aliases": [
+        "空调",
+        "climate"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "lights"
+      ],
+      "title": "灯光",
+      "description": "氛围灯、阅读灯、大灯和伴我回家照明",
+      "aliases": [
+        "灯光",
+        "lights"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "mirrors"
+      ],
+      "title": "后视镜",
+      "description": "镜面方向、折叠、加热与自动折叠",
+      "aliases": [
+        "后视镜",
+        "mirrors"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "multimedia"
+      ],
+      "title": "多媒体",
+      "description": "音量、静音、播放、音源、曲目、进度与播放模式",
+      "aliases": [
+        "多媒体",
+        "multimedia"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "seats"
+      ],
+      "title": "座椅",
+      "description": "加热、通风、位置、靠背、腰托、按摩与记忆",
+      "aliases": [
+        "座椅",
+        "seats"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "sunroof"
+      ],
+      "title": "天窗",
+      "description": "天窗开度、翘起、遮阳帘与停止",
+      "aliases": [
+        "天窗",
+        "sunroof"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "suspension"
+      ],
+      "title": "悬架",
+      "description": "空气悬架高度、模式与装载功能",
+      "aliases": [
+        "悬架",
+        "suspension"
+      ]
+    },
+    {
+      "path": [
+        "manual",
+        "windows"
+      ],
+      "title": "车窗",
+      "description": "车窗开度、开关、停止、锁定及一键功能",
+      "aliases": [
+        "车窗",
+        "windows"
+      ]
+    },
+    {
+      "path": [
+        "status"
+      ],
+      "title": "车况",
+      "description": "查询模拟车辆配置和状态快照",
+      "aliases": [
+        "车况",
+        "status"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "climate"
+      ],
+      "title": "空调",
+      "description": "温度、风量、风向、制冷、循环和除霜",
+      "aliases": [
+        "空调",
+        "climate"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "lights"
+      ],
+      "title": "灯光",
+      "description": "氛围灯、阅读灯、大灯和伴我回家照明",
+      "aliases": [
+        "灯光",
+        "lights"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "mirrors"
+      ],
+      "title": "后视镜",
+      "description": "镜面方向、折叠、加热与自动折叠",
+      "aliases": [
+        "后视镜",
+        "mirrors"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "multimedia"
+      ],
+      "title": "多媒体",
+      "description": "音量、静音、播放、音源、曲目、进度与播放模式",
+      "aliases": [
+        "多媒体",
+        "multimedia"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "seats"
+      ],
+      "title": "座椅",
+      "description": "加热、通风、位置、靠背、腰托、按摩与记忆",
+      "aliases": [
+        "座椅",
+        "seats"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "sunroof"
+      ],
+      "title": "天窗",
+      "description": "天窗开度、翘起、遮阳帘与停止",
+      "aliases": [
+        "天窗",
+        "sunroof"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "suspension"
+      ],
+      "title": "悬架",
+      "description": "空气悬架高度、模式与装载功能",
+      "aliases": [
+        "悬架",
+        "suspension"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "vehicle"
+      ],
+      "title": "车辆配置与驾驶状态",
+      "description": "核实本车配置、接口可用性和驾驶状态",
+      "aliases": [
+        "车辆配置",
+        "是否配备",
+        "驾驶状态",
+        "vehicle"
+      ]
+    },
+    {
+      "path": [
+        "status",
+        "windows"
+      ],
+      "title": "车窗",
+      "description": "车窗开度、开关、停止、锁定及一键功能",
+      "aliases": [
+        "车窗",
+        "windows"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "control.climate.set_ac",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "空调制冷开关",
+      "description": "空调制冷开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "空调制冷开关",
+        "空调",
+        "set ac"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "打开空调AC制冷",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_airflow",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "设置空调风向",
+      "description": "设置空调风向。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置空调风向",
+        "空调",
+        "set airflow"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "zone": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear",
+              "all"
+            ],
+            "description": "主驾、副驾、后排、全部"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "face",
+              "feet",
+              "face_feet",
+              "windshield"
+            ],
+            "description": "吹面、吹脚、面脚同吹、吹前挡"
+          }
+        },
+        "required": [
+          "zone",
+          "direction"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "主驾空调改为吹脚",
+          "arguments": {
+            "zone": "driver",
+            "direction": "feet"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_auto",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "空调自动模式",
+      "description": "空调自动模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "空调自动模式",
+        "空调",
+        "set auto"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "zone": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear",
+              "all"
+            ],
+            "description": "主驾、副驾、后排、全部"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "zone",
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "所有分区空调开启自动模式",
+          "arguments": {
+            "zone": "all",
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_dual_zone",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "空调双区独立控制",
+      "description": "空调双区独立控制。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "空调双区独立控制",
+        "空调",
+        "set dual zone"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启空调双区独立控制",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_fan_speed",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "设置空调风量",
+      "description": "设置空调风量。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置空调风量",
+        "空调",
+        "set fan speed"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "zone": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear",
+              "all"
+            ],
+            "description": "主驾、副驾、后排、全部"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          }
+        },
+        "required": [
+          "zone",
+          "level"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "主驾空调风量设为三档",
+          "arguments": {
+            "zone": "driver",
+            "level": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_front_defrost",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "前挡风玻璃除霜",
+      "description": "前挡风玻璃除霜。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "前挡风玻璃除霜",
+        "空调",
+        "set front defrost"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启前挡风玻璃除霜",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_rear_defrost",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "后挡风玻璃除霜",
+      "description": "后挡风玻璃除霜。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "后挡风玻璃除霜",
+        "空调",
+        "set rear defrost"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启后挡风玻璃除霜",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_recirculation",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "设置空气循环",
+      "description": "设置空气循环。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置空气循环",
+        "空调",
+        "set recirculation"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "internal",
+              "external",
+              "auto"
+            ],
+            "description": "内循环、外循环、自动"
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "空调切换到内循环",
+          "arguments": {
+            "mode": "internal"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_sync",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "空调分区同步",
+      "description": "空调分区同步。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "空调分区同步",
+        "空调",
+        "set sync"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启空调分区同步",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.climate.set_temperature",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "climate"
+      ],
+      "title": "设置空调温度",
+      "description": "设置空调温度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置空调温度",
+        "空调",
+        "set temperature"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "zone": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear",
+              "all"
+            ],
+            "description": "主驾、副驾、后排、全部"
+          },
+          "temperature_c": {
+            "type": "number",
+            "minimum": 16,
+            "maximum": 30,
+            "description": "摄氏度"
+          }
+        },
+        "required": [
+          "zone",
+          "temperature_c"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "把所有分区空调设为23度",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_ambient_brightness",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "设置氛围灯亮度",
+      "description": "设置氛围灯亮度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置氛围灯亮度",
+        "灯光",
+        "set ambient brightness"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "brightness_percent": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "brightness_percent"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "氛围灯亮度设为60%",
+          "arguments": {
+            "brightness_percent": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_ambient_color",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "设置氛围灯颜色",
+      "description": "设置氛围灯颜色。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置氛围灯颜色",
+        "灯光",
+        "set ambient color"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          }
+        },
+        "required": [
+          "color"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "氛围灯设为蓝色，颜色值#0000FF",
+          "arguments": {
+            "color": "#0000FF"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_ambient_power",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "氛围灯开关",
+      "description": "氛围灯开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "氛围灯开关",
+        "灯光",
+        "set ambient power"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "打开氛围灯",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_follow_me_home",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "伴我回家照明",
+      "description": "伴我回家照明。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "伴我回家照明",
+        "灯光",
+        "set follow me home"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "duration_seconds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 120
+          }
+        },
+        "required": [
+          "duration_seconds"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "伴我回家照明设为30秒",
+          "arguments": {
+            "duration_seconds": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_headlight_mode",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "设置大灯模式",
+      "description": "设置大灯模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置大灯模式",
+        "灯光",
+        "set headlight mode"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "off",
+              "auto",
+              "low_beam",
+              "position"
+            ]
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "大灯切换为自动模式",
+          "arguments": {
+            "mode": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_high_beam",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "远光灯开关",
+      "description": "远光灯开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "远光灯开关",
+        "灯光",
+        "set high beam"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "关闭远光灯",
+          "arguments": {
+            "enabled": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.lights.set_reading",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "lights"
+      ],
+      "title": "阅读灯开关",
+      "description": "阅读灯开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "阅读灯开关",
+        "灯光",
+        "set reading"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "enum": [
+              "front_left",
+              "front_right",
+              "rear",
+              "all"
+            ]
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "position",
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "打开右前阅读灯",
+          "arguments": {
+            "position": "front_right",
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.mirrors.adjust",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "mirrors"
+      ],
+      "title": "调节后视镜角度",
+      "description": "调节后视镜角度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "调节后视镜角度",
+        "后视镜",
+        "adjust"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mirror": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right"
+            ]
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ]
+          },
+          "steps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "mirror",
+          "direction",
+          "steps"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "左后视镜向下调一格",
+          "arguments": {
+            "mirror": "left",
+            "direction": "down",
+            "steps": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.mirrors.fold",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "mirrors"
+      ],
+      "title": "后视镜折叠",
+      "description": "后视镜折叠。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "后视镜折叠",
+        "后视镜",
+        "fold"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mirror": {
+            "type": "string",
+            "enum": [
+              "left",
+              "right",
+              "both"
+            ]
+          },
+          "folded": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "mirror",
+          "folded"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "折叠两侧后视镜",
+          "arguments": {
+            "mirror": "both",
+            "folded": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.mirrors.set_auto_fold",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "mirrors"
+      ],
+      "title": "后视镜自动折叠",
+      "description": "后视镜自动折叠。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "后视镜自动折叠",
+        "后视镜",
+        "set auto fold"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启后视镜自动折叠功能",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.mirrors.set_heating",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "mirrors"
+      ],
+      "title": "后视镜加热",
+      "description": "后视镜加热。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "后视镜加热",
+        "后视镜",
+        "set heating"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启后视镜加热",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.playback",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "控制媒体播放",
+      "description": "控制媒体播放。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "控制媒体播放",
+        "多媒体",
+        "playback"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "play",
+              "pause",
+              "stop",
+              "next",
+              "previous"
+            ]
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "暂停媒体播放",
+          "arguments": {
+            "action": "pause"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.seek",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "调整媒体播放进度",
+      "description": "调整媒体播放进度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "调整媒体播放进度",
+        "多媒体",
+        "seek"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "position_seconds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7200
+          }
+        },
+        "required": [
+          "position_seconds"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "把媒体播放进度跳到90秒",
+          "arguments": {
+            "position_seconds": 90
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.select_source",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "选择媒体音源",
+      "description": "选择媒体音源。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "选择媒体音源",
+        "多媒体",
+        "select source"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "enum": [
+              "bluetooth",
+              "radio",
+              "usb",
+              "online"
+            ],
+            "description": "蓝牙、收音机、USB、在线音乐"
+          }
+        },
+        "required": [
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "媒体音源切换到蓝牙",
+          "arguments": {
+            "source": "bluetooth"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.select_track",
+      "version": "1.0.1",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "选择示例曲目",
+      "description": "只选择当前曲目，不开始播放；播放需另外调用媒体播放工具。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "选择示例曲目",
+        "多媒体",
+        "select track"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "track_id": {
+            "type": "string",
+            "enum": [
+              "demo_sunny",
+              "demo_rain"
+            ],
+            "description": "demo_sunny=模拟晴天；demo_rain=模拟雨天"
+          }
+        },
+        "required": [
+          "track_id"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "选择示例曲目《模拟晴天》作为当前曲目，暂不播放",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.set_mute",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "媒体静音开关",
+      "description": "媒体静音开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "媒体静音开关",
+        "多媒体",
+        "set mute"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启媒体静音",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.set_repeat",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "设置媒体循环模式",
+      "description": "设置媒体循环模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置媒体循环模式",
+        "多媒体",
+        "set repeat"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "off",
+              "one",
+              "all"
+            ],
+            "description": "关闭、单曲、列表循环"
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "媒体改为单曲循环",
+          "arguments": {
+            "mode": "one"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.set_shuffle",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "媒体随机播放开关",
+      "description": "媒体随机播放开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "媒体随机播放开关",
+        "多媒体",
+        "set shuffle"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启媒体随机播放",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.multimedia.set_volume",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "multimedia"
+      ],
+      "title": "设置媒体音量",
+      "description": "设置媒体音量。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置媒体音量",
+        "多媒体",
+        "set volume"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "volume_percent": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "volume_percent"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "媒体音量设为30%",
+          "arguments": {
+            "volume_percent": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.move",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "调节座椅前后位置",
+      "description": "调节座椅前后位置。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "调节座椅前后位置",
+        "座椅",
+        "move"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "forward",
+              "backward"
+            ]
+          },
+          "distance_mm": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          }
+        },
+        "required": [
+          "seat",
+          "direction",
+          "distance_mm"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "主驾座椅向后移动20毫米",
+          "arguments": {
+            "seat": "driver",
+            "direction": "backward",
+            "distance_mm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.recall_memory",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "恢复座椅记忆",
+      "description": "恢复座椅记忆。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "恢复座椅记忆",
+        "座椅",
+        "recall memory"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "slot": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "seat",
+          "slot"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "将主驾座椅恢复到记忆二",
+          "arguments": {
+            "seat": "driver",
+            "slot": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.save_memory",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "保存座椅记忆",
+      "description": "保存座椅记忆。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "保存座椅记忆",
+        "座椅",
+        "save memory"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "slot": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "seat",
+          "slot"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "将主驾座椅当前位置保存为记忆一",
+          "arguments": {
+            "seat": "driver",
+            "slot": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.set_backrest",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "调节座椅靠背",
+      "description": "调节座椅靠背。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "调节座椅靠背",
+        "座椅",
+        "set backrest"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "angle_deg": {
+            "type": "integer",
+            "minimum": 90,
+            "maximum": 130
+          }
+        },
+        "required": [
+          "seat",
+          "angle_deg"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "副驾座椅靠背设为110度",
+          "arguments": {
+            "seat": "passenger",
+            "angle_deg": 110
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.set_heating",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "设置座椅加热",
+      "description": "设置座椅加热。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置座椅加热",
+        "座椅",
+        "set heating"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "seat",
+          "level"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "主驾座椅加热设为二档",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.set_lumbar",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "调节座椅腰托",
+      "description": "调节座椅腰托。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "调节座椅腰托",
+        "座椅",
+        "set lumbar"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "seat",
+          "level"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "主驾座椅腰托调到三档",
+          "arguments": {
+            "seat": "driver",
+            "level": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.set_massage",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "设置座椅按摩",
+      "description": "设置座椅按摩。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置座椅按摩",
+        "座椅",
+        "set massage"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "off",
+              "wave",
+              "pulse"
+            ]
+          },
+          "intensity": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "seat",
+          "mode",
+          "intensity"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "主驾座椅开启波浪按摩，强度二档",
+          "arguments": {
+            "seat": "driver",
+            "mode": "wave",
+            "intensity": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.seats.set_ventilation",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "seats"
+      ],
+      "title": "设置座椅通风",
+      "description": "设置座椅通风。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置座椅通风",
+        "座椅",
+        "set ventilation"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "seat": {
+            "type": "string",
+            "enum": [
+              "driver",
+              "passenger",
+              "rear_left",
+              "rear_right"
+            ],
+            "description": "主驾、副驾、后排左侧、后排右侧"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        },
+        "required": [
+          "seat",
+          "level"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "副驾座椅通风设为三档",
+          "arguments": {
+            "seat": "passenger",
+            "level": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.sunroof.set_position",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "sunroof"
+      ],
+      "title": "设置天窗开度",
+      "description": "设置天窗开度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置天窗开度",
+        "天窗",
+        "set position"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "open_percent": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "open_percent"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "把天窗打开一半",
+          "arguments": {
+            "open_percent": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.sunroof.set_sunshade",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "sunroof"
+      ],
+      "title": "设置天窗遮阳帘",
+      "description": "设置天窗遮阳帘。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置天窗遮阳帘",
+        "天窗",
+        "set sunshade"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "open_percent": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "open_percent"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "完全关闭天窗遮阳帘",
+          "arguments": {
+            "open_percent": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.sunroof.set_tilt",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "sunroof"
+      ],
+      "title": "天窗翘起开关",
+      "description": "天窗翘起开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "天窗翘起开关",
+        "天窗",
+        "set tilt"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "将天窗翘起",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.sunroof.stop",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "sunroof"
+      ],
+      "title": "停止天窗运动",
+      "description": "停止天窗运动。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "停止天窗运动",
+        "天窗",
+        "stop"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "停止天窗当前运动",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "control.suspension.set_height",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "suspension"
+      ],
+      "title": "调整空气悬架高度",
+      "description": "raise/lower 表示升高或降低一档；set 时必须给出 low/normal/high 高度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "调整空气悬架高度",
+        "悬架",
+        "set height"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "raise",
+              "lower",
+              "set"
+            ]
+          },
+          "height": {
+            "type": "string",
+            "enum": [
+              "low",
+              "normal",
+              "high"
+            ]
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "action": {
+                  "const": "set"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "height"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "height"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "把空气悬架升高一档",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "preconditions": [
+        {
+          "pointer": "/equipment/air_suspension",
+          "equals": true,
+          "code": "NOT_EQUIPPED",
+          "message": "该模拟车辆未配备空气悬架"
+        },
+        {
+          "pointer": "/interfaces/suspension",
+          "equals": true,
+          "code": "INTERFACE_UNAVAILABLE",
+          "message": "模拟车辆有配置，但当前未开放悬架接口"
+        },
+        {
+          "pointer": "/state/driving/is_parked",
+          "equals": true,
+          "code": "PRECONDITION_NOT_MET",
+          "message": "本模拟悬架接口要求车辆处于驻车状态"
+        }
+      ]
+    },
+    {
+      "id": "control.suspension.set_loading_mode",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "suspension"
+      ],
+      "title": "悬架装载模式",
+      "description": "悬架装载模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "悬架装载模式",
+        "悬架",
+        "set loading mode"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "开启悬架装载模式",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "preconditions": [
+        {
+          "pointer": "/equipment/air_suspension",
+          "equals": true,
+          "code": "NOT_EQUIPPED",
+          "message": "该模拟车辆未配备空气悬架"
+        },
+        {
+          "pointer": "/interfaces/suspension",
+          "equals": true,
+          "code": "INTERFACE_UNAVAILABLE",
+          "message": "模拟车辆有配置，但当前未开放悬架接口"
+        },
+        {
+          "pointer": "/state/driving/is_parked",
+          "equals": true,
+          "code": "PRECONDITION_NOT_MET",
+          "message": "本模拟悬架接口要求车辆处于驻车状态"
+        }
+      ]
+    },
+    {
+      "id": "control.suspension.set_mode",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "suspension"
+      ],
+      "title": "设置悬架模式",
+      "description": "设置悬架模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置悬架模式",
+        "悬架",
+        "set mode"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "comfort",
+              "sport",
+              "auto"
+            ],
+            "description": "舒适、运动、自动"
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "悬架切换到舒适模式",
+          "arguments": {
+            "mode": "comfort"
+          }
+        }
+      ],
+      "preconditions": [
+        {
+          "pointer": "/equipment/air_suspension",
+          "equals": true,
+          "code": "NOT_EQUIPPED",
+          "message": "该模拟车辆未配备空气悬架"
+        },
+        {
+          "pointer": "/interfaces/suspension",
+          "equals": true,
+          "code": "INTERFACE_UNAVAILABLE",
+          "message": "模拟车辆有配置，但当前未开放悬架接口"
+        },
+        {
+          "pointer": "/state/driving/is_parked",
+          "equals": true,
+          "code": "PRECONDITION_NOT_MET",
+          "message": "本模拟悬架接口要求车辆处于驻车状态"
+        }
+      ]
+    },
+    {
+      "id": "control.windows.close",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "windows"
+      ],
+      "title": "关闭车窗",
+      "description": "关闭车窗。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "关闭车窗",
+        "车窗",
+        "close"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": [
+              "front_left",
+              "front_right",
+              "rear_left",
+              "rear_right",
+              "all"
+            ],
+            "description": "左前、右前、左后、右后、全部"
+          }
+        },
+        "required": [
+          "window"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "关闭所有车窗",
+          "arguments": {
+            "window": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.windows.open",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "windows"
+      ],
+      "title": "完全打开车窗",
+      "description": "完全打开车窗。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "完全打开车窗",
+        "车窗",
+        "open"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": [
+              "front_left",
+              "front_right",
+              "rear_left",
+              "rear_right",
+              "all"
+            ],
+            "description": "左前、右前、左后、右后、全部"
+          }
+        },
+        "required": [
+          "window"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "完全打开右后车窗",
+          "arguments": {
+            "window": "rear_right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.windows.set_child_lock",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "windows"
+      ],
+      "title": "车窗儿童锁",
+      "description": "车窗儿童锁。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "车窗儿童锁",
+        "车窗",
+        "set child lock"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "打开车窗儿童锁",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.windows.set_one_touch",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "windows"
+      ],
+      "title": "车窗一键升降开关",
+      "description": "车窗一键升降开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "车窗一键升降开关",
+        "车窗",
+        "set one touch"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": [
+              "front_left",
+              "front_right",
+              "rear_left",
+              "rear_right",
+              "all"
+            ],
+            "description": "左前、右前、左后、右后、全部"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "window",
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "启用左前车窗的一键升降功能",
+          "arguments": {
+            "window": "front_left",
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.windows.set_position",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "windows"
+      ],
+      "title": "设置车窗开度",
+      "description": "设置车窗开度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "设置车窗开度",
+        "车窗",
+        "set position"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": [
+              "front_left",
+              "front_right",
+              "rear_left",
+              "rear_right",
+              "all"
+            ],
+            "description": "左前、右前、左后、右后、全部"
+          },
+          "open_percent": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          }
+        },
+        "required": [
+          "window",
+          "open_percent"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "左前车窗打开一半",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "control.windows.stop",
+      "version": "1.0.0",
+      "kind": "control",
+      "category_path": [
+        "control",
+        "windows"
+      ],
+      "title": "停止车窗运动",
+      "description": "停止车窗运动。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+      "aliases": [
+        "停止车窗运动",
+        "车窗",
+        "stop"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "window": {
+            "type": "string",
+            "enum": [
+              "front_left",
+              "front_right",
+              "rear_left",
+              "rear_right",
+              "all"
+            ],
+            "description": "左前、右前、左后、右后、全部"
+          }
+        },
+        "required": [
+          "window"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "prepared": {
+            "const": true
+          }
+        },
+        "required": [
+          "prepared"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "prepare_only"
+      },
+      "examples": [
+        {
+          "instruction": "停止右前车窗的升降",
+          "arguments": {
+            "window": "front_right"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.climate.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "climate"
+      ],
+      "title": "查询空调车书",
+      "description": "查询模拟空调使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "空调",
+        "说明书",
+        "车书",
+        "climate"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "空调使用说明（模拟）",
+            "text": "模拟车型的空调功能包括：温度、风量、风向、制冷、循环和除霜。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "climate"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的空调功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.lights.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "lights"
+      ],
+      "title": "查询灯光车书",
+      "description": "查询模拟灯光使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "灯光",
+        "说明书",
+        "车书",
+        "lights"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "灯光使用说明（模拟）",
+            "text": "模拟车型的灯光功能包括：氛围灯、阅读灯、大灯和伴我回家照明。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "lights"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的灯光功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.mirrors.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "mirrors"
+      ],
+      "title": "查询后视镜车书",
+      "description": "查询模拟后视镜使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "后视镜",
+        "说明书",
+        "车书",
+        "mirrors"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "后视镜使用说明（模拟）",
+            "text": "模拟车型的后视镜功能包括：镜面方向、折叠、加热与自动折叠。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "mirrors"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的后视镜功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.multimedia.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "multimedia"
+      ],
+      "title": "查询多媒体车书",
+      "description": "查询模拟多媒体使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "多媒体",
+        "说明书",
+        "车书",
+        "multimedia"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "多媒体使用说明（模拟）",
+            "text": "模拟车型的多媒体功能包括：音量、静音、播放、音源、曲目、进度与播放模式。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "multimedia"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的多媒体功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.seats.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "seats"
+      ],
+      "title": "查询座椅车书",
+      "description": "查询模拟座椅使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "座椅",
+        "说明书",
+        "车书",
+        "seats"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "座椅使用说明（模拟）",
+            "text": "模拟车型的座椅功能包括：加热、通风、位置、靠背、腰托、按摩与记忆。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "seats"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的座椅功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.sunroof.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "sunroof"
+      ],
+      "title": "查询天窗车书",
+      "description": "查询模拟天窗使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "天窗",
+        "说明书",
+        "车书",
+        "sunroof"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "天窗使用说明（模拟）",
+            "text": "模拟车型的天窗功能包括：天窗开度、翘起、遮阳帘与停止。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "sunroof"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的天窗功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.suspension.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "suspension"
+      ],
+      "title": "查询悬架车书",
+      "description": "查询模拟悬架使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "悬架",
+        "说明书",
+        "车书",
+        "suspension"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "悬架使用说明（模拟）",
+            "text": "模拟车型的悬架功能包括：空气悬架高度、模式与装载功能。参数范围以工具 Schema 为准，本说明不是实际车辆手册。空气悬架为选配；需要查询本车配置核实。模拟调节接口要求已配备、接口开放且处于驻车状态。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "suspension"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的悬架功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "manual.windows.lookup",
+      "version": "1.0.0",
+      "kind": "manual",
+      "category_path": [
+        "manual",
+        "windows"
+      ],
+      "title": "查询车窗车书",
+      "description": "查询模拟车窗使用说明与限制，不证明本车实际配备。",
+      "aliases": [
+        "车窗",
+        "说明书",
+        "车书",
+        "windows"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "topic": {
+            "type": "string",
+            "enum": [
+              "overview"
+            ],
+            "description": "overview 表示功能概述、用法和限制"
+          }
+        },
+        "required": [
+          "topic"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "section": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "document",
+              "section"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "title",
+          "text",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "argument_lookup",
+        "argument": "topic",
+        "cases": {
+          "overview": {
+            "title": "车窗使用说明（模拟）",
+            "text": "模拟车型的车窗功能包括：车窗开度、开关、停止、锁定及一键功能。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+            "source": {
+              "kind": "mock_manual",
+              "document": "demo-vehicle-manual-v1",
+              "section": "windows"
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "instruction": "查一下车书里的车窗功能说明",
+          "arguments": {
+            "topic": "overview"
+          }
+        }
+      ]
+    },
+    {
+      "id": "status.climate.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "climate"
+      ],
+      "title": "查询空调状态",
+      "description": "读取当前模拟 profile 的空调状态，不是真实采集。",
+      "aliases": [
+        "空调",
+        "状态",
+        "climate"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "driver_temperature_c": {
+            "type": "number"
+          },
+          "passenger_temperature_c": {
+            "type": "number"
+          },
+          "fan_speed": {
+            "type": "number"
+          },
+          "airflow": {
+            "type": "string"
+          },
+          "ac_enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "driver_temperature_c",
+          "passenger_temperature_c",
+          "fan_speed",
+          "airflow",
+          "ac_enabled"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/climate"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前空调状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.lights.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "lights"
+      ],
+      "title": "查询灯光状态",
+      "description": "读取当前模拟 profile 的灯光状态，不是真实采集。",
+      "aliases": [
+        "灯光",
+        "状态",
+        "lights"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ambient_color": {
+            "type": "string"
+          },
+          "brightness_percent": {
+            "type": "number"
+          },
+          "headlight_mode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ambient_color",
+          "brightness_percent",
+          "headlight_mode"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/lights"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前灯光状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.mirrors.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "mirrors"
+      ],
+      "title": "查询后视镜状态",
+      "description": "读取当前模拟 profile 的后视镜状态，不是真实采集。",
+      "aliases": [
+        "后视镜",
+        "状态",
+        "mirrors"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "folded": {
+            "type": "boolean"
+          },
+          "heating": {
+            "type": "boolean"
+          },
+          "auto_fold": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "folded",
+          "heating",
+          "auto_fold"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/mirrors"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前后视镜状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.multimedia.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "multimedia"
+      ],
+      "title": "查询多媒体状态",
+      "description": "读取当前模拟 profile 的多媒体状态，不是真实采集。",
+      "aliases": [
+        "多媒体",
+        "状态",
+        "multimedia"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "volume_percent": {
+            "type": "number"
+          },
+          "muted": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string"
+          },
+          "playing": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "volume_percent",
+          "muted",
+          "source",
+          "playing"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/multimedia"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前多媒体状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.seats.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "seats"
+      ],
+      "title": "查询座椅状态",
+      "description": "读取当前模拟 profile 的座椅状态，不是真实采集。",
+      "aliases": [
+        "座椅",
+        "状态",
+        "seats"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "driver_heating_level": {
+            "type": "number"
+          },
+          "driver_ventilation_level": {
+            "type": "number"
+          },
+          "passenger_heating_level": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "driver_heating_level",
+          "driver_ventilation_level",
+          "passenger_heating_level"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/seats"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前座椅状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.sunroof.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "sunroof"
+      ],
+      "title": "查询天窗状态",
+      "description": "读取当前模拟 profile 的天窗状态，不是真实采集。",
+      "aliases": [
+        "天窗",
+        "状态",
+        "sunroof"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "open_percent": {
+            "type": "number"
+          },
+          "tilted": {
+            "type": "boolean"
+          },
+          "sunshade_open_percent": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "open_percent",
+          "tilted",
+          "sunshade_open_percent"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/sunroof"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前天窗状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.suspension.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "suspension"
+      ],
+      "title": "查询悬架状态",
+      "description": "读取当前模拟 profile 的悬架状态，不是真实采集。",
+      "aliases": [
+        "悬架",
+        "状态",
+        "suspension"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "available": {
+            "type": "boolean"
+          },
+          "height": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "available",
+          "height",
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/suspension"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前悬架状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.vehicle.get_configuration",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "vehicle"
+      ],
+      "title": "查询本车配置和接口",
+      "description": "查询本车配置和接口，数据来自模拟配置快照，不是真车。",
+      "aliases": [
+        "查询本车配置和接口",
+        "车辆",
+        "配置",
+        "vehicle"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "equipment": {
+            "type": "object",
+            "properties": {
+              "climate": {
+                "type": "boolean"
+              },
+              "windows": {
+                "type": "boolean"
+              },
+              "seats": {
+                "type": "boolean"
+              },
+              "multimedia": {
+                "type": "boolean"
+              },
+              "lights": {
+                "type": "boolean"
+              },
+              "mirrors": {
+                "type": "boolean"
+              },
+              "air_suspension": {
+                "type": "boolean"
+              },
+              "sunroof": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "climate",
+              "windows",
+              "seats",
+              "multimedia",
+              "lights",
+              "mirrors",
+              "air_suspension",
+              "sunroof"
+            ],
+            "additionalProperties": false
+          },
+          "interfaces": {
+            "type": "object",
+            "properties": {
+              "suspension": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "suspension"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "equipment",
+          "interfaces"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/configuration"
+      },
+      "examples": [
+        {
+          "instruction": "查询本车配置和接口",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.vehicle.get_driving_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "vehicle"
+      ],
+      "title": "查询驾驶状态",
+      "description": "查询驾驶状态，数据来自模拟配置快照，不是真车。",
+      "aliases": [
+        "查询驾驶状态",
+        "车辆",
+        "配置",
+        "vehicle"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "is_parked": {
+            "type": "boolean"
+          },
+          "speed_kmh": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "is_parked",
+          "speed_kmh"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/driving"
+      },
+      "examples": [
+        {
+          "instruction": "查询驾驶状态",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "status.windows.get_state",
+      "version": "1.0.0",
+      "kind": "status",
+      "category_path": [
+        "status",
+        "windows"
+      ],
+      "title": "查询车窗状态",
+      "description": "读取当前模拟 profile 的车窗状态，不是真实采集。",
+      "aliases": [
+        "车窗",
+        "状态",
+        "windows"
+      ],
+      "enabled": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "front_left_open_percent": {
+            "type": "number"
+          },
+          "front_right_open_percent": {
+            "type": "number"
+          },
+          "rear_left_open_percent": {
+            "type": "number"
+          },
+          "rear_right_open_percent": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "front_left_open_percent",
+          "front_right_open_percent",
+          "rear_left_open_percent",
+          "rear_right_open_percent"
+        ],
+        "additionalProperties": false
+      },
+      "mock": {
+        "mode": "profile_pointer",
+        "pointer": "/state/windows"
+      },
+      "examples": [
+        {
+          "instruction": "查询当前车窗状态",
+          "arguments": {}
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "demo-driving",
+      "title": "车辆行驶中",
+      "description": "用于失败原因查证的模拟场景",
+      "data": {
+        "equipment": {
+          "climate": true,
+          "windows": true,
+          "seats": true,
+          "multimedia": true,
+          "lights": true,
+          "mirrors": true,
+          "air_suspension": true,
+          "sunroof": true
+        },
+        "interfaces": {
+          "suspension": true
+        },
+        "state": {
+          "climate": {
+            "driver_temperature_c": 22,
+            "passenger_temperature_c": 22,
+            "fan_speed": 2,
+            "airflow": "face",
+            "ac_enabled": true
+          },
+          "windows": {
+            "front_left_open_percent": 0,
+            "front_right_open_percent": 0,
+            "rear_left_open_percent": 0,
+            "rear_right_open_percent": 0
+          },
+          "seats": {
+            "driver_heating_level": 0,
+            "driver_ventilation_level": 0,
+            "passenger_heating_level": 0
+          },
+          "multimedia": {
+            "volume_percent": 20,
+            "muted": false,
+            "source": "bluetooth",
+            "playing": false
+          },
+          "lights": {
+            "ambient_color": "#FFFFFF",
+            "brightness_percent": 30,
+            "headlight_mode": "auto"
+          },
+          "mirrors": {
+            "folded": false,
+            "heating": false,
+            "auto_fold": true
+          },
+          "suspension": {
+            "available": true,
+            "height": "normal",
+            "mode": "comfort"
+          },
+          "sunroof": {
+            "open_percent": 0,
+            "tilted": false,
+            "sunshade_open_percent": 0
+          },
+          "driving": {
+            "is_parked": false,
+            "speed_kmh": 45
+          }
+        },
+        "sample_observed_at": "2026-11-14T00:00:00+08:00",
+        "configuration": {
+          "equipment": {
+            "climate": true,
+            "windows": true,
+            "seats": true,
+            "multimedia": true,
+            "lights": true,
+            "mirrors": true,
+            "air_suspension": true,
+            "sunroof": true
+          },
+          "interfaces": {
+            "suspension": true
+          }
+        }
+      }
+    },
+    {
+      "id": "demo-interface-missing",
+      "title": "悬架接口未开放",
+      "description": "用于失败原因查证的模拟场景",
+      "data": {
+        "equipment": {
+          "climate": true,
+          "windows": true,
+          "seats": true,
+          "multimedia": true,
+          "lights": true,
+          "mirrors": true,
+          "air_suspension": true,
+          "sunroof": true
+        },
+        "interfaces": {
+          "suspension": false
+        },
+        "state": {
+          "climate": {
+            "driver_temperature_c": 22,
+            "passenger_temperature_c": 22,
+            "fan_speed": 2,
+            "airflow": "face",
+            "ac_enabled": true
+          },
+          "windows": {
+            "front_left_open_percent": 0,
+            "front_right_open_percent": 0,
+            "rear_left_open_percent": 0,
+            "rear_right_open_percent": 0
+          },
+          "seats": {
+            "driver_heating_level": 0,
+            "driver_ventilation_level": 0,
+            "passenger_heating_level": 0
+          },
+          "multimedia": {
+            "volume_percent": 20,
+            "muted": false,
+            "source": "bluetooth",
+            "playing": false
+          },
+          "lights": {
+            "ambient_color": "#FFFFFF",
+            "brightness_percent": 30,
+            "headlight_mode": "auto"
+          },
+          "mirrors": {
+            "folded": false,
+            "heating": false,
+            "auto_fold": true
+          },
+          "suspension": {
+            "available": true,
+            "height": "normal",
+            "mode": "comfort"
+          },
+          "sunroof": {
+            "open_percent": 0,
+            "tilted": false,
+            "sunshade_open_percent": 0
+          },
+          "driving": {
+            "is_parked": true,
+            "speed_kmh": 0
+          }
+        },
+        "sample_observed_at": "2026-11-14T00:00:00+08:00",
+        "configuration": {
+          "equipment": {
+            "climate": true,
+            "windows": true,
+            "seats": true,
+            "multimedia": true,
+            "lights": true,
+            "mirrors": true,
+            "air_suspension": true,
+            "sunroof": true
+          },
+          "interfaces": {
+            "suspension": false
+          }
+        }
+      }
+    },
+    {
+      "id": "demo-no-suspension",
+      "title": "未配备空气悬架",
+      "description": "用于失败原因查证的模拟场景",
+      "data": {
+        "equipment": {
+          "climate": true,
+          "windows": true,
+          "seats": true,
+          "multimedia": true,
+          "lights": true,
+          "mirrors": true,
+          "air_suspension": false,
+          "sunroof": true
+        },
+        "interfaces": {
+          "suspension": true
+        },
+        "state": {
+          "climate": {
+            "driver_temperature_c": 22,
+            "passenger_temperature_c": 22,
+            "fan_speed": 2,
+            "airflow": "face",
+            "ac_enabled": true
+          },
+          "windows": {
+            "front_left_open_percent": 0,
+            "front_right_open_percent": 0,
+            "rear_left_open_percent": 0,
+            "rear_right_open_percent": 0
+          },
+          "seats": {
+            "driver_heating_level": 0,
+            "driver_ventilation_level": 0,
+            "passenger_heating_level": 0
+          },
+          "multimedia": {
+            "volume_percent": 20,
+            "muted": false,
+            "source": "bluetooth",
+            "playing": false
+          },
+          "lights": {
+            "ambient_color": "#FFFFFF",
+            "brightness_percent": 30,
+            "headlight_mode": "auto"
+          },
+          "mirrors": {
+            "folded": false,
+            "heating": false,
+            "auto_fold": true
+          },
+          "suspension": {
+            "available": false,
+            "height": null,
+            "mode": null
+          },
+          "sunroof": {
+            "open_percent": 0,
+            "tilted": false,
+            "sunshade_open_percent": 0
+          },
+          "driving": {
+            "is_parked": true,
+            "speed_kmh": 0
+          }
+        },
+        "sample_observed_at": "2026-11-14T00:00:00+08:00",
+        "configuration": {
+          "equipment": {
+            "climate": true,
+            "windows": true,
+            "seats": true,
+            "multimedia": true,
+            "lights": true,
+            "mirrors": true,
+            "air_suspension": false,
+            "sunroof": true
+          },
+          "interfaces": {
+            "suspension": true
+          }
+        }
+      }
+    },
+    {
+      "id": "demo-ready",
+      "title": "配置完整 / 驻车",
+      "description": "所有状态均为固定示例，不代表实时车辆",
+      "data": {
+        "equipment": {
+          "climate": true,
+          "windows": true,
+          "seats": true,
+          "multimedia": true,
+          "lights": true,
+          "mirrors": true,
+          "air_suspension": true,
+          "sunroof": true
+        },
+        "interfaces": {
+          "suspension": true
+        },
+        "state": {
+          "climate": {
+            "driver_temperature_c": 22,
+            "passenger_temperature_c": 22,
+            "fan_speed": 2,
+            "airflow": "face",
+            "ac_enabled": true
+          },
+          "windows": {
+            "front_left_open_percent": 0,
+            "front_right_open_percent": 0,
+            "rear_left_open_percent": 0,
+            "rear_right_open_percent": 0
+          },
+          "seats": {
+            "driver_heating_level": 0,
+            "driver_ventilation_level": 0,
+            "passenger_heating_level": 0
+          },
+          "multimedia": {
+            "volume_percent": 20,
+            "muted": false,
+            "source": "bluetooth",
+            "playing": false
+          },
+          "lights": {
+            "ambient_color": "#FFFFFF",
+            "brightness_percent": 30,
+            "headlight_mode": "auto"
+          },
+          "mirrors": {
+            "folded": false,
+            "heating": false,
+            "auto_fold": true
+          },
+          "suspension": {
+            "available": true,
+            "height": "normal",
+            "mode": "comfort"
+          },
+          "sunroof": {
+            "open_percent": 0,
+            "tilted": false,
+            "sunshade_open_percent": 0
+          },
+          "driving": {
+            "is_parked": true,
+            "speed_kmh": 0
+          }
+        },
+        "sample_observed_at": "2026-11-14T00:00:00+08:00",
+        "configuration": {
+          "equipment": {
+            "climate": true,
+            "windows": true,
+            "seats": true,
+            "multimedia": true,
+            "lights": true,
+            "mirrors": true,
+            "air_suspension": true,
+            "sunroof": true
+          },
+          "interfaces": {
+            "suspension": true
+          }
+        }
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "C001",
+      "kind": "control",
+      "instruction": "把所有分区空调设为23度",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_temperature",
+            "arguments": {
+              "zone": "all",
+              "temperature_c": 23
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C002",
+      "kind": "control",
+      "instruction": "主驾空调风量设为三档",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C003",
+      "kind": "control",
+      "instruction": "主驾空调改为吹脚",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_airflow",
+            "arguments": {
+              "zone": "driver",
+              "direction": "feet"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C004",
+      "kind": "control",
+      "instruction": "打开空调AC制冷",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_ac",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C005",
+      "kind": "control",
+      "instruction": "所有分区空调开启自动模式",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_auto",
+            "arguments": {
+              "zone": "all",
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C006",
+      "kind": "control",
+      "instruction": "空调切换到内循环",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_recirculation",
+            "arguments": {
+              "mode": "internal"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C007",
+      "kind": "control",
+      "instruction": "开启前挡风玻璃除霜",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_front_defrost",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C008",
+      "kind": "control",
+      "instruction": "开启后挡风玻璃除霜",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_rear_defrost",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C009",
+      "kind": "control",
+      "instruction": "开启空调双区独立控制",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_dual_zone",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C010",
+      "kind": "control",
+      "instruction": "开启空调分区同步",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_sync",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C011",
+      "kind": "control",
+      "instruction": "左前车窗打开一半",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C012",
+      "kind": "control",
+      "instruction": "完全打开右后车窗",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.windows.open",
+            "arguments": {
+              "window": "rear_right"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C013",
+      "kind": "control",
+      "instruction": "关闭所有车窗",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.windows.close",
+            "arguments": {
+              "window": "all"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C014",
+      "kind": "control",
+      "instruction": "停止右前车窗的升降",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.windows.stop",
+            "arguments": {
+              "window": "front_right"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C015",
+      "kind": "control",
+      "instruction": "打开车窗儿童锁",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.windows.set_child_lock",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C016",
+      "kind": "control",
+      "instruction": "启用左前车窗的一键升降功能",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.windows.set_one_touch",
+            "arguments": {
+              "window": "front_left",
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C017",
+      "kind": "control",
+      "instruction": "主驾座椅加热设为二档",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.set_heating",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C018",
+      "kind": "control",
+      "instruction": "副驾座椅通风设为三档",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "passenger",
+              "level": 3
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C019",
+      "kind": "control",
+      "instruction": "主驾座椅向后移动20毫米",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.move",
+            "arguments": {
+              "seat": "driver",
+              "direction": "backward",
+              "distance_mm": 20
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C020",
+      "kind": "control",
+      "instruction": "副驾座椅靠背设为110度",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.set_backrest",
+            "arguments": {
+              "seat": "passenger",
+              "angle_deg": 110
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C021",
+      "kind": "control",
+      "instruction": "主驾座椅腰托调到三档",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.set_lumbar",
+            "arguments": {
+              "seat": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C022",
+      "kind": "control",
+      "instruction": "主驾座椅开启波浪按摩，强度二档",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.set_massage",
+            "arguments": {
+              "seat": "driver",
+              "mode": "wave",
+              "intensity": 2
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C023",
+      "kind": "control",
+      "instruction": "将主驾座椅当前位置保存为记忆一",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.save_memory",
+            "arguments": {
+              "seat": "driver",
+              "slot": 1
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C024",
+      "kind": "control",
+      "instruction": "将主驾座椅恢复到记忆二",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.seats.recall_memory",
+            "arguments": {
+              "seat": "driver",
+              "slot": 2
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C025",
+      "kind": "control",
+      "instruction": "媒体音量设为30%",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.set_volume",
+            "arguments": {
+              "volume_percent": 30
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C026",
+      "kind": "control",
+      "instruction": "开启媒体静音",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.set_mute",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C027",
+      "kind": "control",
+      "instruction": "暂停媒体播放",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.playback",
+            "arguments": {
+              "action": "pause"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C028",
+      "kind": "control",
+      "instruction": "媒体音源切换到蓝牙",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.select_source",
+            "arguments": {
+              "source": "bluetooth"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C029",
+      "kind": "control",
+      "instruction": "播放示例曲目《模拟晴天》",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.select_track",
+            "arguments": {
+              "track_id": "demo_sunny"
+            }
+          },
+          {
+            "tool_id": "control.multimedia.playback",
+            "arguments": {
+              "action": "play"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C030",
+      "kind": "control",
+      "instruction": "把媒体播放进度跳到90秒",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.seek",
+            "arguments": {
+              "position_seconds": 90
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C031",
+      "kind": "control",
+      "instruction": "媒体改为单曲循环",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.set_repeat",
+            "arguments": {
+              "mode": "one"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C032",
+      "kind": "control",
+      "instruction": "开启媒体随机播放",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.multimedia.set_shuffle",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C033",
+      "kind": "control",
+      "instruction": "氛围灯设为蓝色，颜色值#0000FF",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_ambient_color",
+            "arguments": {
+              "color": "#0000FF"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C034",
+      "kind": "control",
+      "instruction": "氛围灯亮度设为60%",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_ambient_brightness",
+            "arguments": {
+              "brightness_percent": 60
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C035",
+      "kind": "control",
+      "instruction": "打开右前阅读灯",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_reading",
+            "arguments": {
+              "position": "front_right",
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C036",
+      "kind": "control",
+      "instruction": "大灯切换为自动模式",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_headlight_mode",
+            "arguments": {
+              "mode": "auto"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C037",
+      "kind": "control",
+      "instruction": "关闭远光灯",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_high_beam",
+            "arguments": {
+              "enabled": false
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C038",
+      "kind": "control",
+      "instruction": "伴我回家照明设为30秒",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_follow_me_home",
+            "arguments": {
+              "duration_seconds": 30
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C039",
+      "kind": "control",
+      "instruction": "打开氛围灯",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.lights.set_ambient_power",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C040",
+      "kind": "control",
+      "instruction": "左后视镜向下调一格",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.mirrors.adjust",
+            "arguments": {
+              "mirror": "left",
+              "direction": "down",
+              "steps": 1
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C041",
+      "kind": "control",
+      "instruction": "折叠两侧后视镜",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.mirrors.fold",
+            "arguments": {
+              "mirror": "both",
+              "folded": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C042",
+      "kind": "control",
+      "instruction": "开启后视镜加热",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.mirrors.set_heating",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C043",
+      "kind": "control",
+      "instruction": "开启后视镜自动折叠功能",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.mirrors.set_auto_fold",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C044",
+      "kind": "control",
+      "instruction": "把空气悬架升高一档",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.suspension.set_height",
+            "arguments": {
+              "action": "raise"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C045",
+      "kind": "control",
+      "instruction": "悬架切换到舒适模式",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.suspension.set_mode",
+            "arguments": {
+              "mode": "comfort"
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C046",
+      "kind": "control",
+      "instruction": "开启悬架装载模式",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.suspension.set_loading_mode",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C047",
+      "kind": "control",
+      "instruction": "把天窗打开一半",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.sunroof.set_position",
+            "arguments": {
+              "open_percent": 50
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C048",
+      "kind": "control",
+      "instruction": "将天窗翘起",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.sunroof.set_tilt",
+            "arguments": {
+              "enabled": true
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C049",
+      "kind": "control",
+      "instruction": "完全关闭天窗遮阳帘",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.sunroof.set_sunshade",
+            "arguments": {
+              "open_percent": 0
+            }
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "C050",
+      "kind": "control",
+      "instruction": "停止天窗当前运动",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "prepared",
+        "calls": [
+          {
+            "tool_id": "control.sunroof.stop",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "control"
+        ]
+      }
+    },
+    {
+      "id": "Q001",
+      "kind": "query",
+      "instruction": "查一下车书里的空调功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.climate.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q002",
+      "kind": "query",
+      "instruction": "查询当前空调状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.climate.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q003",
+      "kind": "query",
+      "instruction": "查一下车书里的车窗功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.windows.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q004",
+      "kind": "query",
+      "instruction": "查询当前车窗状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.windows.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q005",
+      "kind": "query",
+      "instruction": "查一下车书里的座椅功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.seats.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q006",
+      "kind": "query",
+      "instruction": "查询当前座椅状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.seats.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q007",
+      "kind": "query",
+      "instruction": "查一下车书里的多媒体功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.multimedia.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q008",
+      "kind": "query",
+      "instruction": "查询当前多媒体状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.multimedia.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q009",
+      "kind": "query",
+      "instruction": "查一下车书里的灯光功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.lights.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q010",
+      "kind": "query",
+      "instruction": "查询当前灯光状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.lights.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q011",
+      "kind": "query",
+      "instruction": "查一下车书里的后视镜功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.mirrors.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q012",
+      "kind": "query",
+      "instruction": "查询当前后视镜状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.mirrors.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q013",
+      "kind": "query",
+      "instruction": "查一下车书里的悬架功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.suspension.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q014",
+      "kind": "query",
+      "instruction": "查询当前悬架状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.suspension.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q015",
+      "kind": "query",
+      "instruction": "查一下车书里的天窗功能说明",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "manual.sunroof.lookup",
+            "arguments": {
+              "topic": "overview"
+            }
+          }
+        ],
+        "required_domains": [
+          "manual"
+        ]
+      }
+    },
+    {
+      "id": "Q016",
+      "kind": "query",
+      "instruction": "查询当前天窗状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.sunroof.get_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q017",
+      "kind": "query",
+      "instruction": "查询本车配置和接口",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.vehicle.get_configuration",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "Q018",
+      "kind": "query",
+      "instruction": "查询驾驶状态",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "answered",
+        "calls": [
+          {
+            "tool_id": "status.vehicle.get_driving_state",
+            "arguments": {}
+          }
+        ],
+        "required_domains": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "X001",
+      "kind": "cross_domain",
+      "instruction": "帮我把空气悬架升高一档；如果不能生成，请查车辆配置或车况，并结合车书说明原因。",
+      "profile_id": "demo-no-suspension",
+      "expected": {
+        "outcome": "unsupported",
+        "calls": [],
+        "required_domains": [
+          "control",
+          "manual",
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "X002",
+      "kind": "cross_domain",
+      "instruction": "帮我把空气悬架升高一档；如果不能生成，请查车辆配置或车况，并结合车书说明原因。",
+      "profile_id": "demo-interface-missing",
+      "expected": {
+        "outcome": "unsupported",
+        "calls": [],
+        "required_domains": [
+          "control",
+          "manual",
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "X003",
+      "kind": "cross_domain",
+      "instruction": "帮我把空气悬架升高一档；如果不能生成，请查车辆配置或车况，并结合车书说明原因。",
+      "profile_id": "demo-driving",
+      "expected": {
+        "outcome": "unsupported",
+        "calls": [],
+        "required_domains": [
+          "control",
+          "manual",
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "X004",
+      "kind": "cross_domain",
+      "instruction": "查一下车书里空调的说明，再把所有分区空调设为23度。",
+      "profile_id": "demo-ready",
+      "expected": {
+        "outcome": "mixed",
+        "calls": [
+          {
+            "tool_id": "control.climate.set_temperature",
+            "arguments": {
+              "zone": "all",
+              "temperature_c": 23
+            }
+          }
+        ],
+        "required_domains": [
+          "manual",
+          "control"
+        ]
+      }
+    }
+  ]
+}

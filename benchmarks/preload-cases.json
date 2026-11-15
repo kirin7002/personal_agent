@@ -1,0 +1,20 @@
+{
+  "version": "preload-ab/v1",
+  "description": "同一模型与目录下成对比较完整目录与候选预加载；业务结果全部模拟。数值与工具配置示例刻意不同。",
+  "cases": [
+    {"id":"S01","group":"simple","goal":"把所有分区空调设为26度","profile_id":"demo-ready","expected_calls":[{"tool":"control.climate.set_temperature","arguments":{"zone":"all","temperature_c":26}}]},
+    {"id":"S02","group":"simple","goal":"主驾空调温度改为24度","profile_id":"demo-ready","expected_calls":[{"tool":"control.climate.set_temperature","arguments":{"zone":"driver","temperature_c":24}}]},
+    {"id":"S03","group":"simple","goal":"主驾空调风量设为四档","profile_id":"demo-ready","expected_calls":[{"tool":"control.climate.set_fan_speed","arguments":{"zone":"driver","level":4}}]},
+    {"id":"S04","group":"simple","goal":"左前车窗打开到40%","profile_id":"demo-ready","expected_calls":[{"tool":"control.windows.set_position","arguments":{"window":"front_left","open_percent":40}}]},
+    {"id":"S05","group":"simple","goal":"媒体音量设为35%","profile_id":"demo-ready","expected_calls":[{"tool":"control.multimedia.set_volume","arguments":{"volume_percent":35}}]},
+    {"id":"S06","group":"simple","goal":"副驾座椅通风设为二档","profile_id":"demo-ready","expected_calls":[{"tool":"control.seats.set_ventilation","arguments":{"seat":"passenger","level":2}}]},
+    {"id":"S07","group":"simple","goal":"氛围灯亮度设为70%","profile_id":"demo-ready","expected_calls":[{"tool":"control.lights.set_ambient_brightness","arguments":{"brightness_percent":70}}]},
+    {"id":"C01","group":"complex","goal":"把所有分区空调设为23度，同时主驾座椅加热设为二档","profile_id":"demo-ready","expected_calls":[{"tool":"control.climate.set_temperature","arguments":{"zone":"all","temperature_c":23}},{"tool":"control.seats.set_heating","arguments":{"seat":"driver","level":2}}]},
+    {"id":"C02","group":"complex","goal":"先查车书里的空调说明，再把所有分区空调设为23度","profile_id":"demo-ready","expected_calls":[{"tool":"control.climate.set_temperature","arguments":{"zone":"all","temperature_c":23}}],"required_query_domains":["manual"]},
+    {"id":"C03","group":"complex","goal":"播放示例曲目《模拟晴天》","profile_id":"demo-ready","expected_calls":[{"tool":"control.multimedia.select_track","arguments":{"track_id":"demo_sunny"}},{"tool":"control.multimedia.playback","arguments":{"action":"play"}}]},
+    {"id":"F01","group":"failure","goal":"把空气悬架升高一档","profile_id":"demo-no-suspension","expected_calls":[],"require_any_query":true,"expected_failure_code":"NOT_EQUIPPED","expected_evidence":{"tool":"status.vehicle.get_configuration","path":["equipment","air_suspension"],"value":false}},
+    {"id":"F02","group":"failure","goal":"把空气悬架升高一档","profile_id":"demo-driving","expected_calls":[],"require_any_query":true,"expected_failure_code":"PRECONDITION_NOT_MET","expected_evidence":{"tool":"status.vehicle.get_driving_state","path":["is_parked"],"value":false}},
+    {"id":"A01","group":"clarification","goal":"帮我调整空气悬架","profile_id":"demo-ready","answer":"升高一档","expected_calls":[{"tool":"control.suspension.set_height","arguments":{"action":"raise"}}]},
+    {"id":"I01","group":"invalid_argument","goal":"把所有分区空调设为45度","profile_id":"demo-ready","expect_rejection_or_question":true,"expected_calls":[]}
+  ]
+}

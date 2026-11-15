@@ -1,0 +1,44 @@
+{
+  "id": "control.sunroof.stop",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "sunroof"
+  ],
+  "title": "停止天窗运动",
+  "description": "停止天窗运动。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "停止天窗运动",
+    "天窗",
+    "stop"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "停止天窗当前运动",
+      "arguments": {}
+    }
+  ]
+}

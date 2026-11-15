@@ -1,0 +1,23 @@
+[project]
+name = "personal-agent-preview"
+version = "0.1.0"
+description = "Hermes + Qwen Audio vehicle tool-call preview (no vehicle execution)"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "httpx>=0.28,<1",
+  "websockets>=15,<17",
+  "jsonschema>=4.23,<5",
+  "mcp>=1.9,<2",
+  "python-dotenv>=1,<2",
+  "cryptography>=44,<51",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2", "playwright>=1.50,<2"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]

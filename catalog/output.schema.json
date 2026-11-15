@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vehicle tool-call preview (no execution)",
+  "type": "object",
+  "properties": {
+    "schema_version": {"const": "demo-1"},
+    "mode": {"const": "dry_run"},
+    "executed": {"const": false},
+    "calls": {"type": "array", "minItems": 1, "items": {"type": "object", "properties": {"tool": {"type": "string"}, "arguments": {"type": "object"}}, "required": ["tool", "arguments"], "additionalProperties": false}}
+  },
+  "required": ["schema_version", "mode", "executed", "calls"],
+  "additionalProperties": false
+}

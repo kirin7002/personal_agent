@@ -1,0 +1,58 @@
+{
+  "id": "control.lights.set_headlight_mode",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "lights"
+  ],
+  "title": "设置大灯模式",
+  "description": "设置大灯模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置大灯模式",
+    "灯光",
+    "set headlight mode"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "mode": {
+        "type": "string",
+        "enum": [
+          "off",
+          "auto",
+          "low_beam",
+          "position"
+        ]
+      }
+    },
+    "required": [
+      "mode"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "大灯切换为自动模式",
+      "arguments": {
+        "mode": "auto"
+      }
+    }
+  ]
+}

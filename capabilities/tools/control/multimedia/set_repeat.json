@@ -1,0 +1,58 @@
+{
+  "id": "control.multimedia.set_repeat",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "multimedia"
+  ],
+  "title": "设置媒体循环模式",
+  "description": "设置媒体循环模式。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置媒体循环模式",
+    "多媒体",
+    "set repeat"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "mode": {
+        "type": "string",
+        "enum": [
+          "off",
+          "one",
+          "all"
+        ],
+        "description": "关闭、单曲、列表循环"
+      }
+    },
+    "required": [
+      "mode"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "媒体改为单曲循环",
+      "arguments": {
+        "mode": "one"
+      }
+    }
+  ]
+}

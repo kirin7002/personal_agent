@@ -1,0 +1,4 @@
+name: vehicle-completion
+version: 0.1.0
+description: Finish validated single-control tasks locally, preserving the normal agent loop for all other tasks.
+author: Personal Agent Demo

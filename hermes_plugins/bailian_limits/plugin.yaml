@@ -1,0 +1,4 @@
+name: bailian-limits
+version: 0.1.0
+description: Cap Anthropic-compatible DashScope output tokens for this preview demo.
+author: Personal Agent Demo

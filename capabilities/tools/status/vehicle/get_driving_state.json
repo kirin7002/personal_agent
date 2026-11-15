@@ -1,0 +1,50 @@
+{
+  "id": "status.vehicle.get_driving_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "vehicle"
+  ],
+  "title": "查询驾驶状态",
+  "description": "查询驾驶状态，数据来自模拟配置快照，不是真车。",
+  "aliases": [
+    "查询驾驶状态",
+    "车辆",
+    "配置",
+    "vehicle"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "is_parked": {
+        "type": "boolean"
+      },
+      "speed_kmh": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "is_parked",
+      "speed_kmh"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/driving"
+  },
+  "examples": [
+    {
+      "instruction": "查询驾驶状态",
+      "arguments": {}
+    }
+  ]
+}

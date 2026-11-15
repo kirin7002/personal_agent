@@ -1,0 +1,53 @@
+{
+  "id": "control.lights.set_ambient_color",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "lights"
+  ],
+  "title": "设置氛围灯颜色",
+  "description": "设置氛围灯颜色。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置氛围灯颜色",
+    "灯光",
+    "set ambient color"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "color": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}$"
+      }
+    },
+    "required": [
+      "color"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "氛围灯设为蓝色，颜色值#0000FF",
+      "arguments": {
+        "color": "#0000FF"
+      }
+    }
+  ]
+}

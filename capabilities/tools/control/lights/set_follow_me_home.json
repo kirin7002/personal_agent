@@ -1,0 +1,54 @@
+{
+  "id": "control.lights.set_follow_me_home",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "lights"
+  ],
+  "title": "伴我回家照明",
+  "description": "伴我回家照明。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "伴我回家照明",
+    "灯光",
+    "set follow me home"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "duration_seconds": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 120
+      }
+    },
+    "required": [
+      "duration_seconds"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "伴我回家照明设为30秒",
+      "arguments": {
+        "duration_seconds": 30
+      }
+    }
+  ]
+}

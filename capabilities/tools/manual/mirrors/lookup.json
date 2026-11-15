@@ -1,0 +1,94 @@
+{
+  "id": "manual.mirrors.lookup",
+  "version": "1.0.0",
+  "kind": "manual",
+  "category_path": [
+    "manual",
+    "mirrors"
+  ],
+  "title": "查询后视镜车书",
+  "description": "查询模拟后视镜使用说明与限制，不证明本车实际配备。",
+  "aliases": [
+    "后视镜",
+    "说明书",
+    "车书",
+    "mirrors"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "topic": {
+        "type": "string",
+        "enum": [
+          "overview"
+        ],
+        "description": "overview 表示功能概述、用法和限制"
+      }
+    },
+    "required": [
+      "topic"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "source": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "document": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "document",
+          "section"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "title",
+      "text",
+      "source"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "argument_lookup",
+    "argument": "topic",
+    "cases": {
+      "overview": {
+        "title": "后视镜使用说明（模拟）",
+        "text": "模拟车型的后视镜功能包括：镜面方向、折叠、加热与自动折叠。参数范围以工具 Schema 为准，本说明不是实际车辆手册。",
+        "source": {
+          "kind": "mock_manual",
+          "document": "demo-vehicle-manual-v1",
+          "section": "mirrors"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "instruction": "查一下车书里的后视镜功能说明",
+      "arguments": {
+        "topic": "overview"
+      }
+    }
+  ]
+}

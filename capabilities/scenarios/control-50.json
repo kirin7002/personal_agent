@@ -1,0 +1,1026 @@
+[
+  {
+    "id": "C001",
+    "kind": "control",
+    "instruction": "把所有分区空调设为23度",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C002",
+    "kind": "control",
+    "instruction": "主驾空调风量设为三档",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 3
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C003",
+    "kind": "control",
+    "instruction": "主驾空调改为吹脚",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_airflow",
+          "arguments": {
+            "zone": "driver",
+            "direction": "feet"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C004",
+    "kind": "control",
+    "instruction": "打开空调AC制冷",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_ac",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C005",
+    "kind": "control",
+    "instruction": "所有分区空调开启自动模式",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_auto",
+          "arguments": {
+            "zone": "all",
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C006",
+    "kind": "control",
+    "instruction": "空调切换到内循环",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_recirculation",
+          "arguments": {
+            "mode": "internal"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C007",
+    "kind": "control",
+    "instruction": "开启前挡风玻璃除霜",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_front_defrost",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C008",
+    "kind": "control",
+    "instruction": "开启后挡风玻璃除霜",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_rear_defrost",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C009",
+    "kind": "control",
+    "instruction": "开启空调双区独立控制",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_dual_zone",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C010",
+    "kind": "control",
+    "instruction": "开启空调分区同步",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_sync",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C011",
+    "kind": "control",
+    "instruction": "左前车窗打开一半",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 50
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C012",
+    "kind": "control",
+    "instruction": "完全打开右后车窗",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.windows.open",
+          "arguments": {
+            "window": "rear_right"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C013",
+    "kind": "control",
+    "instruction": "关闭所有车窗",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.windows.close",
+          "arguments": {
+            "window": "all"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C014",
+    "kind": "control",
+    "instruction": "停止右前车窗的升降",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.windows.stop",
+          "arguments": {
+            "window": "front_right"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C015",
+    "kind": "control",
+    "instruction": "打开车窗儿童锁",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.windows.set_child_lock",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C016",
+    "kind": "control",
+    "instruction": "启用左前车窗的一键升降功能",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.windows.set_one_touch",
+          "arguments": {
+            "window": "front_left",
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C017",
+    "kind": "control",
+    "instruction": "主驾座椅加热设为二档",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.set_heating",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C018",
+    "kind": "control",
+    "instruction": "副驾座椅通风设为三档",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 3
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C019",
+    "kind": "control",
+    "instruction": "主驾座椅向后移动20毫米",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.move",
+          "arguments": {
+            "seat": "driver",
+            "direction": "backward",
+            "distance_mm": 20
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C020",
+    "kind": "control",
+    "instruction": "副驾座椅靠背设为110度",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.set_backrest",
+          "arguments": {
+            "seat": "passenger",
+            "angle_deg": 110
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C021",
+    "kind": "control",
+    "instruction": "主驾座椅腰托调到三档",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.set_lumbar",
+          "arguments": {
+            "seat": "driver",
+            "level": 3
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C022",
+    "kind": "control",
+    "instruction": "主驾座椅开启波浪按摩，强度二档",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.set_massage",
+          "arguments": {
+            "seat": "driver",
+            "mode": "wave",
+            "intensity": 2
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C023",
+    "kind": "control",
+    "instruction": "将主驾座椅当前位置保存为记忆一",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.save_memory",
+          "arguments": {
+            "seat": "driver",
+            "slot": 1
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C024",
+    "kind": "control",
+    "instruction": "将主驾座椅恢复到记忆二",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.seats.recall_memory",
+          "arguments": {
+            "seat": "driver",
+            "slot": 2
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C025",
+    "kind": "control",
+    "instruction": "媒体音量设为30%",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.set_volume",
+          "arguments": {
+            "volume_percent": 30
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C026",
+    "kind": "control",
+    "instruction": "开启媒体静音",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.set_mute",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C027",
+    "kind": "control",
+    "instruction": "暂停媒体播放",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.playback",
+          "arguments": {
+            "action": "pause"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C028",
+    "kind": "control",
+    "instruction": "媒体音源切换到蓝牙",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.select_source",
+          "arguments": {
+            "source": "bluetooth"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C029",
+    "kind": "control",
+    "instruction": "播放示例曲目《模拟晴天》",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.select_track",
+          "arguments": {
+            "track_id": "demo_sunny"
+          }
+        },
+        {
+          "tool_id": "control.multimedia.playback",
+          "arguments": {
+            "action": "play"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C030",
+    "kind": "control",
+    "instruction": "把媒体播放进度跳到90秒",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.seek",
+          "arguments": {
+            "position_seconds": 90
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C031",
+    "kind": "control",
+    "instruction": "媒体改为单曲循环",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.set_repeat",
+          "arguments": {
+            "mode": "one"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C032",
+    "kind": "control",
+    "instruction": "开启媒体随机播放",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.multimedia.set_shuffle",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C033",
+    "kind": "control",
+    "instruction": "氛围灯设为蓝色，颜色值#0000FF",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_ambient_color",
+          "arguments": {
+            "color": "#0000FF"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C034",
+    "kind": "control",
+    "instruction": "氛围灯亮度设为60%",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_ambient_brightness",
+          "arguments": {
+            "brightness_percent": 60
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C035",
+    "kind": "control",
+    "instruction": "打开右前阅读灯",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_reading",
+          "arguments": {
+            "position": "front_right",
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C036",
+    "kind": "control",
+    "instruction": "大灯切换为自动模式",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_headlight_mode",
+          "arguments": {
+            "mode": "auto"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C037",
+    "kind": "control",
+    "instruction": "关闭远光灯",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_high_beam",
+          "arguments": {
+            "enabled": false
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C038",
+    "kind": "control",
+    "instruction": "伴我回家照明设为30秒",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_follow_me_home",
+          "arguments": {
+            "duration_seconds": 30
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C039",
+    "kind": "control",
+    "instruction": "打开氛围灯",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.lights.set_ambient_power",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C040",
+    "kind": "control",
+    "instruction": "左后视镜向下调一格",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.mirrors.adjust",
+          "arguments": {
+            "mirror": "left",
+            "direction": "down",
+            "steps": 1
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C041",
+    "kind": "control",
+    "instruction": "折叠两侧后视镜",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.mirrors.fold",
+          "arguments": {
+            "mirror": "both",
+            "folded": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C042",
+    "kind": "control",
+    "instruction": "开启后视镜加热",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.mirrors.set_heating",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C043",
+    "kind": "control",
+    "instruction": "开启后视镜自动折叠功能",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.mirrors.set_auto_fold",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C044",
+    "kind": "control",
+    "instruction": "把空气悬架升高一档",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.suspension.set_height",
+          "arguments": {
+            "action": "raise"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C045",
+    "kind": "control",
+    "instruction": "悬架切换到舒适模式",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.suspension.set_mode",
+          "arguments": {
+            "mode": "comfort"
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C046",
+    "kind": "control",
+    "instruction": "开启悬架装载模式",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.suspension.set_loading_mode",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C047",
+    "kind": "control",
+    "instruction": "把天窗打开一半",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.sunroof.set_position",
+          "arguments": {
+            "open_percent": 50
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C048",
+    "kind": "control",
+    "instruction": "将天窗翘起",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.sunroof.set_tilt",
+          "arguments": {
+            "enabled": true
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C049",
+    "kind": "control",
+    "instruction": "完全关闭天窗遮阳帘",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.sunroof.set_sunshade",
+          "arguments": {
+            "open_percent": 0
+          }
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  },
+  {
+    "id": "C050",
+    "kind": "control",
+    "instruction": "停止天窗当前运动",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "prepared",
+      "calls": [
+        {
+          "tool_id": "control.sunroof.stop",
+          "arguments": {}
+        }
+      ],
+      "required_domains": [
+        "control"
+      ]
+    }
+  }
+]

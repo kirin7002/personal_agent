@@ -1,0 +1,53 @@
+{
+  "id": "status.lights.get_state",
+  "version": "1.0.0",
+  "kind": "status",
+  "category_path": [
+    "status",
+    "lights"
+  ],
+  "title": "查询灯光状态",
+  "description": "读取当前模拟 profile 的灯光状态，不是真实采集。",
+  "aliases": [
+    "灯光",
+    "状态",
+    "lights"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "ambient_color": {
+        "type": "string"
+      },
+      "brightness_percent": {
+        "type": "number"
+      },
+      "headlight_mode": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "ambient_color",
+      "brightness_percent",
+      "headlight_mode"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "profile_pointer",
+    "pointer": "/state/lights"
+  },
+  "examples": [
+    {
+      "instruction": "查询当前灯光状态",
+      "arguments": {}
+    }
+  ]
+}

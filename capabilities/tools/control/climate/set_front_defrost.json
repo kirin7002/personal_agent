@@ -1,0 +1,52 @@
+{
+  "id": "control.climate.set_front_defrost",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "climate"
+  ],
+  "title": "前挡风玻璃除霜",
+  "description": "前挡风玻璃除霜。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "前挡风玻璃除霜",
+    "空调",
+    "set front defrost"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "enabled"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "开启前挡风玻璃除霜",
+      "arguments": {
+        "enabled": true
+      }
+    }
+  ]
+}

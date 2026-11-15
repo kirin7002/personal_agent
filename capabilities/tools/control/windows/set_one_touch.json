@@ -1,0 +1,65 @@
+{
+  "id": "control.windows.set_one_touch",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "windows"
+  ],
+  "title": "车窗一键升降开关",
+  "description": "车窗一键升降开关。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "车窗一键升降开关",
+    "车窗",
+    "set one touch"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "window": {
+        "type": "string",
+        "enum": [
+          "front_left",
+          "front_right",
+          "rear_left",
+          "rear_right",
+          "all"
+        ],
+        "description": "左前、右前、左后、右后、全部"
+      },
+      "enabled": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "window",
+      "enabled"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "启用左前车窗的一键升降功能",
+      "arguments": {
+        "window": "front_left",
+        "enabled": true
+      }
+    }
+  ]
+}

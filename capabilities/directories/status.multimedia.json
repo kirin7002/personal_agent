@@ -1,0 +1,12 @@
+{
+  "path": [
+    "status",
+    "multimedia"
+  ],
+  "title": "多媒体",
+  "description": "音量、静音、播放、音源、曲目、进度与播放模式",
+  "aliases": [
+    "多媒体",
+    "multimedia"
+  ]
+}

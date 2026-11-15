@@ -1,0 +1,401 @@
+{
+  "method": "same instructions, sequential before then after, small sample; server task time excludes S2S",
+  "before": [
+    {
+      "case": "R1",
+      "goal": "空调温度增加一度",
+      "passed": true,
+      "status": "generated",
+      "outcome": "mixed",
+      "seconds": 9.19,
+      "provider_requests": 5,
+      "correction_rounds": 1,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "生成控制参数：设置空调温度",
+          "observation": {
+            "action": "调用 设置空调温度",
+            "input": "设置空调温度：分区：全部；目标温度（℃）：23",
+            "output": "设置空调温度：参数、版本和模拟前置条件校验通过，已生成控制结构；未执行真实车控",
+            "title": "生成控制参数：设置空调温度"
+          }
+        },
+        {
+          "title": "操作失败：提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：prepared；引用 2 条结果",
+            "output": "结论类型与引用证据不一致（INVALID_OUTCOME）",
+            "title": "操作失败：提交任务结论"
+          }
+        },
+        {
+          "title": "提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：mixed；引用 2 条结果",
+            "output": "设置空调温度：已模拟下发成功。模拟查询结论：查询到当前模拟空调状态：主驾 22°C、副驾 22°C，因此“温度增加一度”对应 23°C。已生成全部分区（zone=all）设定 23°C 的车控调用结构，为模拟预览，未真实执行。",
+            "title": "提交任务结论"
+          }
+        }
+      ]
+    },
+    {
+      "case": "R2",
+      "goal": "主驾空调温度增加一度",
+      "passed": true,
+      "status": "generated",
+      "outcome": "mixed",
+      "seconds": 12.82,
+      "provider_requests": 5,
+      "correction_rounds": 1,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "生成控制参数：设置空调温度",
+          "observation": {
+            "action": "调用 设置空调温度",
+            "input": "设置空调温度：目标温度（℃）：23；分区：主驾",
+            "output": "设置空调温度：参数、版本和模拟前置条件校验通过，已生成控制结构；未执行真实车控",
+            "title": "生成控制参数：设置空调温度"
+          }
+        },
+        {
+          "title": "操作失败：提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：prepared；引用 2 条结果",
+            "output": "结论类型与引用证据不一致（INVALID_OUTCOME）",
+            "title": "操作失败：提交任务结论"
+          }
+        },
+        {
+          "title": "提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：mixed；引用 2 条结果",
+            "output": "设置空调温度：已模拟下发成功。模拟查询结论：查询到主驾当前空调温度为 22°C，已生成将主驾分区温度上调至 23°C 的控制预览（模拟数据，未真实执行）。",
+            "title": "提交任务结论"
+          }
+        }
+      ]
+    },
+    {
+      "case": "R1-repeat",
+      "goal": "空调温度增加一度",
+      "passed": true,
+      "status": "generated",
+      "outcome": "mixed",
+      "seconds": 10.25,
+      "provider_requests": 5,
+      "correction_rounds": 1,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "生成控制参数：设置空调温度",
+          "observation": {
+            "action": "调用 设置空调温度",
+            "input": "设置空调温度：分区：全部；目标温度（℃）：23",
+            "output": "设置空调温度：参数、版本和模拟前置条件校验通过，已生成控制结构；未执行真实车控",
+            "title": "生成控制参数：设置空调温度"
+          }
+        },
+        {
+          "title": "操作失败：提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：prepared；引用 2 条结果",
+            "output": "结论类型与引用证据不一致（INVALID_OUTCOME）",
+            "title": "操作失败：提交任务结论"
+          }
+        },
+        {
+          "title": "提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：mixed；引用 2 条结果",
+            "output": "设置空调温度：已模拟下发成功。模拟查询结论：查询当前空调状态：主驾、副驾均 22°C，风量 2 档，出风面部，AC 开启。据此将空调温度由 22°C 提高一度，生成\"全部区域 23°C\"的车控预览（未真实执行）。用户未指定分区，因主副驾温度一致，按全部区域处理。",
+            "title": "提交任务结论"
+          }
+        }
+      ]
+    },
+    {
+      "case": "Q",
+      "goal": "查询当前空调温度",
+      "passed": true,
+      "status": "completed",
+      "outcome": "answered",
+      "seconds": 4.58,
+      "provider_requests": 3,
+      "correction_rounds": 0,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "提交任务结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "结果类型：answered；引用 1 条结果",
+            "output": "根据模拟查询数据：当前空调状态（模拟数据）：主驾 22°C，副驾 22°C，风量 2 档，出风方向为面部，AC 制冷已开启。",
+            "title": "提交任务结论"
+          }
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "case": "R1",
+      "goal": "空调温度增加一度",
+      "passed": true,
+      "status": "generated",
+      "outcome": "mixed",
+      "seconds": 9.19,
+      "provider_requests": 3,
+      "correction_rounds": 0,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "生成控制参数：设置空调温度",
+          "observation": {
+            "action": "调用 设置空调温度",
+            "input": "设置空调温度：分区：全部；目标温度（℃）：23",
+            "output": "设置空调温度：参数、版本和模拟前置条件校验通过，已生成控制结构；未执行真实车控",
+            "title": "生成控制参数：设置空调温度"
+          }
+        },
+        {
+          "title": "程序校验回执并提交结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "引用 2 条实际结果；类型由程序判定",
+            "output": "程序判定为查询＋车控：1 条控制回执、1 条查询回执。设置空调温度：已模拟下发成功。模拟查询结论：模拟空调当前主驾/副驾均为22°C，已按“增加一度”生成把全部分区设为23°C的控制结构（prepared，未真实执行）。",
+            "title": "程序校验回执并提交结论"
+          }
+        }
+      ]
+    },
+    {
+      "case": "R2",
+      "goal": "主驾空调温度增加一度",
+      "passed": true,
+      "status": "generated",
+      "outcome": "mixed",
+      "seconds": 6.35,
+      "provider_requests": 3,
+      "correction_rounds": 0,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "生成控制参数：设置空调温度",
+          "observation": {
+            "action": "调用 设置空调温度",
+            "input": "设置空调温度：分区：主驾；目标温度（℃）：23",
+            "output": "设置空调温度：参数、版本和模拟前置条件校验通过，已生成控制结构；未执行真实车控",
+            "title": "生成控制参数：设置空调温度"
+          }
+        },
+        {
+          "title": "程序校验回执并提交结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "引用 2 条实际结果；类型由程序判定",
+            "output": "程序判定为查询＋车控：1 条控制回执、1 条查询回执。设置空调温度：已模拟下发成功。模拟查询结论：查询到当前主驾温度为22°C，已生成主驾空调温度设为23°C（增加1度）的控制调用结构。模拟环境，仅生成结构，未执行真实车辆控制。 原提交类型标签已按有效回执修正，未再次请求模型。",
+            "title": "程序校验回执并提交结论"
+          }
+        }
+      ]
+    },
+    {
+      "case": "R1-repeat",
+      "goal": "空调温度增加一度",
+      "passed": true,
+      "status": "generated",
+      "outcome": "mixed",
+      "seconds": 6.72,
+      "provider_requests": 3,
+      "correction_rounds": 0,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "生成控制参数：设置空调温度",
+          "observation": {
+            "action": "调用 设置空调温度",
+            "input": "设置空调温度：目标温度（℃）：23；分区：全部",
+            "output": "设置空调温度：参数、版本和模拟前置条件校验通过，已生成控制结构；未执行真实车控",
+            "title": "生成控制参数：设置空调温度"
+          }
+        },
+        {
+          "title": "程序校验回执并提交结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "引用 2 条实际结果；类型由程序判定",
+            "output": "程序判定为查询＋车控：1 条控制回执、1 条查询回执。设置空调温度：已模拟下发成功。模拟查询结论：查询到当前主驾与副驾温度均为 22°C，据此生成将全部区域空调温度设为 23°C（即升高一度）的控制结构，状态为 prepared（模拟，未真实执行）。 原提交类型标签已按有效回执修正，未再次请求模型。",
+            "title": "程序校验回执并提交结论"
+          }
+        }
+      ]
+    },
+    {
+      "case": "Q",
+      "goal": "查询当前空调温度",
+      "passed": true,
+      "status": "completed",
+      "outcome": "answered",
+      "seconds": 3.18,
+      "provider_requests": 2,
+      "correction_rounds": 0,
+      "operations": [
+        {
+          "title": "查询结果：查询空调状态",
+          "observation": {
+            "action": "调用 查询空调状态",
+            "input": "查询空调状态：无需参数",
+            "output": "查询空调状态（模拟数据）：主驾温度（℃）：22；副驾温度（℃）：22；风量档位：2；风向：吹面；制冷开启：是",
+            "title": "查询结果：查询空调状态"
+          }
+        },
+        {
+          "title": "程序校验回执并提交结论",
+          "observation": {
+            "action": "引用实际调用结果，提交当前任务的结论",
+            "input": "引用 1 条实际结果；类型由程序判定",
+            "output": "程序判定为纯查询：0 条控制回执、1 条查询回执。根据模拟查询数据：查询到当前模拟空调状态：主驾22°C，副驾22°C，风速2档，出风模式face（吹面），AC制冷已开启。数据来自mock profile，非真实车辆采集。",
+            "title": "程序校验回执并提交结论"
+          }
+        }
+      ]
+    }
+  ],
+  "simple_before": [
+    {
+      "repeat": 1,
+      "passed": true,
+      "seconds": 2.69,
+      "provider_requests": 1,
+      "payload_chars": 2686,
+      "related_tools": [
+        "status.climate.get_state",
+        "manual.climate.lookup"
+      ]
+    },
+    {
+      "repeat": 2,
+      "passed": true,
+      "seconds": 2.11,
+      "provider_requests": 1,
+      "payload_chars": 2686,
+      "related_tools": [
+        "status.climate.get_state",
+        "manual.climate.lookup"
+      ]
+    },
+    {
+      "repeat": 3,
+      "passed": true,
+      "seconds": 2.21,
+      "provider_requests": 1,
+      "payload_chars": 2686,
+      "related_tools": [
+        "status.climate.get_state",
+        "manual.climate.lookup"
+      ]
+    }
+  ],
+  "simple_after": [
+    {
+      "repeat": 1,
+      "passed": true,
+      "seconds": 2.53,
+      "provider_requests": 1,
+      "payload_chars": 893,
+      "related_tools": []
+    },
+    {
+      "repeat": 2,
+      "passed": true,
+      "seconds": 2.4,
+      "provider_requests": 1,
+      "payload_chars": 893,
+      "related_tools": []
+    },
+    {
+      "repeat": 3,
+      "passed": true,
+      "seconds": 2.13,
+      "provider_requests": 1,
+      "payload_chars": 893,
+      "related_tools": []
+    }
+  ],
+  "summary": {
+    "relative_median_before": 10.25,
+    "relative_median_after": 6.72,
+    "simple_median_before": 2.21,
+    "simple_median_after": 2.4
+  },
+  "limitations": [
+    "provider_requests includes previously started post-completion requests, not only completed responses",
+    "remote latency varies; first R1 remains 9.19s despite fewer calls",
+    "simple payload is smaller but no stable latency improvement established",
+    "program infers result category, not full semantic goal fulfillment"
+  ]
+}

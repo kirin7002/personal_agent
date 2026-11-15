@@ -1,0 +1,54 @@
+{
+  "id": "control.lights.set_ambient_brightness",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "lights"
+  ],
+  "title": "设置氛围灯亮度",
+  "description": "设置氛围灯亮度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置氛围灯亮度",
+    "灯光",
+    "set ambient brightness"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "brightness_percent": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "required": [
+      "brightness_percent"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "氛围灯亮度设为60%",
+      "arguments": {
+        "brightness_percent": 60
+      }
+    }
+  ]
+}

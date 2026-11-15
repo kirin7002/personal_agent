@@ -1,0 +1,71 @@
+{
+  "id": "control.climate.set_airflow",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "climate"
+  ],
+  "title": "设置空调风向",
+  "description": "设置空调风向。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "设置空调风向",
+    "空调",
+    "set airflow"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "zone": {
+        "type": "string",
+        "enum": [
+          "driver",
+          "passenger",
+          "rear",
+          "all"
+        ],
+        "description": "主驾、副驾、后排、全部"
+      },
+      "direction": {
+        "type": "string",
+        "enum": [
+          "face",
+          "feet",
+          "face_feet",
+          "windshield"
+        ],
+        "description": "吹面、吹脚、面脚同吹、吹前挡"
+      }
+    },
+    "required": [
+      "zone",
+      "direction"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "主驾空调改为吹脚",
+      "arguments": {
+        "zone": "driver",
+        "direction": "feet"
+      }
+    }
+  ]
+}

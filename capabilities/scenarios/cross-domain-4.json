@@ -1,0 +1,69 @@
+[
+  {
+    "id": "X001",
+    "kind": "cross_domain",
+    "instruction": "帮我把空气悬架升高一档；如果不能生成，请查车辆配置或车况，并结合车书说明原因。",
+    "profile_id": "demo-no-suspension",
+    "expected": {
+      "outcome": "unsupported",
+      "calls": [],
+      "required_domains": [
+        "control",
+        "manual",
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "X002",
+    "kind": "cross_domain",
+    "instruction": "帮我把空气悬架升高一档；如果不能生成，请查车辆配置或车况，并结合车书说明原因。",
+    "profile_id": "demo-interface-missing",
+    "expected": {
+      "outcome": "unsupported",
+      "calls": [],
+      "required_domains": [
+        "control",
+        "manual",
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "X003",
+    "kind": "cross_domain",
+    "instruction": "帮我把空气悬架升高一档；如果不能生成，请查车辆配置或车况，并结合车书说明原因。",
+    "profile_id": "demo-driving",
+    "expected": {
+      "outcome": "unsupported",
+      "calls": [],
+      "required_domains": [
+        "control",
+        "manual",
+        "status"
+      ]
+    }
+  },
+  {
+    "id": "X004",
+    "kind": "cross_domain",
+    "instruction": "查一下车书里空调的说明，再把所有分区空调设为23度。",
+    "profile_id": "demo-ready",
+    "expected": {
+      "outcome": "mixed",
+      "calls": [
+        {
+          "tool_id": "control.climate.set_temperature",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        }
+      ],
+      "required_domains": [
+        "manual",
+        "control"
+      ]
+    }
+  }
+]

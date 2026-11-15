@@ -1,0 +1,12 @@
+{
+  "path": [
+    "control",
+    "sunroof"
+  ],
+  "title": "天窗",
+  "description": "天窗开度、翘起、遮阳帘与停止",
+  "aliases": [
+    "天窗",
+    "sunroof"
+  ]
+}

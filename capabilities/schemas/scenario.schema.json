@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "control",
+        "query",
+        "cross_domain"
+      ]
+    },
+    "instruction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expected": {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "prepared",
+            "answered",
+            "mixed",
+            "unsupported",
+            "partial",
+            "failed"
+          ]
+        },
+        "calls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tool_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "arguments": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "tool_id",
+              "arguments"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required_domains": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "control",
+              "manual",
+              "status"
+            ]
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "outcome",
+        "calls",
+        "required_domains"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "kind",
+    "instruction",
+    "profile_id",
+    "expected"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vehicle capability scenario v1"
+}

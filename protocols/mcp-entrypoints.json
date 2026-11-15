@@ -1,0 +1,266 @@
+{
+  "protocol": "vehicle-capability-mcp/v1",
+  "tools": [
+    {
+      "name": "search_capabilities",
+      "description": "跨全部车辆目录直接检索所需能力，支持中文或英文关键词。返回少量匹配工具、真实路径及预算内的完整 Schema；有完整定义可直接 call_tools，无需再逐层浏览或 describe。只查工具说明，不读取车况或执行车控。零结果不代表车辆不支持，可换词或浏览目录。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "control",
+              "manual",
+              "status"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 6
+          }
+        },
+        "required": [
+          "task_id",
+          "task_revision",
+          "query"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "browse_capabilities",
+      "description": "浏览车辆能力目录。path=[] 查看顶层；返回本层类别或工具摘要，不返回完整参数。可以跨域或同时浏览多个类别。query 是中英文名称/别名子串过滤，非语义搜索；找不到时去掉 query 浏览。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "path": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 8
+          },
+          "query": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50
+          }
+        },
+        "required": [
+          "task_id",
+          "task_revision"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "describe_tools",
+      "description": "获取选中业务工具的完整说明、版本、输入输出 Schema、示例与模拟前置条件。参数定义以此结果为准。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "tool_ids": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "task_id",
+          "task_revision",
+          "tool_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "call_tools",
+      "description": "按工具的具体 Schema 提交调用。车控只生成结构；车书/车况返回带来源的模拟数据。每项返回 result_id，完成时引用它。每轮 call_id 唯一；相同请求重试返回原结果，修正参数须使用新 call_id。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "catalog_revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "complete_if_success": {
+            "type": "boolean",
+            "description": "仅在任务允许快速完成且本次单项控制完整覆盖用户目标、没有其他待办时设为 true；失败时仍继续查证，默认 false。"
+          },
+          "calls": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "properties": {
+                "call_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                },
+                "tool_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "tool_version": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "arguments": {
+                  "type": "object"
+                }
+              },
+              "required": [
+                "call_id",
+                "tool_id",
+                "tool_version",
+                "arguments"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "task_id",
+          "task_revision",
+          "catalog_revision",
+          "calls"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "request_user_input",
+      "description": "必要参数缺失或用户目标有歧义时，向用户提出一个明确问题。调用后结束本轮等待补充，不自行猜测关键参数。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "task_id",
+          "task_revision",
+          "question"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "finish_task",
+      "description": "目标已完成时，引用实际成功 result_id 并提供摘要即可；省略 outcome 或用 auto，程序根据回执判定纯车控、纯查询或混合结果。未完成时仍显式使用 unsupported/partial/failed；partial 必须列出 unresolved。程序不会将错误或未完成项自动变成成功，不得把模拟结果说成真实执行。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "task_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "prepared",
+              "answered",
+              "mixed",
+              "unsupported",
+              "partial",
+              "failed"
+            ],
+            "default": "auto"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1200
+          },
+          "result_ids": {
+            "type": "array",
+            "maxItems": 64,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "unresolved": {
+            "type": "array",
+            "maxItems": 16,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "task_id",
+          "task_revision",
+          "summary",
+          "result_ids"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

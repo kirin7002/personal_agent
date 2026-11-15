@@ -1,0 +1,48 @@
+{
+  "schema_version": "demo-1",
+  "source": "示例 Schema；并非真实车型能力定义",
+  "tools": [
+    {
+      "name": "climate_set_temperature",
+      "title": "设置空调温度",
+      "description": "生成空调温度设置结构。温度单位摄氏度，分区必须明确。只预览，不执行。",
+      "parameters": {"type": "object", "properties": {"zone": {"type": "string", "enum": ["driver", "passenger", "rear", "all"], "description": "主驾、副驾、后排或全部分区"}, "temperature_c": {"type": "number", "minimum": 16, "maximum": 30}}, "required": ["zone", "temperature_c"], "additionalProperties": false},
+      "example": {"instruction": "把所有分区空调调到 23 度", "arguments": {"zone": "all", "temperature_c": 23}}
+    },
+    {
+      "name": "seat_set_heating",
+      "title": "设置座椅加热",
+      "description": "生成座椅加热结构，0 表示关闭，1 至 3 为低中高档。座位和档位须明确。只预览，不执行。",
+      "parameters": {"type": "object", "properties": {"seat": {"type": "string", "enum": ["driver", "passenger", "rear_left", "rear_right"]}, "level": {"type": "integer", "minimum": 0, "maximum": 3}}, "required": ["seat", "level"], "additionalProperties": false},
+      "example": {"instruction": "主驾座椅加热开到二档", "arguments": {"seat": "driver", "level": 2}}
+    },
+    {
+      "name": "window_set_position",
+      "title": "设置车窗开度",
+      "description": "生成车窗目标开度结构。open_percent 为 0 是全关，100 是全开。只预览，不执行。",
+      "parameters": {"type": "object", "properties": {"window": {"type": "string", "enum": ["front_left", "front_right", "rear_left", "rear_right", "all"]}, "open_percent": {"type": "integer", "minimum": 0, "maximum": 100}}, "required": ["window", "open_percent"], "additionalProperties": false},
+      "example": {"instruction": "左前车窗打开一半", "arguments": {"window": "front_left", "open_percent": 50}}
+    },
+    {
+      "name": "air_suspension_set_height",
+      "title": "调整空气悬架",
+      "description": "生成空气悬架调整结构，raise/lower 表示升高或降低一档，set 表示设定具体档位。未说明调整方向或目标时应追问。不代表本车已配备，不执行。",
+      "parameters": {"type": "object", "properties": {"action": {"type": "string", "enum": ["raise", "lower", "set"]}, "height": {"type": "string", "enum": ["low", "normal", "high"]}}, "required": ["action"], "additionalProperties": false, "allOf": [{"if": {"properties": {"action": {"const": "set"}}}, "then": {"required": ["height"]}, "else": {"not": {"required": ["height"]}}}]},
+      "example": {"instruction": "把空气悬架升高一档", "arguments": {"action": "raise"}}
+    },
+    {
+      "name": "media_set_volume",
+      "title": "设置媒体音量",
+      "description": "生成媒体音量结构，音量百分比 0 至 100。只预览，不执行。",
+      "parameters": {"type": "object", "properties": {"volume_percent": {"type": "integer", "minimum": 0, "maximum": 100}}, "required": ["volume_percent"], "additionalProperties": false},
+      "example": {"instruction": "媒体音量设为 30%", "arguments": {"volume_percent": 30}}
+    },
+    {
+      "name": "ambient_light_set",
+      "title": "设置氛围灯",
+      "description": "生成氛围灯颜色和亮度结构。颜色为六位十六进制，亮度 0 至 100。只预览，不执行。",
+      "parameters": {"type": "object", "properties": {"color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}, "brightness_percent": {"type": "integer", "minimum": 0, "maximum": 100}}, "required": ["color", "brightness_percent"], "additionalProperties": false},
+      "example": {"instruction": "氛围灯设为蓝色，亮度 60%", "arguments": {"color": "#0000FF", "brightness_percent": 60}}
+    }
+  ]
+}

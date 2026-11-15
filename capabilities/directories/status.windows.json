@@ -1,0 +1,12 @@
+{
+  "path": [
+    "status",
+    "windows"
+  ],
+  "title": "车窗",
+  "description": "车窗开度、开关、停止、锁定及一键功能",
+  "aliases": [
+    "车窗",
+    "windows"
+  ]
+}

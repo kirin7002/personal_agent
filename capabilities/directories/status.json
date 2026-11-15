@@ -1,0 +1,11 @@
+{
+  "path": [
+    "status"
+  ],
+  "title": "车况",
+  "description": "查询模拟车辆配置和状态快照",
+  "aliases": [
+    "车况",
+    "status"
+  ]
+}

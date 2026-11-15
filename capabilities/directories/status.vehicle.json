@@ -1,0 +1,14 @@
+{
+  "path": [
+    "status",
+    "vehicle"
+  ],
+  "title": "车辆配置与驾驶状态",
+  "description": "核实本车配置、接口可用性和驾驶状态",
+  "aliases": [
+    "车辆配置",
+    "是否配备",
+    "驾驶状态",
+    "vehicle"
+  ]
+}

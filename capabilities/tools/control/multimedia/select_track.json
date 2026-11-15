@@ -1,0 +1,57 @@
+{
+  "id": "control.multimedia.select_track",
+  "version": "1.0.1",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "multimedia"
+  ],
+  "title": "选择示例曲目",
+  "description": "只选择当前曲目，不开始播放；播放需另外调用媒体播放工具。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "选择示例曲目",
+    "多媒体",
+    "select track"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "track_id": {
+        "type": "string",
+        "enum": [
+          "demo_sunny",
+          "demo_rain"
+        ],
+        "description": "demo_sunny=模拟晴天；demo_rain=模拟雨天"
+      }
+    },
+    "required": [
+      "track_id"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "选择示例曲目《模拟晴天》作为当前曲目，暂不播放",
+      "arguments": {
+        "track_id": "demo_sunny"
+      }
+    }
+  ]
+}

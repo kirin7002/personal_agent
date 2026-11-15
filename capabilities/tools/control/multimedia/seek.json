@@ -1,0 +1,54 @@
+{
+  "id": "control.multimedia.seek",
+  "version": "1.0.0",
+  "kind": "control",
+  "category_path": [
+    "control",
+    "multimedia"
+  ],
+  "title": "调整媒体播放进度",
+  "description": "调整媒体播放进度。仅生成调用结构，所有范围为模拟定义，不执行真实车辆控制。",
+  "aliases": [
+    "调整媒体播放进度",
+    "多媒体",
+    "seek"
+  ],
+  "enabled": true,
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "position_seconds": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 7200
+      }
+    },
+    "required": [
+      "position_seconds"
+    ],
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "prepared": {
+        "const": true
+      }
+    },
+    "required": [
+      "prepared"
+    ],
+    "additionalProperties": false
+  },
+  "mock": {
+    "mode": "prepare_only"
+  },
+  "examples": [
+    {
+      "instruction": "把媒体播放进度跳到90秒",
+      "arguments": {
+        "position_seconds": 90
+      }
+    }
+  ]
+}
