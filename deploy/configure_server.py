@@ -14,6 +14,7 @@ def private(path,text):
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--origin',required=True)
+    parser.add_argument('--web-only',action='store_true',help='Configure the web entry without accessing model credentials')
     parser.add_argument('--bind-host',default='172.17.0.1')
     parser.add_argument('--port',type=int,default=18765)
     parser.add_argument('--trusted-proxy',action='append',required=True)
@@ -22,5 +23,6 @@ if __name__=='__main__':
         raise SystemExit('Use a clean HTTPS origin')
     private(ROOT/'.runtime/server-access.json',json.dumps({'origin':origin,'bind_host':args.bind_host,'port':args.port,'trusted_proxy_ips':args.trusted_proxy},indent=2)+'\n')
     private(ROOT/'.runtime/mobile-access.json',json.dumps({'allowed_hosts':[url.hostname],'mobile_url':origin+'/mobile','trust_url':''},indent=2)+'\n')
-    subprocess.run([sys.executable,str(ROOT/'scripts/configure_local_hermes.py')],check=True)
+    if not args.web_only:
+        subprocess.run([sys.executable,str(ROOT/'scripts/configure_local_hermes.py')],check=True)
     print('Server origin and explicit proxy configuration prepared; no credentials printed.')

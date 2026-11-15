@@ -22,6 +22,8 @@
   --trusted-proxy 172.22.0.3 --trusted-proxy 172.25.0.2
 ```
 
+尚未配置模型凭据时可追加 `--web-only`，先完成网页与设备配对入口，模型功能明确显示未配置。
+
 上述代理地址仅是本次服务器检测结果。迁移或重建Caddy容器后需重新确认，不要扩大到任意地址。Uvicorn只从这些代理接收原始客户端地址和HTTPS协议，公网请求不能借伪造的转发头成为本机可信设备。
 
 服务单元模板只启动本项目服务。安装后先 `systemctl start`，本次不执行 `systemctl enable`。Caddy文件先备份，只增加 `Caddyfile.fragment` 中的新站点，通过 `caddy validate` 后再平滑reload；失败则恢复原配置。
