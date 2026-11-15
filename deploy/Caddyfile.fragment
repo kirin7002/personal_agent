@@ -1,0 +1,4 @@
+# Append as a new site; preserve the existing Caddyfile and validate before reload.
+agent.kirinxu.cn {
+    reverse_proxy host.docker.internal:18765
+}

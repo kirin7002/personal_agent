@@ -10,7 +10,7 @@ from urllib.parse import urlsplit
 from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Request, WebSocket
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -625,6 +625,8 @@ def create_app(settings: Settings | None = None, manager_factory=TaskManager):
 
     @app.get('/mobile/connect')
     async def mobile_connect():
+        if settings.mobile_url and not settings.mobile_trust_url:
+            return RedirectResponse('/mobile',status_code=307)
         return FileResponse(ROOT/'web/mobile-connect.html')
 
     @app.get("/")

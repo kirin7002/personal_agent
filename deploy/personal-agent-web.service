@@ -1,0 +1,21 @@
+[Unit]
+Description=Personal Agent web and shared mobile conversation
+After=network-online.target personal-agent-hermes.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kirin
+Group=kirin
+WorkingDirectory=/home/kirin/apps/personal_agent
+Environment=PYTHONUNBUFFERED=1
+Environment=TZ=Asia/Shanghai
+ExecStart=/home/kirin/apps/personal_agent/.venv/bin/python /home/kirin/apps/personal_agent/deploy/serve.py
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
