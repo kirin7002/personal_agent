@@ -1,4 +1,5 @@
 """Configure only this project's private Hermes home; no secrets on stdout."""
+import argparse
 import json
 import os
 from pathlib import Path
@@ -21,6 +22,9 @@ def private_write(path: Path, content: str):
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--shared-env',action='store_true',help='Keep credentials only in the project .env; launcher supplies process environment')
+    args=parser.parse_args()
     env_path = ROOT / ".env"
     env = dotenv_values(env_path)
     key = env.get("DASHSCOPE_API_KEY")
@@ -59,7 +63,8 @@ def main():
         "gateway": {"api_server": {"enabled": True, "host": "127.0.0.1", "port": 8642, "max_concurrent_runs": 3}},
     }
     private_write(RUNTIME_HOME / "config.yaml", json.dumps(config, ensure_ascii=False, indent=2) + "\n")
-    private_write(RUNTIME_HOME / ".env", f"DASHSCOPE_API_KEY={key}\nAPI_SERVER_KEY={local_key}\nAPI_SERVER_ENABLED=true\n")
+    runtime_env = 'API_SERVER_ENABLED=true\n' if args.shared_env else f"DASHSCOPE_API_KEY={key}\nAPI_SERVER_KEY={local_key}\nAPI_SERVER_ENABLED=true\n"
+    private_write(RUNTIME_HOME / ".env", runtime_env)
     shutil.copytree(ROOT / "hermes_plugins/bailian_limits", RUNTIME_HOME / "plugins/bailian-limits", dirs_exist_ok=True, ignore=shutil.ignore_patterns("__pycache__"))
     shutil.copytree(ROOT / "hermes_plugins/vehicle_completion", RUNTIME_HOME / "plugins/vehicle-completion", dirs_exist_ok=True, ignore=shutil.ignore_patterns("__pycache__"))
     print("已生成项目隔离的 Hermes 配置，仅开启车辆预览 MCP；凭据未回显。")

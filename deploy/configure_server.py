@@ -24,5 +24,5 @@ if __name__=='__main__':
     private(ROOT/'.runtime/server-access.json',json.dumps({'origin':origin,'bind_host':args.bind_host,'port':args.port,'trusted_proxy_ips':args.trusted_proxy},indent=2)+'\n')
     private(ROOT/'.runtime/mobile-access.json',json.dumps({'allowed_hosts':[url.hostname],'mobile_url':origin+'/mobile','trust_url':''},indent=2)+'\n')
     if not args.web_only:
-        subprocess.run([sys.executable,str(ROOT/'scripts/configure_local_hermes.py')],check=True)
+        subprocess.run([sys.executable,str(ROOT/'scripts/configure_local_hermes.py'),'--shared-env'],check=True)
     print('Server origin and explicit proxy configuration prepared; no credentials printed.')

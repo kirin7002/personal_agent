@@ -15,7 +15,11 @@ os.environ["NO_PROXY"] = ",".join(filter(None, [existing_no_proxy, *direct_hosts
 os.environ["no_proxy"] = os.environ["NO_PROXY"]
 sys.path.insert(0, str(ROOT))
 from app.config import Settings
-os.environ["PREVIEW_DB"] = str(Settings().db_path.resolve())
+settings = Settings()
+os.environ["PREVIEW_DB"] = str(settings.db_path.resolve())
+if settings.hermes_key:
+    os.environ['API_SERVER_KEY'] = settings.hermes_key
+    os.environ['API_SERVER_ENABLED'] = 'true'
 os.environ["PYTHONPATH"] = os.pathsep.join(filter(None, [str(ROOT), os.environ.get("PYTHONPATH", "")]))
 sys.path.insert(0, str(REPO))
 
