@@ -16,9 +16,9 @@ def private(path,text):
     path.chmod(0o600)
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=ROOT/'.runtime/first-device.txt');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=ROOT/'.runtime/first-device.txt');parser.add_argument('--owner-record',type=Path,default=ROOT/'.runtime/server-owner.json');args=parser.parse_args()
     store=Store(Settings().db_path);sharing=DeviceSharing(store)
-    record_path=ROOT/'.runtime/server-owner.json'
+    record_path=args.owner_record
     record=json.loads(record_path.read_text()) if record_path.exists() else None
     owner_sid=record.get('session_id') if record and store.has_session(record.get('session_id')) else None
     if record:

@@ -13,7 +13,7 @@ Environment=TZ=Asia/Shanghai
 ExecStart=/home/kirin/apps/personal_agent/.venv/bin/python /home/kirin/apps/personal_agent/scripts/start_hermes.py
 Restart=on-failure
 RestartSec=5
-TimeoutStopSec=20
+TimeoutStopSec=90
 NoNewPrivileges=true
 PrivateTmp=true
 

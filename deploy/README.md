@@ -13,7 +13,17 @@
 
 ## 配置
 
-先准备项目虚拟环境、固定版本Hermes运行环境和私有 `.env`，然后执行：
+先准备项目虚拟环境、固定版本Hermes运行环境和私有 `.env`。服务器模式只在项目 `.env` 保存模型密钥，启动器向Hermes传递进程环境；Hermes home的 `.env` 仅包含启用标记。
+
+固定源码的API适配器还需要 `aiohttp`；本次PM选择 `anthropic`、`mcp`、`web`、`sms` 依赖组，其中 `sms` 组只用于取得上游固定的 `aiohttp`，不启用短信功能或工具。可在Hermes源码目录运行：
+
+```sh
+HERMES_HOME=/home/kirin/apps/personal_agent/.runtime/hermes-home \
+HERMES_RUNTIME_DIR=/home/kirin/apps/personal_agent/.runtime/hermes-tools \
+python3 -m pm.cli install --extra anthropic --extra mcp --extra web --extra sms
+```
+
+然后执行：
 
 ```sh
 .venv/bin/python deploy/configure_server.py \
