@@ -45,7 +45,7 @@ def task(ident, goal=None, revision=0):
 
 
 def main():
-    fixture = {'tasks': [], 'messages': [], 'cursor': 0}
+    fixture = {'tasks': [], 'messages': [], 'cursor': 0, 'submitted': []}
     errors, checks, screenshots, geometry = [], [], [], []
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(executable_path=str(CHROME) if CHROME.exists() else None, headless=True)
@@ -63,6 +63,17 @@ def main():
                 if file.name == 'app.js':
                     body += '\nwindow.__orderTest = {state, poll, refreshMessages, renderTasks};'
                 return request.fulfill(content_type='application/javascript' if file.suffix == '.js' else 'text/css', body=body)
+            if path == '/api/conversation/input' and request.request.method == 'POST':
+                body = request.request.post_data_json
+                fixture['submitted'].append(body)
+                running = task('submitted', body['text'])
+                running.update(status='running', summary=None, output=None)
+                fixture['tasks'] = [running]
+                fixture['messages'] = [
+                    {**message(501, task_id=running['id'], version=2, text=body['text']), 'task_revision': 0},
+                    {**message(502, 'assistant', running['id'], text='收到，我来处理。'), 'kind': 'reply', 'task_revision': 0},
+                ]
+                return request.fulfill(json={'kind': 'task', 'status': 'accepted', 'task': running})
             before = parse_qs(urlparse(request.request.url).query).get('before', [None])[0]
             records = [m for m in fixture['messages'] if before is None or int(m['id']) < int(before)]
             values = {
@@ -195,6 +206,87 @@ def main():
         assert page.evaluate('(() => {const c=document.querySelector("#chat");return c.scrollHeight-c.scrollTop-c.clientHeight;})()') < 2
         checks.append('bottom-follow retained when latest task anchor moves')
         screenshot('reading-position')
+
+        # Sanitized shape from the local read-only snapshot: old task has only
+        # imported question/result messages; current task has user -> reply -> result.
+        old = task('old-import', '较早的模拟目标', revision=1)
+        old.update(status='generated', summary='较早的模拟执行结果', history=[{'question': '较早的追问', 'answer': '较早的补充'}])
+        current = task('current', '当前模拟目标')
+        current.update(status='generated', summary='当前模拟执行结果')
+        actual_shape = [
+            {**message(95, 'assistant', old['id'], text='较早的追问'), 'kind': 'task.question', 'task_revision': 0, 'superseded': True},
+            {**message(96, 'assistant', old['id'], text=old['summary']), 'kind': 'task.generated', 'task_revision': 1},
+            {**message(136, task_id=current['id'], text=current['goal']), 'task_revision': 0},
+            {**message(137, 'assistant', current['id'], text='已受理，正在处理'), 'kind': 'reply', 'task_revision': 0},
+            {**message(138, 'assistant', current['id'], text=current['summary']), 'kind': 'task.generated', 'task_revision': 0},
+        ]
+        reload([current, old], actual_shape)
+        assert_order(['m95', 'told-import', 'm96', 'm136', 'm137', 'tcurrent', 'm138'], 'sanitized actual legacy + current acknowledgement/result grouping')
+        expect(page.locator('[data-task-id="current"] .task-description')).to_be_hidden()
+        expect(page.locator('[data-task-id="old-import"] .task-description')).to_be_hidden()
+        expect(page.locator('[data-task-id="old-import"] .task-history').filter(has_text='追问：')).to_be_hidden()
+        expect(page.locator('[data-task-id="old-import"] .task-context').first).to_have_text('任务目标：较早的模拟目标')
+        expect(page.locator('[data-task-id="current"] .task-context').first).to_have_text('任务目标：当前模拟目标')
+        screenshot('actual-history-grouping')
+        assert page.evaluate('document.documentElement.dataset.timelineVersion') == '20261116.2'
+        assert '?v=timeline-20261116-2' in page.locator('script[type="module"]').get_attribute('src')
+        checks.append('versioned module URL bypasses the old unversioned script cache')
+
+        reload([current], [])
+        # Actual canonical kinds, with acknowledgement/result beating the user
+        # message to the browser. This was absent from the original 15 scenarios.
+        emit(actual_shape[3]); emit(actual_shape[4]); emit(actual_shape[2])
+        assert_order(['m136', 'm137', 'tcurrent', 'm138'], 'real message kinds arrive result-first then user')
+        expect(page.locator('[data-task-id="current"] .task-description')).to_be_hidden()
+        fixture['messages'] = list(reversed(actual_shape[2:]))
+        page.evaluate('__orderTest.refreshMessages()')
+        assert_order(['m136', 'm137', 'tcurrent', 'm138'], 'mixed snapshot cannot move real process before its input')
+
+        waiting = task('q')
+        waiting.update(status='awaiting_input', question='要查询哪个分区？', summary=None)
+        request = {**message(10, task_id='q', text='查询空调温度'), 'task_revision': 0}
+        accepted = {**message(11, 'assistant', 'q', text='已受理'), 'kind': 'reply', 'task_revision': 0}
+        question = {**message(12, 'assistant', 'q', text=waiting['question']), 'kind': 'task.question', 'task_revision': 0}
+        reload([waiting], [request, accepted, question])
+        assert_order(['m10', 'm11', 'tq', 'm12'], 'assistant question displayed once after its request/process')
+        expect(page.locator('[data-task-id="q"] .task-description')).to_be_hidden()
+        page.evaluate("""() => {
+          const c=document.querySelector('[data-task-id="q"]'); c.querySelector('.process').open=true;
+          c.querySelector('[data-step-detail]').open=true; c.querySelector('pre').scrollTop=90;
+        }""")
+        answer = {**message(20, task_id='q', text='主驾'), 'task_revision': 1}
+        emit(answer)
+        done = task('q', revision=1)
+        done['history'] = [{'question': waiting['question'], 'answer': answer['text']}]
+        fixture['tasks'] = [done]
+        page.evaluate('__orderTest.poll()')
+        emit({**message(21, 'assistant', 'q', text='继续处理'), 'kind': 'reply', 'task_revision': 1})
+        emit({**message(22, 'assistant', 'q', text=done['summary']), 'kind': 'task.completed', 'task_revision': 1})
+        assert_order(['m10', 'm11', 'm12', 'm20', 'm21', 'tq', 'm22'], 'assistant clarification precedes user answer and latest process/result')
+        assert page.locator('[data-task-id="q"]').evaluate("c => c.querySelector('.process').open && c.querySelector('[data-step-detail]').open && c.querySelector('pre').scrollTop===90")
+        expect(page.locator('[data-task-id="q"] .task-history').first).to_be_hidden()
+        expect(page.locator('[data-task-id="q"] .task-history').last).to_be_hidden()
+        checks.append('expanded data and internal scroll survive task revision rebuild')
+
+        # Exercise the real composer handler and REST refresh, not direct state
+        # injection. Only the backend is mocked; completion then arrives via SSE.
+        reload([], [])
+        page.locator('#message').fill('打开空调AC制冷')
+        page.locator('#sendButton').click()
+        page.wait_for_function('!__orderTest.state.busy && __orderTest.state.tasks.length===1')
+        expect(page.locator('#message')).to_have_value('')
+        assert fixture['submitted'][-1]['text'] == '打开空调AC制冷'
+        assert_order(['m501', 'm502', 'tsubmitted'], 'composer submit -> REST task -> canonical request/acceptance refresh')
+        completed = task('submitted', '打开空调AC制冷')
+        completed.update(status='generated', summary='空调制冷开关：模拟参数已校验。')
+        fixture['tasks'] = [completed]
+        emit({**message(503, 'assistant', 'submitted', text=completed['summary']), 'kind': 'task.generated', 'task_revision': 0})
+        page.evaluate('__orderTest.poll()')
+        assert_order(['m501', 'm502', 'tsubmitted', 'm503'], 'submitted request -> SSE completion -> final task poll')
+        expect(page.locator('[data-task-id="submitted"] .task-description')).to_be_hidden()
+        page.reload(); page.wait_for_function('window.__orderTest?.state.initialized')
+        assert_order(['m501', 'm502', 'tsubmitted', 'm503'], 'submitted live-flow history survives full page refresh')
+        screenshot('submitted-request-flow')
         assert not errors, errors
         result = {'passed': checks, 'javascript_errors': errors, 'screenshots': screenshots, 'geometry': geometry}
         Path(PREFIX + '.json').write_text(json.dumps(result, ensure_ascii=False, indent=2))

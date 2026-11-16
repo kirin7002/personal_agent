@@ -1,4 +1,5 @@
 import { VoiceSession } from './voice-client.js';
+document.documentElement.dataset.timelineVersion = '20261116.2';
 const $ = (id) => document.getElementById(id);
 const state = { catalog: null, config: null, tasks: [], selected: null, tab: 'output', cursor: 0, voice: null, busy: false, initialized: false, catalogPath: [], catalogOffset: 0, selectedToolSchema: null, pendingImport: null, replyTask: null, replyRevision: null, replyManual: false, forceNewTask: false, ignoredReplies: new Set(), replyAmbiguous: false, pollPromise: null, events: null };
 const labels = { running: '处理中', awaiting_input: '等待补充', waiting: '等待时间 / 外部结果', generated: '模拟成功', completed: '查询完成', partial: '部分完成', failed: '未完成', interrupted: '已中断', cancelled: '已取消', expired: '已过期', unsupported: '不支持' };
@@ -45,20 +46,45 @@ function moveTimelineCard(container, card, before = null) {
 function reconcileTimeline(position = captureTimelineScroll()) {
   const container = $('conversationMessages');
   const messages = [...container.querySelectorAll(':scope > [data-message-id]')];
-  const latestUser = new Map();
+  const latestUser = new Map(), byTask = new Map();
   for (const node of messages) {
     const message = state.messages.get(Number(node.dataset.messageId));
-    if (message?.role === 'user' && message.task_id) latestUser.set(message.task_id, node);
+    if (!message?.task_id) continue;
+    if (!byTask.has(message.task_id)) byTask.set(message.task_id, []);
+    byTask.get(message.task_id).push({ node, message });
+    if (message.role === 'user') latestUser.set(message.task_id, node);
   }
   const lastMessage = messages.at(-1);
+  const tasks = new Map(state.tasks.map(task => [task.id, task]));
   for (const card of container.querySelectorAll(':scope > .task[data-task-id]')) {
-    const anchor = latestUser.get(card.dataset.taskId);
-    if (anchor) {
-      // Move the existing card, keeping open details, listeners and inner scroll.
-      if (anchor.nextSibling !== card) moveTimelineCard(container, card, anchor.nextSibling);
+    const task = tasks.get(card.dataset.taskId), related = byTask.get(card.dataset.taskId) || [];
+    const user = latestUser.get(card.dataset.taskId);
+    const userId = Number(user?.dataset.messageId || 0);
+    const currentRevision = message => message.task_revision == null || !task || Number(message.task_revision) === Number(task.revision);
+    const feedbackKind = task?.status === 'awaiting_input' ? 'task.question' : `task.${task?.status}`;
+    const feedback = related.find(({ message }) => message.role !== 'user' && message.kind === feedbackKind &&
+      currentRevision(message) && !message.superseded && message.id > userId);
+    const acknowledgement = related.filter(({ message }) => message.role !== 'user' &&
+      ['reply', 'voice_reply'].includes(message.kind) && currentRevision(message) && !message.superseded && message.id > userId).at(-1);
+    // A card owns execution details; source-event messages own question/result text.
+    // Place the process after acceptance and before its result, not a completed
+    // result card followed by an older "working on it" acknowledgement.
+    const before = feedback?.node || (!user && !acknowledgement ? related.find(({ message }) => message.kind?.startsWith('task.'))?.node : null);
+    const after = acknowledgement?.node || user;
+    const description = card.querySelector('.task-description');
+    if (description) description.hidden = related.some(({ message }) => message.role !== 'user' &&
+      message.kind === feedbackKind && currentRevision(message));
+    for (const history of card.querySelectorAll('.task-history')) {
+      history.hidden = related.some(({ message }) => message.role === history.dataset.historyRole && message.text === history.dataset.historyText);
+    }
+    card.dataset.anchorMessage = (before || after)?.dataset.messageId || '';
+    if (before) {
+      if (card.nextSibling !== before) moveTimelineCard(container, card, before);
+    } else if (after) {
+      if (after.nextSibling !== card) moveTimelineCard(container, card, after.nextSibling);
     } else if (lastMessage && (lastMessage.compareDocumentPosition(card) & Node.DOCUMENT_POSITION_PRECEDING)) {
-      // Legacy/early REST cards keep their own goal and follow canonical messages
-      // until a linked user message arrives, including a later version/link update.
+      // Only genuinely unreferenced cards use the tail. Imported legacy tasks
+      // with source events stay beside their own history, not below new input.
       moveTimelineCard(container, card);
     }
   }
@@ -271,6 +297,9 @@ function renderTasks() {
     if (row?.dataset.fingerprint === fingerprint) continue;
     const wasOpen = row?.querySelector('.process')?.open;
     const expanded = new Set([...(row?.querySelectorAll('[data-step-detail][open]') || [])].map(n => n.dataset.stepDetail));
+    const detailScroll = [...(row?.querySelectorAll('[data-step-detail] pre') || [])].map(node => ({
+      id: node.parentElement.dataset.stepDetail, top: node.scrollTop, left: node.scrollLeft,
+    }));
     if (!row) { row = element('article', 'task'); row.dataset.taskId = task.id; row.dataset.voice = String(Boolean(state.voice?.connected)); container.append(row); }
     row.dataset.fingerprint = fingerprint; row.replaceChildren();
     // Canonical messages own chat bubbles; this card owns execution details.
@@ -288,7 +317,13 @@ function renderTasks() {
       for (const item of task.followups) queued.append(element('li', '', `完成后追加：${item.text} · ${statuses[item.status] || '已收到'}`));
       content.append(queued);
     }
-    for (const item of task.history || []) { content.append(element('p', 'task-context', `追问：${item.question}`), element('p', 'task-context', `你的补充：${item.answer}`)); }
+    for (const item of task.history || []) {
+      for (const [field, role, label] of [['question', 'assistant', '追问'], ['answer', 'user', '你的补充']]) {
+        if (!item[field]) continue;
+        const history = element('p', 'task-context task-history', `${label}：${item[field]}`);
+        history.dataset.historyRole = role; history.dataset.historyText = item[field]; content.append(history);
+      }
+    }
     content.append(renderProcess(task, wasOpen, expanded));
     const detail = task.question || task.summary;
     if (detail && (task.question || !state.voice?.connected || row.dataset.voice !== 'true')) content.append(element('p', 'task-description', detail));
@@ -318,6 +353,10 @@ function renderTasks() {
     content.append(actions);
     const preload = task.navigation?.filter(n => ['catalog.preloaded', 'catalog.preload_skipped'].includes(n.kind)).at(-1);
     if (preload) content.append(element('div', 'task-context', `${preload.kind === 'catalog.preloaded' ? '候选已预加载' : '按需发现工具'} · ${state.catalog?.profiles.find(p => p.id === task.profile_id)?.title || task.profile_id}`));
+    for (const saved of detailScroll) {
+      const node = row.querySelector(`[data-step-detail="${CSS.escape(saved.id)}"] pre`);
+      if (node) { node.scrollTop = saved.top; node.scrollLeft = saved.left; }
+    }
   }
   syncReplyContext();
   updateTimers(); reconcileTimeline(position);
