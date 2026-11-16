@@ -81,3 +81,23 @@ def test_valid_but_different_target_is_rejected_and_invalid_schema_keeps_error(r
     assert invoke(rig, current, 'control.climate.set_fan_speed', {'zone': 'driver', 'level': 2})['error']['code'] == 'OUTDATED_TARGET'
     assert invoke(rig, current, 'control.climate.set_fan_speed', {'zone': 'driver', 'level': 99})['error']['code'] == 'INVALID_ARGUMENTS'
     assert rig[0].task(current['id'])['calls'] == []
+
+
+@pytest.mark.parametrize('goal', [
+    '驾驶位的窗户降到百分之五十', '副驾驶位风量调低至两挡',
+    '全车风力五挡', '副驾驶位座椅通风用两挡就好',
+    '麻烦左后那扇窗开到百分之二十五',
+])
+def test_conversation_boundary_uses_the_same_imported_hints(rig, goal):
+    from app.conversation_routing import ConversationRouter
+    store, catalog, _ = rig
+    sid = store.create_session()
+    router = ConversationRouter(store, catalog)
+    assert router.resolve(sid, goal)['kind'] == 'new_request'
+    waiting, _ = store.create_task(sid, '打开车窗', 'waiting')
+    store.ask(waiting['id'], '要打开哪个车窗？')
+    router.focus(sid, waiting['id'])
+    assert router.resolve(sid, goal)['kind'] == 'new_request'
+    assert router.resolve(sid, '全部')['kind'] == 'answer_question'
+    assert router.resolve(sid, '算了')['kind'] == 'cancel'
+    assert router.resolve(sid, '谢谢')['kind'] == 'chat'

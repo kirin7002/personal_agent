@@ -120,8 +120,8 @@ def expire_in_transaction(store, db, task, now=None, timeout=300):
 
 
 class ConversationRouter:
-    def __init__(self, store):
-        self.store = store
+    def __init__(self, store, catalog=None):
+        self.store, self.catalog = store, catalog
         with store.connect() as db:
             db.execute("""CREATE TABLE IF NOT EXISTS session_task_focus(
                 sid TEXT PRIMARY KEY, task_id TEXT,
@@ -252,8 +252,16 @@ class ConversationRouter:
             matches.append(task)
         return matches
 
-    @staticmethod
-    def _new_request(text):
+    def _new_request(self, text):
+        # Reuse imported capability hints at the conversation boundary as well
+        # as in preload. Otherwise a recognized control can be lost as chat
+        # before it ever reaches the agent (e.g. 窗户降到百分之五十).
+        if self.catalog is not None:
+            from .control_hints import recall_matches
+            if any(tool['enabled'] and tool['kind'] == 'control'
+                   and recall_matches(tool, text) is True
+                   for tool in self.catalog.snapshot().tools.values()):
+                return True
         return (any(name in text for names in _OBJECTS.values() for name in names)
                 and bool(re.search(r"打开|关闭|开启|关上|开|关|调|设|查|多少|怎么|如何|导航|播放|充电|"
                                    r"切换|改为|改成|停止|启用|移动|保存|恢复|折叠|升高|降低|翘起|暂停", text)))

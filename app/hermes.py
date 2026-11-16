@@ -96,7 +96,7 @@ class TaskManager(InteractionMixin):
         self.followup_active = {}
         from .conversation_routing import ConversationRouter
         from .recurring import RecurringPlans
-        self.router = ConversationRouter(store)
+        self.router = ConversationRouter(store, catalog)
         self.plans = RecurringPlans(store)
         self.init_interactions()
         self._next_expiry_check = 0.0
