@@ -259,3 +259,19 @@ bundle 包含 `format_version`、package、directories、tools、profiles、scen
 ## 11. 简单指令快速路径
 
 在任务上下文预加载少量候选 Schema，跳过不必要的目录浏览，但保留相同校验和证据提交。复杂请求与失败查证仍可使用完整目录。候选来源仅为配置，新增工具不需要修改系统提示或手写路由。详见 `candidate-preload-design.md`。
+
+### 11.1 简单控制的可选配置提示（2026-11-16）
+
+车窗开关与开度、座椅通风、空调风量在 `input_schema.x-agent` 中增加声明式提示。已有工具可不提供此字段，继续使用原来的候选检索。参数仍由 Hermes 的模型生成，提示用于候选准备及提交前校验，不直接下发控制。
+
+| 字段 | 用途 |
+| --- | --- |
+| `recall.objects` / `actions` / `exclude` | 对象、操作和排除项的文字别名，配置中不允许可执行表达式 |
+| `required_mentions` | 每个关键参数的识别提示和缺失时的追问 |
+| `kind: choice`、`choices`、`all` | 将位置称呼对应到 Schema 枚举；工具没有 `all` 枚举时，全部位置要求多次调用覆盖 |
+| `kind: number`、`units`、`values` | 数字单位及“最高”“关闭”等明确取值；`minimum` / `maximum` 引用该参数的 Schema 边界 |
+| `relative_tool` | “增加一档”等相对调整需要读取的车况工具 ID |
+
+示例可直接查看 `capabilities/tools/control/climate/set_fan_speed.json`。完整别名和提示随工具 JSON / bundle 导入导出，变更时递增工具版本。导入会校验字段、枚举、常量范围、长度及车况引用，失败则整包不生效。
+
+发给模型的工具说明去掉 `x-agent` 的完整匹配词表，任务上下文只带本次识别出的约束、缺项及相关查询工具引用，减少重复输入。明确的单项指令可走一次模型调用的快速完成；缺少分区或档位则暂停追问，不能以默认值代替用户选择。相对调整要求当前任务轮次内的相关车况回执，多位置控制要检查实际覆盖范围。复杂指令及查证继续原 Agent Loop，不能只凭一个候选就认定全部完成。

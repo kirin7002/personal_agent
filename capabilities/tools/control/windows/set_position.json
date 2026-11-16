@@ -1,6 +1,6 @@
 {
   "id": "control.windows.set_position",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "kind": "control",
   "category_path": [
     "control",
@@ -38,7 +38,112 @@
       "window",
       "open_percent"
     ],
-    "additionalProperties": false
+    "additionalProperties": false,
+    "x-agent": {
+      "recall": {
+        "objects": [
+          "车窗",
+          "窗户",
+          "窗"
+        ],
+        "actions": [
+          "%",
+          "百分之",
+          "成",
+          "一半",
+          "半开",
+          "半扇",
+          "开度",
+          "一点",
+          "一些",
+          "再",
+          "开大",
+          "关小",
+          "调高",
+          "调低",
+          "升高",
+          "降低",
+          "调",
+          "升到",
+          "降到"
+        ],
+        "exclude": [
+          "天窗",
+          "遮阳帘",
+          "座椅",
+          "儿童锁",
+          "一键升降",
+          "停止",
+          "完全打开",
+          "全部打开",
+          "全开",
+          "开到底",
+          "完全关闭",
+          "全关",
+          "关严"
+        ]
+      },
+      "required_mentions": [
+        {
+          "field": "window",
+          "kind": "choice",
+          "choices": {
+            "front_left": [
+              "左前",
+              "前左",
+              "主驾",
+              "驾驶位",
+              "驾驶员"
+            ],
+            "front_right": [
+              "右前",
+              "前右",
+              "副驾",
+              "副驾驶位"
+            ],
+            "rear_left": [
+              "左后",
+              "后左",
+              "后排左侧"
+            ],
+            "rear_right": [
+              "右后",
+              "后右",
+              "后排右侧"
+            ],
+            "all": [
+              "全车"
+            ]
+          },
+          "all": [
+            "全部",
+            "所有",
+            "全车",
+            "都"
+          ],
+          "question": "要操作哪个车窗：左前、右前、左后、右后还是全部？"
+        },
+        {
+          "field": "open_percent",
+          "kind": "number",
+          "units": [
+            "%"
+          ],
+          "values": [
+            {
+              "phrases": [
+                "一半",
+                "半开",
+                "半扇"
+              ],
+              "value": 50
+            }
+          ],
+          "question": "车窗要开到多少百分比？"
+        }
+      ],
+      "relative_tool": "status.windows.get_state"
+    }
   },
   "output_schema": {
     "type": "object",

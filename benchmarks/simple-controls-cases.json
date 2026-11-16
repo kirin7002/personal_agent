@@ -1,0 +1,335 @@
+{
+  "frozen_before_optimization": true,
+  "profile": "demo-ready",
+  "cases": [
+    {
+      "id": "W1",
+      "goal": "把左前车窗打开一半",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 50
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "W2",
+      "goal": "驾驶位的窗户降到百分之五十",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 50
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "W3",
+      "goal": "请把副驾车窗完全关上",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.close",
+          "arguments": {
+            "window": "front_right"
+          }
+        }
+      ],
+      "alternatives": [
+        [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_right",
+              "open_percent": 0
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "id": "W4",
+      "goal": "所有车窗全部打开",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.open",
+          "arguments": {
+            "window": "all"
+          }
+        }
+      ],
+      "alternatives": [
+        [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "all",
+              "open_percent": 100
+            }
+          }
+        ]
+      ]
+    },
+    {
+      "id": "W5",
+      "goal": "右后窗户开到30%",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "rear_right",
+            "open_percent": 30
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "S1",
+      "goal": "主驾座椅通风设为2档",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "S2",
+      "goal": "把副驾驶的座位通风调到三挡",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 3
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "S3",
+      "goal": "驾驶员座椅通风开到最高",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "driver",
+            "level": 3
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "S4",
+      "goal": "把后排左侧座椅通风关掉",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "rear_left",
+            "level": 0
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "S5",
+      "goal": "右后座椅的通风调整为1档",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "rear_right",
+            "level": 1
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "F1",
+      "goal": "主驾空调风量设为3档",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 3
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "F2",
+      "goal": "把所有分区的空调风速开到最大",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "all",
+            "level": 7
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "F3",
+      "goal": "副驾空调的风量调整为二挡",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "passenger",
+            "level": 2
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "F4",
+      "goal": "后排空调风量调至一档",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "rear",
+            "level": 1
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "F5",
+      "goal": "全部空调风量调到七档",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "all",
+            "level": 7
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "M1",
+      "goal": "车窗打开",
+      "group": "windows",
+      "kind": "clarify",
+      "expected": [],
+      "alternatives": []
+    },
+    {
+      "id": "M2",
+      "goal": "座椅通风打开",
+      "group": "ventilation",
+      "kind": "clarify",
+      "expected": [],
+      "alternatives": []
+    },
+    {
+      "id": "M3",
+      "goal": "空调风量调到最大",
+      "group": "fan",
+      "kind": "clarify",
+      "expected": [],
+      "alternatives": []
+    },
+    {
+      "id": "N1",
+      "goal": "关闭车窗儿童锁",
+      "group": "neighbor",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.set_child_lock",
+          "arguments": {
+            "enabled": false
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "N2",
+      "goal": "主驾座椅加热设为2档",
+      "group": "neighbor",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_heating",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        }
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "N3",
+      "goal": "主驾空调风向设为吹脚",
+      "group": "neighbor",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_airflow",
+          "arguments": {
+            "zone": "driver",
+            "direction": "feet"
+          }
+        }
+      ],
+      "alternatives": []
+    }
+  ]
+}

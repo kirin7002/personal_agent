@@ -132,7 +132,9 @@ class CatalogSnapshot:
             if tool is None or not tool["enabled"]:
                 described.append({"id": tid, "error": {"code": "TOOL_NOT_FOUND" if tool is None else "TOOL_DISABLED"}})
             else:
-                described.append({k: deepcopy(v) for k, v in tool.items() if k not in {"mock", "enabled"}})
+                public = {k: deepcopy(v) for k, v in tool.items() if k not in {"mock", "enabled"}}
+                public['input_schema'].pop('x-agent', None)
+                described.append(public)
         return {"catalog_revision": self.revision, "tools": described}
 
 
@@ -193,6 +195,14 @@ class CapabilityCatalog:
                 validate_schema(tool[name])
             if tool["input_schema"].get("type") != "object":
                 raise CatalogError("工具参数的根类型必须是 object")
+            from .control_hints import validate_hints
+            try:
+                validate_hints(tool)
+            except ValueError as exc:
+                raise CatalogError(f"工具控制提示无效：{tool['id']}：{exc}") from None
+            relative_id = tool["input_schema"].get("x-agent", {}).get("relative_tool")
+            if relative_id and snap.tools.get(relative_id, {}).get("kind") != "status":
+                raise CatalogError(f"relative_tool 必须指向存在的车况工具：{tool['id']}")
             if (tool["kind"] == "control") != (tool["mock"]["mode"] == "prepare_only"):
                 raise CatalogError("车控仅允许 prepare_only，查询工具不得使用 prepare_only")
             for example in tool["examples"]:

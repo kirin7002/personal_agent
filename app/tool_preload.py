@@ -9,7 +9,9 @@ import time
 import unicodedata
 
 from .capability_catalog import CatalogSnapshot
+from .control_hints import assess, recall_matches
 
+CONTROL_HINT_INSTRUCTION = '这是目标约束，不是工具参数。missing 非空先追问；relative 为 true 时先调用 relative_tool_id 查询再决定目标；constraints 中无 missing 的列表表示全部目标，必须逐个覆盖。single_call_complete 为 false 时不能直接完成。参数仍由模型生成并接受 Schema 校验。'
 
 def normalize(text):
     text = unicodedata.normalize("NFKC", str(text)).casefold()
@@ -41,6 +43,9 @@ def explicit_control_target(snapshot, selected, goal):
     """Conservative retrieval policy, never a parameter generator or authorization."""
     if len(selected) != 1 or complex_request(goal):
         return False
+    assessment = assess(snapshot.tools[selected[0]], goal)
+    if assessment is not None:
+        return assessment['single_call_complete']
     if re.search(r"增加|减少|降低|升高|调高|调低|提高|比|当前|现在|原来|一点|一些|再|\b(increase|decrease|more|less|relative)\b", goal, re.I):
         return False
     normalized=normalize(goal).rstrip('。.!！ ')
@@ -125,8 +130,9 @@ class CandidatePreloader:
         ranked = []
         normalized = normalize(goal)
         for entry in index.entries:
+            recalled = recall_matches(snapshot.tools[entry['id']], goal)
             score = max((self.similarity(query, field, index.idf)*weight for field, weight in entry["fields"] if field), default=0)
-            if normalized in entry["examples"]:
+            if recalled is True or normalized in entry["examples"]:
                 score = 1.0
             elif len(entry["phrase"]) >= 4 and entry["phrase"] in normalized:
                 # An exact, specific phrase derived from the title can bridge a
@@ -145,19 +151,32 @@ class CandidatePreloader:
         if len(near) > self.max_candidates:
             return finish("too_many_candidates")
         selected = [e["id"] for _, e in near]
+        assessment = assess(snapshot.tools[selected[0]], goal) if len(selected) == 1 else None
+        if assessment is not None:
+            assessment['relative_tool_id'] = snapshot.tools[selected[0]]['input_schema']['x-agent'].get('relative_tool')
+            result['control_assessment'] = assessment
+            result['hint_instruction'] = CONTROL_HINT_INSTRUCTION
         schemas = snapshot.describe(selected)["tools"]
         size = len(json.dumps(schemas, ensure_ascii=False, separators=(",", ":")))
         if size > self.max_chars:
             return finish("schema_budget")
         from .capability_search import related_queries, directory_hints, encoded_size
         related=[];related_ids=[];hints=[];omitted=[]
-        primary_only = best >= .82 and explicit_control_target(snapshot,selected,goal)
+        primary_only = best >= .82 and (explicit_control_target(snapshot,selected,goal)
+            or (assessment is not None and recall_matches(snapshot.tools[selected[0]], goal) is True
+                and not assessment['relative'] and not assessment['excluded']))
         def payload(extra, paths):
             return {"catalog_revision":snapshot.revision,"tools":schemas+extra,"directory_hints":paths,
-                    "primary_tool_ids":selected,"related_tool_ids":[t["id"] for t in extra]}
+                    "primary_tool_ids":selected,"related_tool_ids":[t["id"] for t in extra],
+                    **({'control_assessment': assessment, 'hint_instruction': CONTROL_HINT_INSTRUCTION} if assessment is not None else {})}
         if encoded_size(payload([],[]))>self.max_chars:
             return finish("schema_budget")
-        for tid in ([] if primary_only else related_queries(snapshot,selected)):
+        query_ids = related_queries(snapshot, selected)
+        if assessment and assessment['relative']:
+            relative_id = snapshot.tools[selected[0]]['input_schema']['x-agent'].get('relative_tool')
+            if relative_id and snapshot.tools.get(relative_id, {}).get('enabled'):
+                query_ids = list(dict.fromkeys([relative_id, *query_ids]))
+        for tid in ([] if primary_only else query_ids):
             schema=snapshot.describe([tid])["tools"][0]
             if len(related)>=self.related_max_tools or encoded_size(payload(related+[schema],hints))>self.max_chars:
                 omitted.append(tid);continue

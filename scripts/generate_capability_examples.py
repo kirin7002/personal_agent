@@ -8,6 +8,53 @@ ROOT = Path(__file__).resolve().parent.parent
 FORMAT = "capability-catalog/v1"
 
 
+def simple_control_hints():
+    """Small vocabularies, not benchmark instructions or generated arguments."""
+    front = {"driver": ["主驾", "驾驶位", "驾驶员"], "passenger": ["副驾", "副驾驶位"]}
+    rear = {"rear_left": ["左后", "后左", "后排左侧"], "rear_right": ["右后", "后右", "后排右侧"]}
+    window = {"front_left": ["左前", "前左", *front["driver"]],
+              "front_right": ["右前", "前右", *front["passenger"]], **rear, "all": ["全车"]}
+
+    def place(field, choices, question):
+        return {"field": field, "kind": "choice", "choices": choices,
+                "all": ["全部", "所有", "全车", "都"], "question": question}
+
+    def numeric(field, units, values, question):
+        return {"field": field, "kind": "number", "units": units,
+                "values": [{"phrases": phrases, "value": value} for value, phrases in values], "question": question}
+
+    def hints(objects, actions, exclude, mentions, relative_tool=None):
+        return {"recall": {"objects": objects, "actions": actions, "exclude": exclude},
+                "required_mentions": mentions, **({"relative_tool": relative_tool} if relative_tool else {})}
+
+    window_place = place("window", window, "要操作哪个车窗：左前、右前、左后、右后还是全部？")
+    window_exclude = ["天窗", "遮阳帘", "座椅", "儿童锁", "一键升降", "停止"]
+    partial = ["%", "百分之", "成", "一半", "半开", "半扇", "开度", "一点", "一些", "再", "开大", "关小", "调高", "调低", "升高", "降低"]
+    levels = [("maximum", ["最高", "最大", "最强"]), (1, ["最低", "最小", "最弱"]),
+              (0, ["关闭", "关掉", "关了", "停掉", "停止"])]
+    return {
+        "control.windows.set_position": hints(["车窗", "窗户", "窗"], partial + ["调", "升到", "降到"],
+            window_exclude + ["完全打开", "全部打开", "全开", "开到底", "完全关闭", "全关", "关严"],
+            [deepcopy(window_place), numeric("open_percent", ["%"], [(50, ["一半", "半开", "半扇"])],
+                 "车窗要开到多少百分比？")], "status.windows.get_state"),
+        "control.windows.open": hints(["车窗", "窗户", "窗"], ["开", "降下", "放下", "降到底"],
+            window_exclude + partial, [deepcopy(window_place)]),
+        "control.windows.close": hints(["车窗", "窗户", "窗"], ["关", "升起", "升到顶"],
+            window_exclude + partial, [deepcopy(window_place)]),
+        "control.seats.set_ventilation": hints(["座椅", "通风"], ["通风"],
+            ["加热", "按摩", "车窗", "天窗", "空调"],
+            [place("seat", {**front, **rear}, "要设置哪个座椅：主驾、副驾、后排左侧、后排右侧还是全部？"),
+             numeric("level", ["档", "挡", "级"], levels, "座椅通风要设为几档（0到3档，0表示关闭）？")],
+            "status.seats.get_state"),
+        "control.climate.set_fan_speed": hints(["风量", "风速", "风力"], [],
+            ["座椅", "车窗", "天窗", "温度", "风向"],
+            [place("zone", {**front, "rear": ["后排"], "all": ["全区域", "所有分区"]},
+                   "要设置哪个空调分区：主驾、副驾、后排还是全部？"),
+             numeric("level", ["档", "挡", "级"], levels, "空调风量要设为几档（0到7档，0表示关闭）？")],
+            "status.climate.get_state"),
+    }
+
+
 def enum(values, description=""):
     return {"type": "string", "enum": values, **({"description": description} if description else {})}
 
@@ -167,6 +214,11 @@ def build():
     add("sunroof", "set_sunshade", "设置天窗遮阳帘", {"open_percent": number(0, 100)}, {"open_percent": 0}, "完全关闭天窗遮阳帘")
     add("sunroof", "stop", "停止天窗运动", {}, {}, "停止天窗当前运动")
     assert len(tools) == len(scenarios) == 50
+    control_hints = simple_control_hints()
+    for tool in tools:
+        if tool["id"] in control_hints:
+            tool["input_schema"]["x-agent"] = control_hints[tool["id"]]
+            tool["version"] = "1.1.0"
     next(t for t in tools if t["id"] == "control.multimedia.select_track")["version"] = "1.0.1"
     # Playing a named track is a composition, not just selecting it.
     scenarios[28]["instruction"] = "播放示例曲目《模拟晴天》"

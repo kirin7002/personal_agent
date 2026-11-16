@@ -1,0 +1,267 @@
+{
+  "profile": "demo-ready",
+  "note": "Additional paraphrases and relative/range boundaries; separate from paired baseline dataset",
+  "cases": [
+    {
+      "id": "H1",
+      "goal": "麻烦左后那扇窗开到百分之二十五",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "rear_left",
+            "open_percent": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "H2",
+      "goal": "请将右前车窗开启至六成",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_right",
+            "open_percent": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "H3",
+      "goal": "车子的四个窗户都关严",
+      "group": "windows",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.windows.close",
+          "arguments": {
+            "window": "all"
+          }
+        }
+      ]
+    },
+    {
+      "id": "H4",
+      "goal": "副驾驶位座椅通风用两挡就好",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "H5",
+      "goal": "请关闭左后座位的通风",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "rear_left",
+            "level": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "H6",
+      "goal": "驾驶位座椅通风调至最强",
+      "group": "ventilation",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "driver",
+            "level": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "H7",
+      "goal": "麻烦后排的空调风速用四档",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "rear",
+            "level": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "H8",
+      "goal": "全车空调风力设成五挡吧",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "all",
+            "level": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "H9",
+      "goal": "副驾驶位风量调低至两挡",
+      "group": "fan",
+      "kind": "explicit",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "passenger",
+            "level": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "goal": "主驾空调风量增加一档",
+      "group": "fan",
+      "kind": "relative",
+      "expected": [
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 3
+          }
+        }
+      ],
+      "requires_query": "status.climate.get_state"
+    },
+    {
+      "id": "R2",
+      "goal": "主驾座椅通风提高一档",
+      "group": "ventilation",
+      "kind": "relative",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "driver",
+            "level": 1
+          }
+        }
+      ],
+      "requires_query": "status.seats.get_state"
+    },
+    {
+      "id": "R3",
+      "goal": "主驾车窗在现在基础上再打开10%",
+      "group": "windows",
+      "kind": "relative",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 10
+          }
+        }
+      ],
+      "requires_query": "status.windows.get_state"
+    },
+    {
+      "id": "G1",
+      "goal": "左前车窗开到120%",
+      "group": "windows",
+      "kind": "reject",
+      "expected": []
+    },
+    {
+      "id": "G2",
+      "goal": "副驾座椅通风设为四档",
+      "group": "ventilation",
+      "kind": "reject",
+      "expected": []
+    },
+    {
+      "id": "G3",
+      "goal": "主驾空调风量设为八档",
+      "group": "fan",
+      "kind": "reject",
+      "expected": []
+    },
+    {
+      "id": "C1",
+      "goal": "把左前车窗开到一半，再将主驾空调风量调到三档",
+      "group": "complex",
+      "kind": "complex",
+      "expected": [
+        {
+          "tool": "control.windows.set_position",
+          "arguments": {
+            "window": "front_left",
+            "open_percent": 50
+          }
+        },
+        {
+          "tool": "control.climate.set_fan_speed",
+          "arguments": {
+            "zone": "driver",
+            "level": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "goal": "把所有座椅的通风设为二档",
+      "group": "complex",
+      "kind": "complex",
+      "expected": [
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "driver",
+            "level": 2
+          }
+        },
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "passenger",
+            "level": 2
+          }
+        },
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "rear_left",
+            "level": 2
+          }
+        },
+        {
+          "tool": "control.seats.set_ventilation",
+          "arguments": {
+            "seat": "rear_right",
+            "level": 2
+          }
+        }
+      ]
+    }
+  ]
+}

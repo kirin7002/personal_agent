@@ -392,6 +392,9 @@ class TaskManager(InteractionMixin):
                     initial["completion_policy"] = {"mode": "validated_single_call", "instruction": "一个控制完整覆盖目标时可声明 complete_if_success；失败、缺信息或仍有其他操作时保持原流程。"}
                 if preload["status"] == "preloaded":
                     initial["candidate_tools"] = {"catalog_revision": preload["catalog_revision"], "tools": preload["tools"]+preload.get("related_tools",[]), "primary_tool_ids":preload["tool_ids"], "related_tool_ids":preload.get("related_tool_ids",[]), "directory_hints":preload.get("directory_hints",[])}
+                    if preload.get('control_assessment') is not None:
+                        initial['candidate_tools']['control_assessment'] = preload['control_assessment']
+                        initial['candidate_tools']['hint_instruction'] = preload['hint_instruction']
             run_id = await self.hermes.start(initial, self.instructions())
             self.store.set_run(tid, run_id)
             self.store.event(tid, "task.dispatched", {"message": "任务已交给 Hermes，等待工具调用", "task_revision": revision})

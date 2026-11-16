@@ -172,6 +172,12 @@ class CapabilityTools:
                     return self.error('OUTDATED_TARGET','分区与用户已确认的范围不一致，请按原目标生成。')
             change = self.store.latest_change(tid, db)
             tool_definition = snap.tools.get(request['tool_id'], {})
+            if (tool_definition.get('kind') == 'control' and tool_definition.get('enabled')
+                    and request['tool_version'] == tool_definition['version']
+                    and Draft202012Validator(tool_definition['input_schema']).is_valid(request['arguments'])):
+                guarded = self._guard_simple_control(db, task, snap, tool_definition, request['arguments'])
+                if guarded:
+                    return guarded
             if change and tool_definition.get('kind') == 'control':
                 expected = change['constraints']
                 if not expected or request['tool_id'] != expected.get('tool_id') or request['arguments'] != expected.get('arguments'):
@@ -243,6 +249,83 @@ class CapabilityTools:
             self.store._event(db, task, "tool.preview" if result["status"] == "prepared" else "tool.mock" if result["status"] == "returned_mock" else "tool.invalid", {"tool_id": request["tool_id"], "status": result["status"], "result_id": result["result_id"], "error": result["error"]})
             return result
 
+    @staticmethod
+    def _simple_context(task, snap):
+        from .control_hints import object_matches
+        from .tool_preload import complex_request
+        if task['source'] != 'hermes' or complex_request(task['goal']):
+            return '', {}
+        # User answers are evidence, never generated assistant questions/text.
+        text = '\n'.join([task['goal'], *[h['answer'] for h in task['history'] if isinstance(h.get('answer'), str)]])
+        relevant = {tid: t for tid, t in snap.tools.items() if t['enabled'] and t['kind'] == 'control'
+                    and object_matches(t, task['goal'])}
+        return text, relevant
+
+    def _ask_control(self, db, task, question):
+        # Same transition as Store.ask, within the already locked invocation.
+        db.execute("UPDATE tasks SET status='awaiting_input',question=?,updated=? WHERE id=?",
+                   (question, time.time(), task['id']))
+        self.store._event(db, task, 'task.question', {'message': question}, True)
+        return self.error('NEEDS_USER_INPUT', '目标信息未明确，已暂停并追问；不能猜测参数。')
+
+    def _guard_simple_control(self, db, task, snap, tool, arguments):
+        from .control_hints import assess, recall_matches
+        text, relevant = self._simple_context(task, snap)
+        if not relevant:
+            return None
+        expected = [tid for tid, t in relevant.items() if recall_matches(t, text) is True]
+        if len(expected) == 1 and tool['id'] != expected[0]:
+            return self.error('CONTROL_TARGET_MISMATCH', '该工具与明确的单项控制目标不符，请使用匹配的控制工具。',
+                              [{'expected_tool_id': expected[0]}])
+        if tool['id'] not in relevant:
+            return None
+        assessment = assess(tool, text)
+        if assessment['excluded']:
+            return self.error('CONTROL_TARGET_MISMATCH', '目标包含该工具的排除条件，不能用全开或全关替代部分开度等其他操作。')
+        for field, target in assessment['constraints'].items():
+            allowed = target if isinstance(target, list) else [target]
+            if arguments.get(field) not in allowed:
+                return self.error('OUTDATED_TARGET', '生成参数与用户明确目标不一致；不能改写、限幅或猜测目标。', [{'field': field}])
+        if assessment['missing']:
+            return self._ask_control(db, task, assessment['missing'][0]['question'])
+        if assessment['relative']:
+            query_id = tool['input_schema']['x-agent'].get('relative_tool')
+            if not snap.tools.get(query_id, {}).get('enabled'):
+                return self._ask_control(db, task, '当前没有可用的状态查询，请明确希望设置的绝对目标。')
+            receipts = (json.loads(row[0]) for row in db.execute(
+                'SELECT response FROM capability_calls WHERE task_id=? AND task_revision=? AND tool_id=?',
+                (task['id'], task['revision'], query_id)))
+            if not any(r['status'] == 'returned_mock' and r['kind'] == 'status' for r in receipts):
+                return self.error('NEEDS_RELATIVE_QUERY', '相对调整必须先读取本任务当前轮次的相关状态，再决定绝对目标。',
+                                  [{'relative_tool_id': query_id}])
+        return None
+
+    def _guard_simple_finish(self, db, task, snap, controls):
+        from .control_hints import assess, recall_matches
+        text, relevant = self._simple_context(task, snap)
+        expected = [t for t in relevant.values() if recall_matches(t, text) is True]
+        if len(expected) == 1 and not any(r['tool_id'] == expected[0]['id'] for r in controls):
+            return self.error('CONTROL_TARGET_INCOMPLETE', '缺少当前单项控制目标的成功回执，不能报告完成。')
+        for receipt in controls:
+            tool = snap.tools[receipt['tool_id']]
+            guarded = self._guard_simple_control(db, task, snap, tool, receipt['arguments'])
+            if guarded:
+                return guarded
+        for tid in {r['tool_id'] for r in controls} & relevant.keys():
+            assessment = assess(relevant[tid], text)
+            scopes = {field: target for field, target in assessment['constraints'].items() if isinstance(target, list)}
+            if not scopes:
+                continue
+            # Count actual combinations rather than expanding unbounded products.
+            required = 1
+            for values in scopes.values():
+                required *= len(values)
+            covered = {tuple(r['arguments'].get(field) for field in scopes)
+                       for r in controls if r['tool_id'] == tid}
+            if len(covered) != required:
+                return self.error('CONTROL_TARGET_INCOMPLETE', '必须覆盖用户明确要求的全部位置，不能把一个位置的成功当作全部完成。')
+        return None
+
     def finish(self, initial, snap, outcome, summary, result_ids, unresolved=None, fast_arguments=None):
         unresolved = unresolved or []
         with self.store.connect() as db:
@@ -268,6 +351,10 @@ class CapabilityTools:
             controls = [r for r in selected if r["status"] == "prepared"]
             queries = [r for r in selected if r["status"] == "returned_mock"]
             errors = [r for r in selected if r["status"] == "error"]
+            if outcome in {'auto', 'prepared', 'mixed', 'answered'}:
+                guarded = self._guard_simple_finish(db, task, snap, controls)
+                if guarded:
+                    return guarded
             if change and outcome in {'auto','prepared','mixed','answered'}:
                 expected = change['constraints']
                 if not controls or any(r['tool_id'] != expected.get('tool_id') or r['arguments'] != expected.get('arguments') for r in controls):

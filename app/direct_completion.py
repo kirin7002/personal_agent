@@ -10,6 +10,9 @@ def request_digest(arguments):
 
 
 def eligible(task, preload):
+    assessment = preload.get('control_assessment')
+    if assessment is not None and not assessment['single_call_complete']:
+        return False
     return (task.get('completion_mode') == 'auto' and task.get('discovery_mode') == 'auto'
             and task['source'] == 'hermes' and task['revision'] == 0 and not task['history']
             and not complex_request(task['goal']) and len(preload.get('tool_ids', [])) == 1

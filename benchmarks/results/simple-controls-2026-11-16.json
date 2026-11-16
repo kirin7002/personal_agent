@@ -1,0 +1,3118 @@
+{
+  "note": "Fixed 21 prompts, twice before and twice after, sequential. No physical vehicle. Model/network timing uncontrolled. Backend time excludes S2S and UI.",
+  "before": {
+    "profile": "demo-ready",
+    "note": "same prompts and service; small sample, model/network timing is uncontrolled",
+    "cases": [
+      {
+        "case": "W1",
+        "goal": "把左前车窗打开一半",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.386,
+        "observed_seconds": 2.429,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2712,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W2",
+        "goal": "驾驶位的窗户降到百分之五十",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 7.932,
+        "observed_seconds": 7.962,
+        "model_requests": 6,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 4,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W3",
+        "goal": "请把副驾车窗完全关上",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.close",
+            "arguments": {
+              "window": "front_right"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.352,
+        "observed_seconds": 4.399,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W4",
+        "goal": "所有车窗全部打开",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.open",
+            "arguments": {
+              "window": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.487,
+        "observed_seconds": 4.582,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.close",
+          "control.windows.open",
+          "control.windows.set_position",
+          "control.windows.stop"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 2999,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W5",
+        "goal": "右后窗户开到30%",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "rear_right",
+              "open_percent": 30
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 7.307,
+        "observed_seconds": 7.335,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S1",
+        "goal": "主驾座椅通风设为2档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.232,
+        "observed_seconds": 2.297,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 861,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S2",
+        "goal": "把副驾驶的座位通风调到三挡",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "passenger",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 8.535,
+        "observed_seconds": 8.628,
+        "model_requests": 4,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S3",
+        "goal": "驾驶员座椅通风开到最高",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.271,
+        "observed_seconds": 2.291,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2579,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S4",
+        "goal": "把后排左侧座椅通风关掉",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_left",
+              "level": 0
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.396,
+        "observed_seconds": 2.466,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2579,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S5",
+        "goal": "右后座椅的通风调整为1档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_right",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.878,
+        "observed_seconds": 4.904,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F1",
+        "goal": "主驾空调风量设为3档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.724,
+        "observed_seconds": 1.811,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 842,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F2",
+        "goal": "把所有分区的空调风速开到最大",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "level": 7,
+              "zone": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 5.606,
+        "observed_seconds": 5.719,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_temperature"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 1348,
+        "navigation_steps": 2,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F3",
+        "goal": "副驾空调的风量调整为二挡",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "passenger",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 5.174,
+        "observed_seconds": 5.354,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_temperature"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 1348,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F4",
+        "goal": "后排空调风量调至一档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "rear",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.75,
+        "observed_seconds": 1.881,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 842,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F5",
+        "goal": "全部空调风量调到七档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.676,
+        "observed_seconds": 1.705,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 842,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "M1",
+        "goal": "车窗打开",
+        "group": "windows",
+        "kind": "clarify",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要打开哪些车窗、开多大开度？例如“全部车窗 100%”，或指定左前/右前/左后/右后及百分比。",
+        "backend_seconds": 3.438,
+        "observed_seconds": 3.552,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2712,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "M2",
+        "goal": "座椅通风打开",
+        "group": "ventilation",
+        "kind": "clarify",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "请确认座椅通风的具体位置和档位：是主驾、副驾，还是后排左/右侧？档位设为几档（1-3 档）？",
+        "backend_seconds": 3.704,
+        "observed_seconds": 3.885,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2579,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "M3",
+        "goal": "空调风量调到最大",
+        "group": "fan",
+        "kind": "clarify",
+        "repeat": 1,
+        "phase": "before",
+        "correct": false,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 3.695,
+        "observed_seconds": 3.869,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2635,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "N1",
+        "goal": "关闭车窗儿童锁",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_child_lock",
+            "arguments": {
+              "enabled": false
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 3.874,
+        "observed_seconds": 4.025,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.close",
+          "control.windows.set_child_lock"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 3163,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "N2",
+        "goal": "主驾座椅加热设为2档",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_heating",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.566,
+        "observed_seconds": 1.699,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_heating"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 846,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "N3",
+        "goal": "主驾空调风向设为吹脚",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_airflow",
+            "arguments": {
+              "direction": "feet",
+              "zone": "driver"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.056,
+        "observed_seconds": 2.196,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_airflow"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2698,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "N3",
+        "goal": "主驾空调风向设为吹脚",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_airflow",
+            "arguments": {
+              "zone": "driver",
+              "direction": "feet"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.122,
+        "observed_seconds": 2.214,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_airflow"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2698,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "N2",
+        "goal": "主驾座椅加热设为2档",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_heating",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.254,
+        "observed_seconds": 2.387,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_heating"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 846,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "N1",
+        "goal": "关闭车窗儿童锁",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_child_lock",
+            "arguments": {
+              "enabled": false
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.504,
+        "observed_seconds": 4.615,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.close",
+          "control.windows.set_child_lock"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 3163,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "M3",
+        "goal": "空调风量调到最大",
+        "group": "fan",
+        "kind": "clarify",
+        "repeat": 2,
+        "phase": "before",
+        "correct": false,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.338,
+        "observed_seconds": 2.382,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2635,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "M2",
+        "goal": "座椅通风打开",
+        "group": "ventilation",
+        "kind": "clarify",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "请确认要打开哪个座位的通风，以及档位（1-3 档）：主驾、副驾、后排左、后排右？",
+        "backend_seconds": 3.664,
+        "observed_seconds": 3.754,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2579,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "M1",
+        "goal": "车窗打开",
+        "group": "windows",
+        "kind": "clarify",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要打开哪个车窗、打开多少？例如\"全部车窗全开（100%）\"或\"左前车窗打开一半（50%）\"。",
+        "backend_seconds": 3.242,
+        "observed_seconds": 3.383,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2712,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F5",
+        "goal": "全部空调风量调到七档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.402,
+        "observed_seconds": 2.53,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 842,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F4",
+        "goal": "后排空调风量调至一档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "rear",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.038,
+        "observed_seconds": 2.204,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 842,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F3",
+        "goal": "副驾空调的风量调整为二挡",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "passenger",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 5.823,
+        "observed_seconds": 5.884,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_temperature"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 1348,
+        "navigation_steps": 2,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F2",
+        "goal": "把所有分区的空调风速开到最大",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "level": 7,
+              "zone": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 5.992,
+        "observed_seconds": 6.036,
+        "model_requests": 4,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_temperature"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 1348,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "F1",
+        "goal": "主驾空调风量设为3档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.846,
+        "observed_seconds": 1.875,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 842,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S5",
+        "goal": "右后座椅的通风调整为1档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "level": 1,
+              "seat": "rear_right"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 7.861,
+        "observed_seconds": 8.043,
+        "model_requests": 4,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S4",
+        "goal": "把后排左侧座椅通风关掉",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_left",
+              "level": 0
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.174,
+        "observed_seconds": 2.218,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2579,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S3",
+        "goal": "驾驶员座椅通风开到最高",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.212,
+        "observed_seconds": 2.387,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2579,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S2",
+        "goal": "把副驾驶的座位通风调到三挡",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "level": 3,
+              "seat": "passenger"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 6.074,
+        "observed_seconds": 6.147,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "S1",
+        "goal": "主驾座椅通风设为2档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.254,
+        "observed_seconds": 2.297,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 861,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W5",
+        "goal": "右后窗户开到30%",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "open_percent": 30,
+              "window": "rear_right"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.554,
+        "observed_seconds": 4.704,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W4",
+        "goal": "所有车窗全部打开",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.open",
+            "arguments": {
+              "window": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 3.631,
+        "observed_seconds": 3.768,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.close",
+          "control.windows.open",
+          "control.windows.set_position",
+          "control.windows.stop"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 2999,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W3",
+        "goal": "请把副驾车窗完全关上",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.close",
+            "arguments": {
+              "window": "front_right"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.754,
+        "observed_seconds": 4.915,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W2",
+        "goal": "驾驶位的窗户降到百分之五十",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 8.265,
+        "observed_seconds": 8.295,
+        "model_requests": 6,
+        "fast": false,
+        "preloaded_tools": [],
+        "preload_reason": null,
+        "payload_chars": 0,
+        "navigation_steps": 4,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      },
+      {
+        "case": "W1",
+        "goal": "把左前车窗打开一半",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "before",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.944,
+        "observed_seconds": 3.12,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2712,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+      }
+    ]
+  },
+  "after": {
+    "profile": "demo-ready",
+    "note": "same prompts and service; small sample, model/network timing is uncontrolled",
+    "cases": [
+      {
+        "case": "W1",
+        "goal": "把左前车窗打开一半",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.627,
+        "observed_seconds": 2.649,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1309,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W2",
+        "goal": "驾驶位的窗户降到百分之五十",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.002,
+        "observed_seconds": 2.149,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1309,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W3",
+        "goal": "请把副驾车窗完全关上",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.close",
+            "arguments": {
+              "window": "front_right"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.166,
+        "observed_seconds": 2.216,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.close"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1141,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W4",
+        "goal": "所有车窗全部打开",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.open",
+            "arguments": {
+              "window": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.069,
+        "observed_seconds": 2.191,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.open"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1145,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W5",
+        "goal": "右后窗户开到30%",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "rear_right",
+              "open_percent": 30
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.506,
+        "observed_seconds": 2.534,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1309,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S1",
+        "goal": "主驾座椅通风设为2档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "level": 2,
+              "seat": "driver"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.084,
+        "observed_seconds": 2.185,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1256,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S2",
+        "goal": "把副驾驶的座位通风调到三挡",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "passenger",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.736,
+        "observed_seconds": 1.85,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1259,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S3",
+        "goal": "驾驶员座椅通风开到最高",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.864,
+        "observed_seconds": 2.03,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1256,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S4",
+        "goal": "把后排左侧座椅通风关掉",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_left",
+              "level": 0
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.761,
+        "observed_seconds": 1.851,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1259,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S5",
+        "goal": "右后座椅的通风调整为1档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_right",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.975,
+        "observed_seconds": 2.032,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1260,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F1",
+        "goal": "主驾空调风量设为3档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.881,
+        "observed_seconds": 2.032,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1239,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F2",
+        "goal": "把所有分区的空调风速开到最大",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.107,
+        "observed_seconds": 2.198,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1236,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F3",
+        "goal": "副驾空调的风量调整为二挡",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "passenger",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.731,
+        "observed_seconds": 1.869,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1242,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F4",
+        "goal": "后排空调风量调至一档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "rear",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.3,
+        "observed_seconds": 2.361,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1237,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F5",
+        "goal": "全部空调风量调到七档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.874,
+        "observed_seconds": 2.031,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1236,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "M1",
+        "goal": "车窗打开",
+        "group": "windows",
+        "kind": "clarify",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要操作哪个车窗：左前、右前、左后、右后还是全部？",
+        "backend_seconds": 2.13,
+        "observed_seconds": 2.166,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.open"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1189,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "M2",
+        "goal": "座椅通风打开",
+        "group": "ventilation",
+        "kind": "clarify",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要打开哪个座椅的通风，设几档？可选座椅：主驾、副驾、后排左侧、后排右侧（或全部）；档位 1–3 档（0 为关闭）。",
+        "backend_seconds": 3.148,
+        "observed_seconds": 3.191,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1345,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "M3",
+        "goal": "空调风量调到最大",
+        "group": "fan",
+        "kind": "clarify",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要把空调风量调到最大（7 档），请确认是哪个分区：主驾、副驾、后排，还是全部？",
+        "backend_seconds": 2.09,
+        "observed_seconds": 2.188,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1278,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "N1",
+        "goal": "关闭车窗儿童锁",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_child_lock",
+            "arguments": {
+              "enabled": false
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 5.364,
+        "observed_seconds": 5.511,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.close",
+          "control.windows.set_child_lock"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 3163,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "N2",
+        "goal": "主驾座椅加热设为2档",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_heating",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.986,
+        "observed_seconds": 2.021,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_heating"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 846,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "N3",
+        "goal": "主驾空调风向设为吹脚",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_airflow",
+            "arguments": {
+              "zone": "driver",
+              "direction": "feet"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.038,
+        "observed_seconds": 2.19,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_airflow"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2698,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "N3",
+        "goal": "主驾空调风向设为吹脚",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_airflow",
+            "arguments": {
+              "zone": "driver",
+              "direction": "feet"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.752,
+        "observed_seconds": 1.84,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_airflow"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2698,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "N2",
+        "goal": "主驾座椅加热设为2档",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_heating",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.834,
+        "observed_seconds": 1.856,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_heating"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 846,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "N1",
+        "goal": "关闭车窗儿童锁",
+        "group": "neighbor",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_child_lock",
+            "arguments": {
+              "enabled": false
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 4.921,
+        "observed_seconds": 5.002,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.close",
+          "control.windows.set_child_lock"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 3163,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "M3",
+        "goal": "空调风量调到最大",
+        "group": "fan",
+        "kind": "clarify",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要把空调风量调到最大（7 档），请确认设置哪个分区：主驾、副驾、后排，还是全部？",
+        "backend_seconds": 1.81,
+        "observed_seconds": 1.862,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1278,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "M2",
+        "goal": "座椅通风打开",
+        "group": "ventilation",
+        "kind": "clarify",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "座椅通风要开哪个位置、几档？位置可选主驾、副驾、后排左侧、后排右侧；档位为 1–3 档（0 表示关闭）。",
+        "backend_seconds": 2.311,
+        "observed_seconds": 2.363,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1345,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "M1",
+        "goal": "车窗打开",
+        "group": "windows",
+        "kind": "clarify",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "要打开哪个车窗：左前、右前、左后、右后，还是全部？",
+        "backend_seconds": 1.623,
+        "observed_seconds": 1.693,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.open"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1189,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F5",
+        "goal": "全部空调风量调到七档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.793,
+        "observed_seconds": 1.864,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1236,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F4",
+        "goal": "后排空调风量调至一档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "rear",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.836,
+        "observed_seconds": 2.016,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1237,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F3",
+        "goal": "副驾空调的风量调整为二挡",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "passenger",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.178,
+        "observed_seconds": 2.208,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1242,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F2",
+        "goal": "把所有分区的空调风速开到最大",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 7
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.934,
+        "observed_seconds": 2.037,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1236,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "F1",
+        "goal": "主驾空调风量设为3档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.127,
+        "observed_seconds": 2.177,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1239,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S5",
+        "goal": "右后座椅的通风调整为1档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_right",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.953,
+        "observed_seconds": 1.997,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1260,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S4",
+        "goal": "把后排左侧座椅通风关掉",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_left",
+              "level": 0
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.223,
+        "observed_seconds": 2.294,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1259,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S3",
+        "goal": "驾驶员座椅通风开到最高",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.287,
+        "observed_seconds": 2.315,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1256,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S2",
+        "goal": "把副驾驶的座位通风调到三挡",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "passenger",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.644,
+        "observed_seconds": 1.788,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1259,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "S1",
+        "goal": "主驾座椅通风设为2档",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.179,
+        "observed_seconds": 2.253,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1256,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W5",
+        "goal": "右后窗户开到30%",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "rear_right",
+              "open_percent": 30
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.188,
+        "observed_seconds": 2.27,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1309,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W4",
+        "goal": "所有车窗全部打开",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.open",
+            "arguments": {
+              "window": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.977,
+        "observed_seconds": 2.017,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.open"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1145,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W3",
+        "goal": "请把副驾车窗完全关上",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.close",
+            "arguments": {
+              "window": "front_right"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.24,
+        "observed_seconds": 2.342,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.close"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1141,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W2",
+        "goal": "驾驶位的窗户降到百分之五十",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.976,
+        "observed_seconds": 2.143,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1309,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "W1",
+        "goal": "把左前车窗打开一半",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 2,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 50
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.459,
+        "observed_seconds": 2.479,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1309,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      }
+    ]
+  },
+  "additional": {
+    "profile": "demo-ready",
+    "note": "same prompts and service; small sample, model/network timing is uncontrolled",
+    "cases": [
+      {
+        "case": "H1",
+        "goal": "麻烦左后那扇窗开到百分之二十五",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "rear_left",
+              "open_percent": 25
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.354,
+        "observed_seconds": 2.391,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1308,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H2",
+        "goal": "请将右前车窗开启至六成",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_right",
+              "open_percent": 60
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.991,
+        "observed_seconds": 2.059,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1310,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H3",
+        "goal": "车子的四个窗户都关严",
+        "group": "windows",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.close",
+            "arguments": {
+              "window": "all"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.811,
+        "observed_seconds": 1.91,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.windows.close"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1133,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H4",
+        "goal": "副驾驶位座椅通风用两挡就好",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "passenger",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.227,
+        "observed_seconds": 2.37,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1259,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H5",
+        "goal": "请关闭左后座位的通风",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_left",
+              "level": 0
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.049,
+        "observed_seconds": 2.093,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1259,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H6",
+        "goal": "驾驶位座椅通风调至最强",
+        "group": "ventilation",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.371,
+        "observed_seconds": 2.453,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1256,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H7",
+        "goal": "麻烦后排的空调风速用四档",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "rear",
+              "level": 4
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.137,
+        "observed_seconds": 2.284,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1237,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H8",
+        "goal": "全车空调风力设成五挡吧",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "all",
+              "level": 5
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 1.863,
+        "observed_seconds": 1.937,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1236,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "H9",
+        "goal": "副驾驶位风量调低至两挡",
+        "group": "fan",
+        "kind": "explicit",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "level": 2,
+              "zone": "passenger"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 2.37,
+        "observed_seconds": 2.404,
+        "model_requests": 1,
+        "fast": true,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1242,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "R1",
+        "goal": "主驾空调风量增加一档",
+        "group": "fan",
+        "kind": "relative",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "zone": "driver",
+              "level": 3
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 9.628,
+        "observed_seconds": 9.69,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 3023,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": [
+          "status.climate.get_state"
+        ]
+      },
+      {
+        "case": "R2",
+        "goal": "主驾座椅通风提高一档",
+        "group": "ventilation",
+        "kind": "relative",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 1
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 6.205,
+        "observed_seconds": 6.214,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 2965,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": [
+          "status.seats.get_state"
+        ]
+      },
+      {
+        "case": "R3",
+        "goal": "主驾车窗在现在基础上再打开10%",
+        "group": "windows",
+        "kind": "relative",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "window": "front_left",
+              "open_percent": 10
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 7.765,
+        "observed_seconds": 7.931,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 3106,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": [
+          "status.windows.get_state"
+        ]
+      },
+      {
+        "case": "G1",
+        "goal": "左前车窗开到120%",
+        "group": "windows",
+        "kind": "reject",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "左前车窗开度只支持 0–100%，120% 超出范围，无法下发。请确认要开到多少百分比（例如 100%）？",
+        "backend_seconds": 2.465,
+        "observed_seconds": 2.527,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.windows.set_position"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1361,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "G2",
+        "goal": "副驾座椅通风设为四档",
+        "group": "ventilation",
+        "kind": "reject",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "副驾座椅通风最多只有 3 档（0 表示关闭），没有四档。要改成三档（最高档）吗，还是选其他档位？",
+        "backend_seconds": 7.623,
+        "observed_seconds": 7.683,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1314,
+        "navigation_steps": 2,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "G3",
+        "goal": "主驾空调风量设为八档",
+        "group": "fan",
+        "kind": "reject",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "awaiting_input",
+        "arguments": [],
+        "question": "空调风量只支持 0 到 7 档（0 表示关闭），没有 8 档。主驾风量要设为 7 档，还是其他档位？",
+        "backend_seconds": 4.151,
+        "observed_seconds": 4.234,
+        "model_requests": 1,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1294,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "C1",
+        "goal": "把左前车窗开到一半，再将主驾空调风量调到三档",
+        "group": "complex",
+        "kind": "complex",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.climate.set_fan_speed",
+            "arguments": {
+              "level": 3,
+              "zone": "driver"
+            }
+          },
+          {
+            "tool": "control.windows.set_position",
+            "arguments": {
+              "open_percent": 50,
+              "window": "front_left"
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 6.118,
+        "observed_seconds": 6.283,
+        "model_requests": 3,
+        "fast": false,
+        "preloaded_tools": [
+          "control.climate.set_fan_speed"
+        ],
+        "preload_reason": "global_recall",
+        "payload_chars": 985,
+        "navigation_steps": 1,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      },
+      {
+        "case": "C2",
+        "goal": "把所有座椅的通风设为二档",
+        "group": "complex",
+        "kind": "complex",
+        "repeat": 1,
+        "phase": "after",
+        "correct": true,
+        "status": "generated",
+        "arguments": [
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "driver",
+              "level": 2
+            }
+          },
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "passenger",
+              "level": 2
+            }
+          },
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_left",
+              "level": 2
+            }
+          },
+          {
+            "tool": "control.seats.set_ventilation",
+            "arguments": {
+              "seat": "rear_right",
+              "level": 2
+            }
+          }
+        ],
+        "question": null,
+        "backend_seconds": 6.391,
+        "observed_seconds": 6.521,
+        "model_requests": 2,
+        "fast": false,
+        "preloaded_tools": [
+          "control.seats.set_ventilation"
+        ],
+        "preload_reason": "metadata_match",
+        "payload_chars": 1297,
+        "navigation_steps": 0,
+        "catalog_revision": "cat_2a383a9e59e1c73213bcc65b",
+        "observed_queries": []
+      }
+    ]
+  }
+}

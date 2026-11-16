@@ -584,7 +584,7 @@
     },
     {
       "id": "control.climate.set_fan_speed",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "kind": "control",
       "category_path": [
         "control",
@@ -621,7 +621,94 @@
           "zone",
           "level"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "x-agent": {
+          "recall": {
+            "objects": [
+              "风量",
+              "风速",
+              "风力"
+            ],
+            "actions": [],
+            "exclude": [
+              "座椅",
+              "车窗",
+              "天窗",
+              "温度",
+              "风向"
+            ]
+          },
+          "required_mentions": [
+            {
+              "field": "zone",
+              "kind": "choice",
+              "choices": {
+                "driver": [
+                  "主驾",
+                  "驾驶位",
+                  "驾驶员"
+                ],
+                "passenger": [
+                  "副驾",
+                  "副驾驶位"
+                ],
+                "rear": [
+                  "后排"
+                ],
+                "all": [
+                  "全区域",
+                  "所有分区"
+                ]
+              },
+              "all": [
+                "全部",
+                "所有",
+                "全车",
+                "都"
+              ],
+              "question": "要设置哪个空调分区：主驾、副驾、后排还是全部？"
+            },
+            {
+              "field": "level",
+              "kind": "number",
+              "units": [
+                "档",
+                "挡",
+                "级"
+              ],
+              "values": [
+                {
+                  "phrases": [
+                    "最高",
+                    "最大",
+                    "最强"
+                  ],
+                  "value": "maximum"
+                },
+                {
+                  "phrases": [
+                    "最低",
+                    "最小",
+                    "最弱"
+                  ],
+                  "value": 1
+                },
+                {
+                  "phrases": [
+                    "关闭",
+                    "关掉",
+                    "关了",
+                    "停掉",
+                    "停止"
+                  ],
+                  "value": 0
+                }
+              ],
+              "question": "空调风量要设为几档（0到7档，0表示关闭）？"
+            }
+          ],
+          "relative_tool": "status.climate.get_state"
+        }
       },
       "output_schema": {
         "type": "object",
@@ -2511,7 +2598,7 @@
     },
     {
       "id": "control.seats.set_ventilation",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "kind": "control",
       "category_path": [
         "control",
@@ -2548,7 +2635,98 @@
           "seat",
           "level"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "x-agent": {
+          "recall": {
+            "objects": [
+              "座椅",
+              "通风"
+            ],
+            "actions": [
+              "通风"
+            ],
+            "exclude": [
+              "加热",
+              "按摩",
+              "车窗",
+              "天窗",
+              "空调"
+            ]
+          },
+          "required_mentions": [
+            {
+              "field": "seat",
+              "kind": "choice",
+              "choices": {
+                "driver": [
+                  "主驾",
+                  "驾驶位",
+                  "驾驶员"
+                ],
+                "passenger": [
+                  "副驾",
+                  "副驾驶位"
+                ],
+                "rear_left": [
+                  "左后",
+                  "后左",
+                  "后排左侧"
+                ],
+                "rear_right": [
+                  "右后",
+                  "后右",
+                  "后排右侧"
+                ]
+              },
+              "all": [
+                "全部",
+                "所有",
+                "全车",
+                "都"
+              ],
+              "question": "要设置哪个座椅：主驾、副驾、后排左侧、后排右侧还是全部？"
+            },
+            {
+              "field": "level",
+              "kind": "number",
+              "units": [
+                "档",
+                "挡",
+                "级"
+              ],
+              "values": [
+                {
+                  "phrases": [
+                    "最高",
+                    "最大",
+                    "最强"
+                  ],
+                  "value": "maximum"
+                },
+                {
+                  "phrases": [
+                    "最低",
+                    "最小",
+                    "最弱"
+                  ],
+                  "value": 1
+                },
+                {
+                  "phrases": [
+                    "关闭",
+                    "关掉",
+                    "关了",
+                    "停掉",
+                    "停止"
+                  ],
+                  "value": 0
+                }
+              ],
+              "question": "座椅通风要设为几档（0到3档，0表示关闭）？"
+            }
+          ],
+          "relative_tool": "status.seats.get_state"
+        }
       },
       "output_schema": {
         "type": "object",
@@ -3039,7 +3217,7 @@
     },
     {
       "id": "control.windows.close",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "kind": "control",
       "category_path": [
         "control",
@@ -3071,7 +3249,86 @@
         "required": [
           "window"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "x-agent": {
+          "recall": {
+            "objects": [
+              "车窗",
+              "窗户",
+              "窗"
+            ],
+            "actions": [
+              "关",
+              "升起",
+              "升到顶"
+            ],
+            "exclude": [
+              "天窗",
+              "遮阳帘",
+              "座椅",
+              "儿童锁",
+              "一键升降",
+              "停止",
+              "%",
+              "百分之",
+              "成",
+              "一半",
+              "半开",
+              "半扇",
+              "开度",
+              "一点",
+              "一些",
+              "再",
+              "开大",
+              "关小",
+              "调高",
+              "调低",
+              "升高",
+              "降低"
+            ]
+          },
+          "required_mentions": [
+            {
+              "field": "window",
+              "kind": "choice",
+              "choices": {
+                "front_left": [
+                  "左前",
+                  "前左",
+                  "主驾",
+                  "驾驶位",
+                  "驾驶员"
+                ],
+                "front_right": [
+                  "右前",
+                  "前右",
+                  "副驾",
+                  "副驾驶位"
+                ],
+                "rear_left": [
+                  "左后",
+                  "后左",
+                  "后排左侧"
+                ],
+                "rear_right": [
+                  "右后",
+                  "后右",
+                  "后排右侧"
+                ],
+                "all": [
+                  "全车"
+                ]
+              },
+              "all": [
+                "全部",
+                "所有",
+                "全车",
+                "都"
+              ],
+              "question": "要操作哪个车窗：左前、右前、左后、右后还是全部？"
+            }
+          ]
+        }
       },
       "output_schema": {
         "type": "object",
@@ -3099,7 +3356,7 @@
     },
     {
       "id": "control.windows.open",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "kind": "control",
       "category_path": [
         "control",
@@ -3131,7 +3388,87 @@
         "required": [
           "window"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "x-agent": {
+          "recall": {
+            "objects": [
+              "车窗",
+              "窗户",
+              "窗"
+            ],
+            "actions": [
+              "开",
+              "降下",
+              "放下",
+              "降到底"
+            ],
+            "exclude": [
+              "天窗",
+              "遮阳帘",
+              "座椅",
+              "儿童锁",
+              "一键升降",
+              "停止",
+              "%",
+              "百分之",
+              "成",
+              "一半",
+              "半开",
+              "半扇",
+              "开度",
+              "一点",
+              "一些",
+              "再",
+              "开大",
+              "关小",
+              "调高",
+              "调低",
+              "升高",
+              "降低"
+            ]
+          },
+          "required_mentions": [
+            {
+              "field": "window",
+              "kind": "choice",
+              "choices": {
+                "front_left": [
+                  "左前",
+                  "前左",
+                  "主驾",
+                  "驾驶位",
+                  "驾驶员"
+                ],
+                "front_right": [
+                  "右前",
+                  "前右",
+                  "副驾",
+                  "副驾驶位"
+                ],
+                "rear_left": [
+                  "左后",
+                  "后左",
+                  "后排左侧"
+                ],
+                "rear_right": [
+                  "右后",
+                  "后右",
+                  "后排右侧"
+                ],
+                "all": [
+                  "全车"
+                ]
+              },
+              "all": [
+                "全部",
+                "所有",
+                "全车",
+                "都"
+              ],
+              "question": "要操作哪个车窗：左前、右前、左后、右后还是全部？"
+            }
+          ]
+        }
       },
       "output_schema": {
         "type": "object",
@@ -3276,7 +3613,7 @@
     },
     {
       "id": "control.windows.set_position",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "kind": "control",
       "category_path": [
         "control",
@@ -3314,7 +3651,112 @@
           "window",
           "open_percent"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "x-agent": {
+          "recall": {
+            "objects": [
+              "车窗",
+              "窗户",
+              "窗"
+            ],
+            "actions": [
+              "%",
+              "百分之",
+              "成",
+              "一半",
+              "半开",
+              "半扇",
+              "开度",
+              "一点",
+              "一些",
+              "再",
+              "开大",
+              "关小",
+              "调高",
+              "调低",
+              "升高",
+              "降低",
+              "调",
+              "升到",
+              "降到"
+            ],
+            "exclude": [
+              "天窗",
+              "遮阳帘",
+              "座椅",
+              "儿童锁",
+              "一键升降",
+              "停止",
+              "完全打开",
+              "全部打开",
+              "全开",
+              "开到底",
+              "完全关闭",
+              "全关",
+              "关严"
+            ]
+          },
+          "required_mentions": [
+            {
+              "field": "window",
+              "kind": "choice",
+              "choices": {
+                "front_left": [
+                  "左前",
+                  "前左",
+                  "主驾",
+                  "驾驶位",
+                  "驾驶员"
+                ],
+                "front_right": [
+                  "右前",
+                  "前右",
+                  "副驾",
+                  "副驾驶位"
+                ],
+                "rear_left": [
+                  "左后",
+                  "后左",
+                  "后排左侧"
+                ],
+                "rear_right": [
+                  "右后",
+                  "后右",
+                  "后排右侧"
+                ],
+                "all": [
+                  "全车"
+                ]
+              },
+              "all": [
+                "全部",
+                "所有",
+                "全车",
+                "都"
+              ],
+              "question": "要操作哪个车窗：左前、右前、左后、右后还是全部？"
+            },
+            {
+              "field": "open_percent",
+              "kind": "number",
+              "units": [
+                "%"
+              ],
+              "values": [
+                {
+                  "phrases": [
+                    "一半",
+                    "半开",
+                    "半扇"
+                  ],
+                  "value": 50
+                }
+              ],
+              "question": "车窗要开到多少百分比？"
+            }
+          ],
+          "relative_tool": "status.windows.get_state"
+        }
       },
       "output_schema": {
         "type": "object",
