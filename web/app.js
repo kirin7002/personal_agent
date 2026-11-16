@@ -28,12 +28,52 @@ function element(tag, className, text) { const node = document.createElement(tag
 function nearBottom() { const el = $('chat'); return el.scrollHeight-el.scrollTop-el.clientHeight < 100; }
 function scrollChat(force = false) { if (force || nearBottom()) $('chat').scrollTop = $('chat').scrollHeight; }
 Object.assign(state, { device: null, messages: new Map(), messageNodes: new Map(), messageCursor: 0, conversationStream: null, voiceOwner: null, voiceStepCursors: new Map() });
+function captureTimelineScroll() {
+  const chat = $('chat'), viewport = chat.getBoundingClientRect();
+  const anchor = [...$('conversationMessages').children].find(node => {
+    const rect = node.getBoundingClientRect(); return rect.bottom > viewport.top && rect.top < viewport.bottom;
+  });
+  return { follow: nearBottom(), top: chat.scrollTop, anchor, offset: anchor ? anchor.getBoundingClientRect().top - viewport.top : 0 };
+}
+function moveTimelineCard(container, card, before = null) {
+  const scrolled = [card, ...card.querySelectorAll('*')].filter(node => node.scrollTop || node.scrollLeft)
+    .map(node => ({ node, top: node.scrollTop, left: node.scrollLeft }));
+  container.insertBefore(card, before);
+  // Reparenting keeps <details> state, but Chrome resets descendant scroll offsets.
+  for (const { node, top, left } of scrolled) { node.scrollTop = top; node.scrollLeft = left; }
+}
+function reconcileTimeline(position = captureTimelineScroll()) {
+  const container = $('conversationMessages');
+  const messages = [...container.querySelectorAll(':scope > [data-message-id]')];
+  const latestUser = new Map();
+  for (const node of messages) {
+    const message = state.messages.get(Number(node.dataset.messageId));
+    if (message?.role === 'user' && message.task_id) latestUser.set(message.task_id, node);
+  }
+  const lastMessage = messages.at(-1);
+  for (const card of container.querySelectorAll(':scope > .task[data-task-id]')) {
+    const anchor = latestUser.get(card.dataset.taskId);
+    if (anchor) {
+      // Move the existing card, keeping open details, listeners and inner scroll.
+      if (anchor.nextSibling !== card) moveTimelineCard(container, card, anchor.nextSibling);
+    } else if (lastMessage && (lastMessage.compareDocumentPosition(card) & Node.DOCUMENT_POSITION_PRECEDING)) {
+      // Legacy/early REST cards keep their own goal and follow canonical messages
+      // until a linked user message arrives, including a later version/link update.
+      moveTimelineCard(container, card);
+    }
+  }
+  if (position.follow) scrollChat(true);
+  else if (position.anchor?.isConnected) {
+    $('chat').scrollTop += position.anchor.getBoundingClientRect().top - $('chat').getBoundingClientRect().top - position.offset;
+  } else $('chat').scrollTop = position.top;
+}
 function upsertMessage(record) {
-  if (!record?.id || !['user', 'assistant', 'system'].includes(record.role)) return;
+  if (!record || !Number.isSafeInteger(Number(record.id)) || Number(record.id) <= 0 || !['user', 'assistant', 'system'].includes(record.role)) return;
+  record = { ...record, id: Number(record.id) };
   const previous = state.messages.get(record.id);
-  if (previous && Number(previous.version || 0) >= Number(record.version || 0)) return;
+  if (previous && Number(previous.version || 0) >= Number(record.version || 0)) { reconcileTimeline(); return; }
+  const position = captureTimelineScroll();
   state.messages.set(record.id, record);
-  const follow = nearBottom();
   let wrapper = state.messageNodes.get(record.id);
   if (!wrapper) {
     wrapper = element('article', 'conversation-message'); wrapper.dataset.messageId = record.id; state.messageNodes.set(record.id, wrapper);
@@ -48,7 +88,7 @@ function upsertMessage(record) {
   const row = element('div', record.role === 'user' ? 'user' : 'assistant');
   if (record.role !== 'user') row.append(element('span', 'avatar', 'p'));
   row.append(element('div', 'bubble', record.text || '')); wrapper.append(meta, row);
-  $('welcome').hidden = true; if (follow) scrollChat(true);
+  $('welcome').hidden = true; reconcileTimeline(position);
 }
 async function refreshMessages() {
   if (state.sessionInvalid) return;
@@ -223,7 +263,7 @@ function renderProcess(task, wasOpen, expanded = new Set()) {
 }
 function renderTasks() {
   $('taskCount').textContent = state.tasks.length;
-  const container = $('conversationMessages'), follow = nearBottom();
+  const container = $('conversationMessages'), position = captureTimelineScroll();
   if (state.tasks.length) $('welcome').hidden = true;
   for (const task of [...state.tasks].reverse()) {
     let row = container.querySelector(`[data-task-id="${task.id}"]`);
@@ -280,7 +320,7 @@ function renderTasks() {
     if (preload) content.append(element('div', 'task-context', `${preload.kind === 'catalog.preloaded' ? '候选已预加载' : '按需发现工具'} · ${state.catalog?.profiles.find(p => p.id === task.profile_id)?.title || task.profile_id}`));
   }
   syncReplyContext();
-  updateTimers(); if (follow) scrollChat(true);
+  updateTimers(); reconcileTimeline(position);
 }
 async function poll() {
   if (state.pollPromise) return state.pollPromise;
