@@ -13,7 +13,7 @@ from types import SimpleNamespace
 import httpx
 import pytest
 
-from app.config import Settings
+from app.config import ROOT, Settings
 from app.hermes import HermesClient, TaskManager
 from app.main import create_app
 from app.capability_tools import CapabilityTools
@@ -23,6 +23,7 @@ from experiments.running_steer.voice import capture_bridge, generated_notificati
 
 
 TOOL = "control.climate.set_temperature"
+TOOL_VERSION = json.loads((ROOT / "capabilities/tools/control/climate/set_temperature.json").read_text())["version"]
 GOAL = "把所有分区空调设为23度"
 CORRECTION = "改成21度"
 
@@ -80,7 +81,7 @@ async def task_for(rig, window="before_control", goal=GOAL, mode="agent"):
 def call_args(task, temperature=23, revision=None, zone="all", call_id="old"):
     return {"task_id": task["id"], "task_revision": task["revision"] if revision is None else revision,
             "catalog_revision": task["catalog_revision"], "calls": [{"call_id": call_id,
-            "tool_id": TOOL, "tool_version": "1.0.0", "arguments": {"zone": zone, "temperature_c": temperature}}]}
+            "tool_id": TOOL, "tool_version": TOOL_VERSION, "arguments": {"zone": zone, "temperature_c": temperature}}]}
 
 
 def finish(rig, task, revision, ids):

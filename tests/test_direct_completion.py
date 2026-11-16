@@ -28,7 +28,7 @@ def setup(rig, goal='把所有分区空调设为26度', profile='demo-ready', mo
     preload = CandidatePreloader().prepare(snap, goal)
     store.event(task['id'], 'catalog.preloaded' if preload['tools'] else 'catalog.preload_skipped', {k:v for k,v in preload.items() if k!='tools'})
     args = dict(task_id=task['id'], task_revision=0, catalog_revision=snap.revision, complete_if_success=True,
-                calls=[dict(call_id='one', tool_id='control.climate.set_temperature', tool_version='1.0.0', arguments=dict(zone='all', temperature_c=26))])
+                calls=[dict(call_id='one', tool_id='control.climate.set_temperature', tool_version=snap.tools['control.climate.set_temperature']['version'], arguments=dict(zone='all', temperature_c=26))])
     request = {'model':'test', 'messages':[{'role':'user', 'content':[{'type':'text','text':json.dumps(dict(task_id=task['id'], task_revision=0, catalog_revision=snap.revision, user_request=goal))}]}]}
     return task, args, request
 

@@ -62,7 +62,7 @@ def test_invalid_value_is_not_clamped_and_schema_still_enforced(snapshot,tmp_pat
     store.event(task['id'],'catalog.preloaded',{k:v for k,v in preload.items() if k!='tools'})
     service=CapabilityTools(store,catalog)
     ctx={'task_id':task['id'],'task_revision':0}
-    result=service.call('call_tools',{**ctx,'catalog_revision':task['catalog_revision'],'calls':[{'call_id':'bad','tool_id':'control.climate.set_temperature','tool_version':'1.0.0','arguments':{'zone':'all','temperature_c':45}}]})
+    result=service.call('call_tools',{**ctx,'catalog_revision':task['catalog_revision'],'calls':[{'call_id':'bad','tool_id':'control.climate.set_temperature','tool_version':catalog.snapshot().tools['control.climate.set_temperature']['version'],'arguments':{'zone':'all','temperature_c':45}}]})
     assert result['results'][0]['error']['code']=='INVALID_ARGUMENTS'
     assert store.task(task['id'])['calls']==[]
     assert any(e['kind']=='catalog.fallback' and e['reason']=='tool_error' for e in store.task_navigation(task['id']))
@@ -166,3 +166,13 @@ async def test_candidate_schemas_are_task_context_not_system_prompt(tmp_path):
     assert candidates['catalog_revision']==catalog.snapshot().revision
     assert candidates['tools'][0]['id']=='control.climate.set_temperature'
     await manager.close()
+
+
+@pytest.mark.parametrize('goal', ['把主驾空调调到21度','把主驾空调调到22度','把副驾空调调到25度','把后排空调调到20度'])
+def test_explicit_temperature_paraphrases_preload_correct_tool(snapshot,goal):
+    from app.direct_completion import eligible
+    result=CandidatePreloader().prepare(snapshot,goal)
+    assert result['tool_ids']==['control.climate.set_temperature']
+    assert result['preload_policy']=='primary_only' and result['related_tool_ids']==[]
+    assert eligible({'goal':goal,'source':'hermes','revision':0,'history':[],'completion_mode':'auto','discovery_mode':'auto'},result)
+    assert 'arguments' not in result  # Recall never fills the user's parameters.

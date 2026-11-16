@@ -864,7 +864,7 @@
     },
     {
       "id": "control.climate.set_temperature",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "kind": "control",
       "category_path": [
         "control",
@@ -922,6 +922,34 @@
       "examples": [
         {
           "instruction": "把所有分区空调设为23度",
+          "arguments": {
+            "zone": "all",
+            "temperature_c": 23
+          }
+        },
+        {
+          "instruction": "把主驾空调调到23度",
+          "arguments": {
+            "zone": "driver",
+            "temperature_c": 23
+          }
+        },
+        {
+          "instruction": "把副驾空调调到23度",
+          "arguments": {
+            "zone": "passenger",
+            "temperature_c": 23
+          }
+        },
+        {
+          "instruction": "把后排空调调到23度",
+          "arguments": {
+            "zone": "rear",
+            "temperature_c": 23
+          }
+        },
+        {
+          "instruction": "把所有分区空调调到23度",
           "arguments": {
             "zone": "all",
             "temperature_c": 23

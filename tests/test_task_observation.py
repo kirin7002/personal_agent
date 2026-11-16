@@ -14,7 +14,7 @@ def test_steps_show_actual_path_query_arguments_and_results(tmp_path):
     tools.call('browse_capabilities',{**ctx,'path':['status','climate'],'query':'空调'})
     tools.call('browse_capabilities',{**ctx,'path':['wrong']})
     query=tools.call('call_tools',{**ctx,'catalog_revision':snap.revision,'calls':[{'call_id':'query','tool_id':'status.climate.get_state','tool_version':'1.0.0','arguments':{}}]})
-    tools.call('call_tools',{**ctx,'catalog_revision':snap.revision,'calls':[{'call_id':'set','tool_id':'control.climate.set_temperature','tool_version':'1.0.0','arguments':{'zone':'all','temperature_c':23}}]})
+    tools.call('call_tools',{**ctx,'catalog_revision':snap.revision,'calls':[{'call_id':'set','tool_id':'control.climate.set_temperature','tool_version':snap.tools['control.climate.set_temperature']['version'],'arguments':{'zone':'all','temperature_c':23}}]})
     events=store.task_events(task['id']);receipts=store.capability_results(task['id'])
     result=build_process(store.task(task['id']),events,snap,receipts)
     obs=[s['observation'] for s in result['steps'] if s.get('observation')]

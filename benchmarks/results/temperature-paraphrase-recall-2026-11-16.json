@@ -1,0 +1,93 @@
+{
+  "goal": "把主驾空调调到21度",
+  "scope": "same local service and mock profile; small sequential sample, not a latency guarantee",
+  "cases": [
+    {
+      "phase": "before",
+      "repeat": 1,
+      "correct": true,
+      "backend_seconds": 6.15,
+      "observed_seconds": 6.296,
+      "model_requests": 3,
+      "direct_completion": false,
+      "preload_reason": "global_recall",
+      "preloaded_tools": [
+        "control.climate.set_fan_speed",
+        "control.climate.set_airflow"
+      ],
+      "catalog_revision": "cat_db2db7de5b1849e91b68f7b5"
+    },
+    {
+      "phase": "before",
+      "repeat": 2,
+      "correct": true,
+      "backend_seconds": 6.19,
+      "observed_seconds": 6.369,
+      "model_requests": 3,
+      "direct_completion": false,
+      "preload_reason": "global_recall",
+      "preloaded_tools": [
+        "control.climate.set_fan_speed",
+        "control.climate.set_airflow"
+      ],
+      "catalog_revision": "cat_db2db7de5b1849e91b68f7b5"
+    },
+    {
+      "phase": "before",
+      "repeat": 3,
+      "correct": true,
+      "backend_seconds": 5.58,
+      "observed_seconds": 5.705,
+      "model_requests": 3,
+      "direct_completion": false,
+      "preload_reason": "global_recall",
+      "preloaded_tools": [
+        "control.climate.set_fan_speed",
+        "control.climate.set_airflow"
+      ],
+      "catalog_revision": "cat_db2db7de5b1849e91b68f7b5"
+    },
+    {
+      "phase": "after",
+      "repeat": 1,
+      "correct": true,
+      "backend_seconds": 1.88,
+      "observed_seconds": 2.02,
+      "model_requests": 1,
+      "direct_completion": true,
+      "preload_reason": "metadata_match",
+      "preloaded_tools": [
+        "control.climate.set_temperature"
+      ],
+      "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+    },
+    {
+      "phase": "after",
+      "repeat": 2,
+      "correct": true,
+      "backend_seconds": 2.01,
+      "observed_seconds": 2.054,
+      "model_requests": 1,
+      "direct_completion": true,
+      "preload_reason": "metadata_match",
+      "preloaded_tools": [
+        "control.climate.set_temperature"
+      ],
+      "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+    },
+    {
+      "phase": "after",
+      "repeat": 3,
+      "correct": true,
+      "backend_seconds": 1.92,
+      "observed_seconds": 1.945,
+      "model_requests": 1,
+      "direct_completion": true,
+      "preload_reason": "metadata_match",
+      "preloaded_tools": [
+        "control.climate.set_temperature"
+      ],
+      "catalog_revision": "cat_2bc06a0f480f3dd4eb52bc63"
+    }
+  ]
+}

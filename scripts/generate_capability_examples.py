@@ -110,6 +110,9 @@ def build():
         scenarios.append({"id": f"C{len(scenarios)+1:03}", "kind": "control", "instruction": instruction, "profile_id": "demo-ready", "expected": {"outcome": "prepared", "calls": [{"tool_id": tid, "arguments": arguments}], "required_domains": ["control"]}})
 
     add("climate", "set_temperature", "设置空调温度", {"zone": zone, "temperature_c": number(16, 30, False, "摄氏度")}, {"zone": "all", "temperature_c": 23}, "把所有分区空调设为23度")
+    temperature=tools[-1]
+    temperature['version']='1.0.1'
+    temperature['examples'].extend({'instruction':f'把{label}空调调到23度','arguments':{'zone':value,'temperature_c':23}} for value,label in [('driver','主驾'),('passenger','副驾'),('rear','后排'),('all','所有分区')])
     add("climate", "set_fan_speed", "设置空调风量", {"zone": zone, "level": number(0, 7)}, {"zone": "driver", "level": 3}, "主驾空调风量设为三档")
     add("climate", "set_airflow", "设置空调风向", {"zone": zone, "direction": enum(["face", "feet", "face_feet", "windshield"], "吹面、吹脚、面脚同吹、吹前挡")}, {"zone": "driver", "direction": "feet"}, "主驾空调改为吹脚")
     add("climate", "set_ac", "空调制冷开关", {"enabled": boolean}, {"enabled": True}, "打开空调AC制冷")

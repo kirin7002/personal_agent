@@ -192,11 +192,14 @@ def test_atomic_import_validation_versioning_and_persistence(caps):
     with pytest.raises(CatalogError, match="version"):
         catalog.preview_import(tool, "upsert")
     assert catalog.snapshot().revision == before.revision
-    tool["version"] = "1.0.1"
+    previous_version=tool["version"]
+    pieces=[int(v) for v in previous_version.split(".")]
+    pieces[-1]+=1
+    tool["version"]=".".join(map(str,pieces))
     preview = catalog.preview_import(tool, "upsert")
     new = catalog.apply_import(preview["preview_id"], preview["base_revision"])
     assert catalog.load_files().revision == new.revision
-    assert catalog.snapshot(before.revision).tools[tool["id"]]["version"] == "1.0.0"
+    assert catalog.snapshot(before.revision).tools[tool["id"]]["version"] == previous_version
     assert list((store.path.parent / "catalog-backups").iterdir())
     bad = deepcopy(new.bundle)
     bad["tools"][0]["input_schema"] = {"type": "object", "$ref": "https://example.com/schema"}
